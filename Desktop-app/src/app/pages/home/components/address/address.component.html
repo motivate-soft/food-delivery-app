@@ -1,0 +1,65 @@
+
+<div class="order-wrap">
+    <div class="input-group">
+      <label>{{ 'address.title' | translate }}</label>
+    </div>
+
+    <form [formGroup]="form" (change)="updateAddress()">
+        <div class="row">
+            <div class="col-xs-12" >
+                <div class="form-group rel">
+                    <!-- <input type="text" formControlName="name" 
+                           placeholder="Name/Firma" autocomplete="off" (blur)="hide()" (keydown)="filterCustomers( $event )"> -->
+                    <div class="ng-autocomplete">
+                            <ng-autocomplete 
+                              [data]="dataForName"
+                              formControlName="name"
+                              [ngClass]="{'invalid': name.invalid}"
+                              placeholder="Name"
+                              (selected)='selectEvent($event)'
+                              [itemTemplate]="itemTemplate">                                 
+                            </ng-autocomplete>
+                            <ng-template #itemTemplate let-item>
+                                <a [innerHTML]="item"></a>
+                            </ng-template>    
+                    </div>
+                    <ul class="choices hidden" *ngIf="filtered.length > 0" #choices>
+                        <li *ngFor="let customer of filtered; let idx = index" [ngClass]="{selected: idx === selectedIdx }">{{ customer.name }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <!-- <input type="text" formControlName="street" placeholder="Straße" autocomplete="off" > -->
+                    <div class="ng-autocomplete">
+                        <ng-autocomplete 
+                            [data]="dataForStreet"
+                            formControlName="street"
+                            (selected)='selectEvent($event)'
+                            placeholder="Straße"
+                            [itemTemplate]="itemTemplate">                                 
+                        </ng-autocomplete>
+                        <ng-template #itemTemplate let-item>
+                            <a [innerHTML]="item"></a>
+                        </ng-template>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <input type="text" formControlName="city" placeholder="Ort" autocomplete="off" >
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <input type="text" formControlName="telephone" placeholder="Telefon" autocomplete="off" >
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <input type="text" formControlName="remarks" placeholder="Bemerkung" autocomplete="off" >
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,23 @@
+.ingredients-wrap {
+    height: 19.24rem;
+    overflow-y: auto;
+    margin-top: 1rem;
+   
+}
+
+.heading {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 4px solid #f0f0f0;
+    font-size: 1.7rem;
+}
+
+table {
+    tr {
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ECF5FF;
+        }
+    }
+}

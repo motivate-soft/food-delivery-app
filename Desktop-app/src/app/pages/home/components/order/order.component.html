@@ -1,0 +1,49 @@
+<div class="order-wrap">
+    <div class="input-group">
+      <label>{{ 'order.title' | translate }}</label>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>{{ 'product.nr' | translate }}</th>
+          <th>{{ 'product.name' | translate }}</th>
+          <th>{{ 'product.price' | translate }}</th>
+          <th>{{ 'product.quantity' | translate }}</th>
+          <th>{{ 'product.total' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cartItem of cart; let idx = index" (click)="selectItem(idx)" [ngClass]="{'active': selectedItem === idx }">
+          <td class="center"> {{ cartItem.code }} </td>
+          <td>
+            {{ cartItem.name }} <span *ngIf="cartItem.size !== 'Standard'">({{cartItem.size}})</span>
+            <div class="chips" *ngIf="cartItem.toppings.length > 0">
+              <div class="chip" *ngFor="let topping of cartItem.toppings; let toppingIdx = index ">
+                {{ topping.name }}
+                <span class="closebtn" (click)="deleteTopping(toppingIdx, cartItem)">&times;</span>
+              </div>
+            </div>
+          </td>
+          <td class="center"> {{ cartItem.price | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+          <td class="center quantity"> 
+
+            <span (click)="decreaseQty(idx)">
+              <svg class="icon icon-minus" >
+                <use xlink:href="assets/symbol-defs.svg#icon-minus"></use>
+              </svg>
+            </span>
+            {{ cartItem.quantity }}
+            <span (click)="increaseQty(idx)">
+              <svg class="icon icon-plus">
+                <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
+              </svg>
+            </span>
+          </td>
+          <td class="center"> {{ price( cartItem ) | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="right">Gesamt: {{total | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

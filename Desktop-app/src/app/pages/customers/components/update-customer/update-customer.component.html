@@ -1,0 +1,57 @@
+
+<div class="customer-wrap">
+
+    <a routerLink="/customers">
+        <svg class="icon icon-back">
+            <use xlink:href="assets/symbol-defs.svg#icon-arrow-left2"></use>
+        </svg>
+    </a>
+
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="row">
+
+
+            <div class="col-xs-12" >
+                <div class="form-group rel">
+                    <input type="text" formControlName="name" 
+                           placeholder="Name" autocomplete="off"
+                           [ngClass]="{'invalid': submitted && name.invalid}">
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <input type="text" formControlName="street" 
+                           placeholder="Straße" autocomplete="off" 
+                           [ngClass]="{'invalid': submitted && street.invalid}">
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <input type="text" formControlName="city" 
+                           placeholder="Ort" autocomplete="off" 
+                           [ngClass]="{'invalid': submitted && city.invalid}">
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <input type="text" formControlName="postal_code" 
+                           placeholder="Postal code" autocomplete="off" 
+                           [ngClass]="{'invalid': submitted && postal_code.invalid}">
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <input type="text" formControlName="telephone" 
+                           placeholder="Telefon" autocomplete="off" 
+                           [ngClass]="{'invalid': submitted && telephone.invalid}" >
+                </div>
+            </div>
+            <div class="col-xs-12" >
+                <div class="form-group">
+                    <button type="submit">Speichern</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+</div>

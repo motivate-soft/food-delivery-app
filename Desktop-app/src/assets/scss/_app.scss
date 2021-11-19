@@ -1,0 +1,118 @@
+table {
+    width: 100%;
+    border-collapse:collapse;
+
+    th {
+        border: 1px solid #cfcfcf;
+        padding: .5rem;
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+    td {
+        border: 1px solid #cfcfcf;
+        padding: .5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    tbody {
+        tr {
+            &:hover, &.active {
+              background: #ECF5FF;
+              cursor: pointer;
+            }  
+        }
+    }    
+}
+
+.input-group {
+    display: flex;
+    width: 100%;
+    background-color: #eeeeee;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    height: 5.6rem;
+    align-items: center;
+    border-radius: 2px;
+
+    label {
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding-right: 2rem;
+    }
+    input {
+        border: 1px solid #F1F1F1;
+        height: 3.5rem;
+        font-size: 1.7rem;
+        padding: 0 5px;
+        flex: 1;
+    }
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    &.visible {
+        display: block;
+    }
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 38rem;
+    box-shadow: 0px 12px 13px 3px rgba(0,0,0,.2);
+
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+
+        li {
+            display: flex;
+            align-items: center;
+
+            label {
+
+                span {
+                    font-size: 1.7rem;
+                    font-weight: 400;
+                    padding-left: .6rem;
+                }
+                
+            }
+        }
+        
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+button {
+    border: none;
+    background-color: #b7cce4;
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}

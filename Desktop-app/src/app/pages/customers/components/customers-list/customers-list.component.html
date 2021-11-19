@@ -1,0 +1,45 @@
+<div class="nav">
+    <a routerLink="/customers/add" class="add-link">
+        <svg class="icon icon-print">
+            <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
+        </svg> 
+    </a>
+</div>
+
+<table>
+    
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Straße</th>
+            <th>Ort</th>
+            <th>Postal Code</th>
+            <th>Telefon</th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        <tr *ngFor="let customer of customers;">
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.street }}</td>
+            <td>{{ customer.city }}</td>
+            <td>{{ customer.postal_code }}</td>
+            <td>{{ customer.telephone }}</td>
+            <td>
+                <a [routerLink]="['/customers/update', customer.id]">
+                    <svg class="icon icon-print">
+                        <use xlink:href="assets/symbol-defs.svg#icon-edit-3"></use>
+                    </svg>
+                </a>
+                <a (click)="delete( customer.id )" class="delete-link">
+                    <svg class="icon icon-print">
+                        <use xlink:href="assets/symbol-defs.svg#icon-trash-2"></use>
+                    </svg>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

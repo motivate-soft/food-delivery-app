@@ -1,0 +1,34 @@
+<footer>
+    <div class="row">
+        <div class="col-xs-6">
+            <a routerLink="/customers">
+                <svg class="icon icon-address-book">
+                    <use xlink:href="assets/symbol-defs.svg#icon-address-book"></use>
+                </svg>
+            </a>
+
+            <a routerLink="/orders">
+                <svg class="icon icon-credit-card">
+                    <use xlink:href="assets/symbol-defs.svg#icon-credit-card"></use>
+                </svg>
+            </a>
+
+            <a routerLink="/drivers">
+                <svg class="icon icon-automobile">
+                    <use xlink:href="assets/symbol-defs.svg#icon-automobile"></use>
+                </svg>
+            </a>
+            
+        </div>
+        <div class="col-xs-6 align-right">
+
+            <button (click)="printOrder()" class="print-btn" [disabled]="submitted">
+                <svg class="icon icon-print">
+                    <use xlink:href="assets/symbol-defs.svg#icon-printer"></use>
+                </svg>
+                <span>{{ 'actions.print' | translate }}</span>
+            </button>
+        </div>
+    </div>
+   
+</footer>

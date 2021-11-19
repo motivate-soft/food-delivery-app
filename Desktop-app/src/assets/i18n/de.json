@@ -1,0 +1,37 @@
+{
+  "PAGES": {
+      "HOME": {
+          "TITLE": "Azzip PRO // fritzbox 7490",
+          "GO_TO_DETAIL": "Jtzt BEstellen"
+      },
+      "DETAIL": {
+        "TITLE": "Detail page !",
+        "BACK_TO_HOME": "Back to Home"
+    }
+  },
+
+  "product": {
+    "nr": "Nr.",
+    "name": "Name",
+    "price": "Preis",
+    "quantity": "Anzahl",
+    "total": "Gesamt",
+    "ingredients": "Zutaten"
+  },
+
+  "search": {
+    "label": "Suchen"
+  },
+
+  "order": {
+    "title": "Ihre Bestellung"
+  },
+
+  "address": {
+    "title": "Ihre Lieferadresse"
+  },
+
+  "actions": {
+    "print": "Drucken"
+  }
+}

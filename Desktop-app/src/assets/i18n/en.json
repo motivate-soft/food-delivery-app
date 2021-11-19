@@ -1,0 +1,21 @@
+{
+  "PAGES": {
+      "HOME": {
+          "TITLE": "Azzip PRO",
+          "GO_TO_DETAIL": "Jtzt BEstellen"
+      },
+      "DETAIL": {
+        "TITLE": "Detail page !",
+        "BACK_TO_HOME": "Back to Home"
+    }
+  },
+
+  "product": {
+    "nr": "Nr.",
+    "name": "Name",
+    "price": "Price"
+  },
+  "search": {
+    "label": "Search"
+  }
+}

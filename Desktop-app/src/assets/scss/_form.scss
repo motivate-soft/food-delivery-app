@@ -1,0 +1,31 @@
+form {
+    width: 100%;
+
+    .form-group {
+        position: relative;
+        flex: 1;
+        padding: .7rem 0 0 0;
+    
+        label {
+            font-weight: 300;
+        }
+        input {
+            margin: 0;
+            display: inline-block;
+            width: 100%;
+            padding: 4px 9px;
+            color: rgba(0,0,0,.65);
+            font-size: 15px;
+            line-height: 1.6;
+            background-color: #fff;
+            border: 1px solid #d9d9d9;
+            border-radius: 2px;
+            transition: all .3s;
+
+            &.invalid {
+                border-color: #aa321e;
+            }
+        }
+        
+    }
+}

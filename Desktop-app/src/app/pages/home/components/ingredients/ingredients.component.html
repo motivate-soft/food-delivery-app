@@ -1,0 +1,8 @@
+<h2 class="heading">{{ 'product.ingredients' | translate }}</h2>
+<div class="ingredients-wrap" *ngIf="category?.toppings.length > 0">
+  <table>
+    <tr *ngFor="let topping of category?.toppings; let idx = index">
+      <td (click)="addTopping( idx )">{{ topping.name }} </td>
+    </tr>
+  </table>
+</div>  

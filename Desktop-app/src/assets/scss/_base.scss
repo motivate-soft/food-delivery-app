@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Open_Sans';
+    src: url('/assets/fonts/Open_Sans/OpenSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open_Sans';
+    src: url('/assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open_Sans';
+    src: url('/assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open_Sans';
+    src: url('/assets/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open_Sans';
+    src: url('/assets/fonts/Open_Sans/OpenSans-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1.2px
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit
+}
+
+
+::placeholder { 
+    color: #cdcdcd;
+    opacity: 1; /* Firefox */
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #cdcdcd;
+}
+
+a, input {
+    outline: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+    font-family: 'Open_Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #050340;
+    overflow-y: scroll;
+    background-color: #f8f8f8;
+}

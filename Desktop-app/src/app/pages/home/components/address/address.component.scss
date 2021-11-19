@@ -1,0 +1,63 @@
+ul.choices {
+    position: absolute;
+    transition: .05s cubic-bezier(.4,.2,.5,1.4);
+    transform-origin: 1.43em -.43em;
+    padding: 1rem 0;
+    border-radius: .3em;
+    margin: .2em 0 0;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.3);
+    box-shadow: .05em .2em .6em rgba(0,0,0,.2);
+    text-shadow: none;
+    list-style: none;
+    min-width: 100%;
+    left:0;
+    max-height: 15rem;
+    overflow: auto;
+    z-index: 100;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 1em;
+        width: 0; height: 0;
+        padding: .4em;
+        background: white;
+        border: inherit;
+        border-right: 0;
+        border-bottom: 0;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        margin-top: -1.7rem;
+    }
+
+    &.hidden,
+    &:empty {
+        opacity: 0;
+        transform: scale(0);
+        transition-timing-function: ease;
+    }
+
+    li {
+        padding: .2rem .5rem;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        font-size: 1.2rem;
+
+        &.selected {
+            background-color: rgba( #050340, .7);
+            color: #fff;
+        }
+    }
+}
+
+.ng-autocomplete {
+    width: 100%;
+}
+
+::ng-deep .autocomplete-container .input-container .x {
+    display: none !important;
+}

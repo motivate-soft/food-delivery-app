@@ -1,0 +1,43 @@
+<div class="input-group">
+  <label>{{ 'search.label' | translate }}:</label>
+  <input type="text" (input)="filter( $event )" (keydown)="markProduct($event)" (keyup.enter)="addToCart( $event )" #filterInput>
+</div>
+<div class="products-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>{{ 'product.nr' | translate }}</th>
+        <th>{{ 'product.name' | translate }}</th>
+        <th>{{ 'product.price' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filtered; let idx = index" [ngClass]="{'active': selectedIdx === idx }">
+        <td>{{ product.code }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.prices[0] | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal" *ngIf="category" (click)="hideSizeModal()" #sizeModal> 
+  <div class="modal-content" (click)="modalContentClicked($event)">
+
+    <div class="input-group">
+      <label for="">Anzahl</label>
+      <input type="number" name="quantity" [(ngModel)]="quantity" min="1" autofocus>
+    </div>
+    <ul>
+      <li *ngFor="let size of category.sizes; let idx=index">
+        <label>
+          <input type="radio" [value]="idx" name="size" (change)="selectSizeRadio( idx )" [checked]="idx === sizeIdx" >
+          <span>{{size.name}}</span>
+        </label>
+      </li>
+    </ul>
+    <div class="right">
+      <button (click)="hideSizeModal()">Ok</button>
+    </div>
+  </div>
+</div>
