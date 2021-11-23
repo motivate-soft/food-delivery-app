@@ -1,0 +1,84 @@
+{
+    "location": {
+        "coordinates":[50.031803772901576,8.787007410898896],
+        "type":"Point"
+    },
+    "categories":[
+        {
+            "is_active":false,
+            "is_offered":false,
+            "sizes": [
+                "Klein",
+                "Groß",
+                "Family",
+                "Party"
+                ],
+            "sorts":[],
+            "_id":"6152d9a1675ef03367e1fcf1",
+            "shop":"6151d97ed4ec1e2b17faa9df",
+            "name":"Pizzen",
+            "sort_order":2,
+            "tax":7,
+            "toppings": [
+                { 
+                    "prices":[0.5,1,1.5,2],
+                    "_id":"6152d9a1675ef03367e1fcf2",
+                    "name":"Ei"
+                },
+                {"prices":[1.5,2,3,3.5],"_id":"6152d9a1675ef03367e1fcf3","name":"Extra Käse"},
+                {"prices":[1.5,2,3,3.5],"_id":"6152d9a1675ef03367e1fcf4","name":"Extra Fleisch"},
+                {"prices":[1.5,2.5,3.5,4],"_id":"6152d9a1675ef03367e1fcf5","name":"Gorgonzola"},
+                {"prices":[0.5,1,1.5,2],"_id":"6152d9a1675ef03367e1fcf6","name":"Knoblauch"},
+                {"prices":[1,2,3,5],"_id":"6152d9a1675ef03367e1fcf7","name":"Mozzarella"},
+                {"prices":[0.5,1,1.5,2],"_id":"6152d9a1675ef03367e1fcf8","name":"Oliven"},
+                {"prices":[0.5,1,1.5,2],"_id":"6152d9a1675ef03367e1fcf9","name":"Peperoni"}
+            ],
+            "products":[
+                {
+                    "is_active":true,
+                    "is_offered":true,
+                    "prices":[5,7,10,12],
+                    "_id":"6152d9a1675ef03367e1fcfa",
+                    "code":"10",
+                    "name":"Pizza Margherita",
+                    "description":"mit Käse",
+                    "sort_order":10
+                },
+                {"is_active":true,"is_offered":true,"prices":[6,9,12,17],"_id":"6152d9a1675ef03367e1fcfb","code":"11","name":"Pizza Salami","description":"mit Salami","sort_order":11},
+                {"is_active":true,"is_offered":true,"prices":[6,9,12,17],"_id":"6152d9a1675ef03367e1fcfc","code":"12","name":"Pizza Prosciutto","description":"mit Schinken","sort_order":12},
+                {"is_active":true,"is_offered":true,"prices":[6,9,12,17],"_id":"6152d9a1675ef03367e1fcfd","code":"13","name":"Pizza Tonno","description":"mit Thunfisch","sort_order":13},
+                {"is_active":true,"is_offered":true,"prices":[5.5,7.5,10.5,15.5],"_id":"6152d9a1675ef03367e1fcfe","code":"14","name":"Pizza Cipolla","description":"mit Zwiebeln","sort_order":14},
+                {"is_active":true,"is_offered":true,"prices":[7.9,9.9,15.9,21.9],"_id":"6152d9a1675ef03367e1fcff","code":"15","name":"Pizza Mafiosi","description":"mit Salami, Zwiebeln & Thunfisch","sort_order":15}
+            ],
+            "created_at":"2021-09-28T09:00:17.054Z",
+            "updated_at":"2021-09-28T09:00:17.054Z",
+            "__v":0
+        },
+        {"is_active":false,"is_offered":false,"sizes":[],"sorts":["Spaghetti","Macceroni","Tortellini","Bandnudeln","Gnocchi"],"_id":"6152db75675ef03367e1fd02","shop":"6151d97ed4ec1e2b17faa9df","name":"Nudelgerichte","sort_order":2,"tax":7,"toppings":[],"products":[{"is_active":true,"is_offered":true,"prices":[5],"_id":"6152db75675ef03367e1fd03","code":"20","name":"Pasta Napoli","description":"mit Tomatensoße & Basilikum","sort_order":20},{"is_active":true,"is_offered":true,"prices":[6],"_id":"6152db75675ef03367e1fd04","code":"21","name":"Pasta Bolognese","description":"mit Fleischsoße","sort_order":21},{"is_active":true,"is_offered":true,"prices":[6.5],"_id":"6152db75675ef03367e1fd05","code":"22","name":"Pasta Carbonara","description":"mit Schinken, Eigelb & Sahnesoße","sort_order":22},{"is_active":true,"is_offered":true,"prices":[7.5],"_id":"6152db75675ef03367e1fd06","code":"23","name":"Pasta 4 Formaggio","description":"mit 4 Käsesorten","sort_order":23}],"created_at":"2021-09-28T09:08:05.516Z","updated_at":"2021-09-28T09:08:05.516Z","__v":0},
+        {"is_active":false,"is_offered":false,"sizes":[],"sorts":[],"_id":"6152dcd4675ef03367e1fd09","shop":"6151d97ed4ec1e2b17faa9df","name":"Kartoffelauflauf","sort_order":4,"tax":7,"toppings":[],"products":[{"is_active":true,"is_offered":true,"prices":[7],"_id":"6152dcd4675ef03367e1fd0a","code":"40","name":"Kartoffelauflauf mit Kartoffeln & Spinat","description":"mit Knoblauch, Tomaten-Sahnesoße & mit Käse überbacken","sort_order":40},{"is_active":true,"is_offered":true,"prices":[7],"_id":"6152dcd4675ef03367e1fd0b","code":"41","name":"Kartoffelauflauf mit Champignons","description":"mit Paprika, Zwiebeln, frischen Peperoni & frischen Tomaten","sort_order":21},{"is_active":true,"is_offered":true,"prices":[7.5],"_id":"6152dcd4675ef03367e1fd0c","code":"42","name":"Kartoffelauflauf mit Schinken & Ananas","description":"mit Sahnesoße","sort_order":42},{"is_active":true,"is_offered":true,"prices":[8.5],"_id":"6152dcd4675ef03367e1fd0d","code":"43","name":"Kartoffelauflauf mit Huhn & Broccoli","description":"mit Champignons, Zwiebeln & Tomaten-Sahnesoße","sort_order":43},{"is_active":true,"is_offered":true,"prices":[8.5],"_id":"6152dcd4675ef03367e1fd0e","code":"44","name":"Kartoffelauflauf mit Huhn & Spinat","description":"mit Schafskäse, Zwiebeln & Knoblauche","sort_order":44}],"created_at":"2021-09-28T09:13:56.429Z","updated_at":"2021-09-28T09:13:56.429Z","__v":0},
+        {"is_active":false,"is_offered":false,"sizes":[],"sorts":[],"_id":"619b48fd9886bbc9ca3e29bd","shop":"6151d97ed4ec1e2b17faa9df","name":"Kartoffelauflauf","sort_order":4,"tax":7,"toppings":[],"products":[{"is_active":true,"is_offered":true,"prices":[7],"_id":"619b48fd9886bbc9ca3e29be","code":"40","name":"Kartoffelauflauf mit Kartoffeln & Spinat","description":"mit Knoblauch, Tomaten-Sahnesoße & mit Käse überbacken","sort_order":40},{"is_active":true,"is_offered":true,"prices":[7],"_id":"619b48fd9886bbc9ca3e29bf","code":"41","name":"Kartoffelauflauf mit Champignons","description":"mit Paprika, Zwiebeln, frischen Peperoni & frischen Tomaten","sort_order":21},{"is_active":true,"is_offered":true,"prices":[7.5],"_id":"619b48fd9886bbc9ca3e29c0","code":"42","name":"Kartoffelauflauf mit Schinken & Ananas","description":"mit Sahnesoße","sort_order":42},{"is_active":true,"is_offered":true,"prices":[8.5],"_id":"619b48fd9886bbc9ca3e29c1","code":"43","name":"Kartoffelauflauf mit Huhn & Broccoli","description":"mit Champignons, Zwiebeln & Tomaten-Sahnesoße","sort_order":43},{"is_active":true,"is_offered":true,"prices":[8.5],"_id":"619b48fd9886bbc9ca3e29c2","code":"44","name":"Kartoffelauflauf mit Huhn & Spinat","description":"mit Schafskäse, Zwiebeln & Knoblauche","sort_order":44}],"created_at":"2021-11-22T07:38:37.669Z","updated_at":"2021-11-22T07:38:37.669Z","__v":0}
+    ],
+    "is_restaurant":false,
+    "is_ltr":true,
+    "_id":"6151d97ed4ec1e2b17faa9df",
+    "owner":"5f59f81aeef08d3711e8212a",
+    "locale":"de",
+    "code":"OF 02",
+    "name":"Latenight 24",
+    "street":"Römerstraße 1",
+    "postal_code":"63065",
+    "city":"Rodgau",
+    "status":"active",
+    "working_hours":[
+            {"_id":"6151d97ed4ec1e2b17faa9e0","from":1130,"to":1430},
+            {"_id":"6151d97ed4ec1e2b17faa9e1","from":1700,"to":2300}
+        ],
+    "daily_offers":[
+            {"_id":"6151d97ed4ec1e2b17faa9e2","day":1,"from":1100,"to":1700,"category_id":"5f59f81aeef08d3711e8212a","price":4}
+        ],
+    "api_key":"3ea25d94-e698-4aea-9aeb-81b8d12e5f9f",
+    "special_offers":[],
+    "created_at":"2021-09-27T14:47:26.324Z",
+    "updated_at":"2021-11-22T07:38:37.725Z",
+    "__v":0
+}
