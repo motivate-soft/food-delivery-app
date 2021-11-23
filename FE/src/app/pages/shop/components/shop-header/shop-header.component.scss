@@ -1,0 +1,52 @@
+
+.top-bar {
+    padding: 15px;
+    background: #f5f8fb;
+    position: sticky;
+    top:0;
+    width: 100%;
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+ 
+    h2 {
+        color: #090909;
+        font-size: 1.9rem;
+        font-weight: 600;
+        margin: 0 0 0px 0;
+        line-height: 23px;
+    }
+
+    form {
+        min-width: 34rem;
+        margin: 15px auto 0;
+        background: #ffffff;
+        padding: 0;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        display: flex;
+
+        input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: none;
+            flex: 1;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
+        button {
+            background-color: #ffffff;
+            border-color: #ffffff;
+            border-radius: 0 8px 8px 0;
+
+            .icon {
+                fill: #F93D66;
+                width: 2.2rem;
+                height: 2.2rem;
+            }
+        }
+    }
+
+
+}

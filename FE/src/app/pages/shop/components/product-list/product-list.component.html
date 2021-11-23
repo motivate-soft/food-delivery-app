@@ -1,0 +1,23 @@
+<div *ngFor="let category of shop.categories; let idx = index">
+    <h3 id="category-{{idx}}">{{ category.name }}</h3>
+
+    <ul>
+        <li *ngFor="let product of category.products">
+            <div class="product">
+                <h3>{{product.name}}</h3>
+                <p>{{product.description}}</p>
+            </div>
+            <div class="price">
+                <h5>
+                    {{ product.prices[0] | currency }}
+                </h5>
+                <span (click)="addToCart(product)">
+                    <svg class="icon icon-search">
+                        <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
+                    </svg>
+                </span>
+            </div>
+        </li>
+    </ul>
+
+</div>

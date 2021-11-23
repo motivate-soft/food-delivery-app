@@ -1,0 +1,1587 @@
+{
+  "data": {
+    "findShopById": {
+      "_id": "5f59f820eef08d3711e8212b",
+      "name": "AS Food Express",
+      "code": "OF01",
+      "street": "Querstraße 21",
+      "postal_code": "63065",
+      "categories": [
+        {
+          "_id": "5f5a395458b94f1f1ca6b4a9",
+          "name": "Pizza",
+          "is_active": true,
+          "is_offered": true,
+          "sizes": [
+            {
+              "name": "Klein"
+            },
+            {
+              "name": "Groß"
+            },
+            {
+              "name": "Party"
+            }
+          ],
+          "toppings": [
+            {
+              "name": "Ananas",
+              "prices": [
+                0.5,
+                1,
+                1.5
+              ]
+            },
+            {
+              "name": "Brokkoli",
+              "prices": [
+                0.5,
+                1,
+                1.5
+              ]
+            },
+            {
+              "name": "Ei",
+              "prices": [
+                0.5,
+                1,
+                1.5
+              ]
+            },
+            {
+              "name": "Hähnchen",
+              "prices": [
+                0.8,
+                1.5,
+                1.8
+              ]
+            },
+            {
+              "name": "Mais",
+              "prices": [
+                0.5,
+                1,
+                1.5
+              ]
+            },
+            {
+              "name": "Pepperoni (mild)",
+              "prices": [
+                0.5,
+                1,
+                1.5
+              ]
+            },
+            {
+              "name": "Pepperoniwurst",
+              "prices": [
+                0.8,
+                1.5,
+                1.8
+              ]
+            },
+            {
+              "name": "Pilzen",
+              "prices": [
+                0.5,
+                1,
+                1.5
+              ]
+            }
+          ],
+          "products": [
+            {
+              "_id": "5f5a395458b94f1f1ca6b4b5",
+              "code": "1",
+              "name": "Kinderpizza",
+              "description": "Auf Wünsch mit 1 Beilage ",
+              "sort_order": 1,
+              "prices": [
+                3.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4b6",
+              "code": "2",
+              "name": "Pizzabroat",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                4.2,
+                6.2,
+                15.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4b7",
+              "code": "3",
+              "name": "Semplice",
+              "description": "mit Tomaten und Käse",
+              "sort_order": 1,
+              "prices": [
+                4.2,
+                6.2,
+                15.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4b8",
+              "code": "4",
+              "name": "Peperoni",
+              "description": "mit Peperoniwurst",
+              "sort_order": 1,
+              "prices": [
+                4.7,
+                6.7,
+                16.4
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4b9",
+              "code": "5",
+              "name": "Salami",
+              "description": "mit Salami",
+              "sort_order": 1,
+              "prices": [
+                4.7,
+                6.7,
+                16.4
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4ba",
+              "code": "6",
+              "name": "Sardelle",
+              "description": "mit Sardellen",
+              "sort_order": 1,
+              "prices": [
+                4.7,
+                6.7,
+                16.4
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4bb",
+              "code": "7",
+              "name": "Funghi",
+              "description": "mit Pilzen",
+              "sort_order": 1,
+              "prices": [
+                4.7,
+                6.7,
+                16.4
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4bc",
+              "code": "8",
+              "name": "Prosciutto",
+              "description": "mit Schinken",
+              "sort_order": 1,
+              "prices": [
+                4.7,
+                6.7,
+                16.4
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4bd",
+              "code": "9",
+              "name": "Venezia",
+              "description": "mit Zwiebeln, Paprika und grünem Peperoni",
+              "sort_order": 1,
+              "prices": [
+                5.1,
+                7.2,
+                18.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4be",
+              "code": "10",
+              "name": "Massimo",
+              "description": "mit Salami, Schinken und Fleischwurst",
+              "sort_order": 1,
+              "prices": [
+                5.1,
+                7.2,
+                18.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4bf",
+              "code": "11",
+              "name": "Sicilia",
+              "description": "mit Sardellen, Oliven, Kapern, Zwiebeln, und Artischocken",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                7.4,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c0",
+              "code": "12",
+              "name": "Speciale",
+              "description": "mit Salami, Peperoniwurst und Pilzen",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                7.4,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c1",
+              "code": "13",
+              "name": "Mix",
+              "description": "mit Salami, Peperoniwurst, Schinken und Pilzen",
+              "sort_order": 1,
+              "prices": [
+                5.7,
+                7.7,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c2",
+              "code": "14",
+              "name": "Vegetaria",
+              "description": "mit Pilzen, Paprika, Broccoli, Artischocken und Zwiebeln",
+              "sort_order": 1,
+              "prices": [
+                5.7,
+                7.7,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c3",
+              "code": "15",
+              "name": "Calzone",
+              "description": "\"geklappt\"",
+              "sort_order": 1,
+              "prices": [
+                5.9,
+                8
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c4",
+              "code": "16",
+              "name": "Mary",
+              "description": "mit Schinken, Oliven und Artischocken",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                7.7,
+                19
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c5",
+              "code": "17",
+              "name": "Capricciosa",
+              "description": "mit Artischocken, Schinken und Pilzen",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                7.7,
+                19
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c6",
+              "code": "18",
+              "name": "Quattro Stagione",
+              "description": "mit Artischocken, Pilzen, Paprika und Sardellen",
+              "sort_order": 1,
+              "prices": [
+                5.7,
+                8,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c7",
+              "code": "19",
+              "name": "Rustica",
+              "description": "mit Salam, Zwiebeln und Schafskäse",
+              "sort_order": 1,
+              "prices": [
+                5.7,
+                8,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c8",
+              "code": "20",
+              "name": "Delia",
+              "description": "mit Salami, Pilzen, Ei und grünen Peperoni",
+              "sort_order": 1,
+              "prices": [
+                5.7,
+                7.7,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4c9",
+              "code": "21",
+              "name": "Toni",
+              "description": "mit Salami, Schinken, Pilzen, Ei, artischocken und Peperoniwurst",
+              "sort_order": 1,
+              "prices": [
+                5.9,
+                8,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4ca",
+              "code": "22",
+              "name": "Casa",
+              "description": "mit Salami, Schinken, Peperoniwurst, Pilzen und Fleischsauce",
+              "sort_order": 1,
+              "prices": [
+                5.9,
+                8,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4cb",
+              "code": "23",
+              "name": "Hawaii",
+              "description": "mit Ananas, Schincken und Peperoniwurst",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                8,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4cc",
+              "code": "24",
+              "name": "Fantasia",
+              "description": "mit Schinken, Sardellen, Ei und Scampi",
+              "sort_order": 1,
+              "prices": [
+                5.8,
+                8,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4cd",
+              "code": "25",
+              "name": "Tonno",
+              "description": "mit Thunfisch und Zwiebeln",
+              "sort_order": 1,
+              "prices": [
+                5.8,
+                7.7,
+                19
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4ce",
+              "code": "26",
+              "name": "Marinara",
+              "description": "mit Meeresfrüchten",
+              "sort_order": 1,
+              "prices": [
+                5.9,
+                8.3,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4cf",
+              "code": "27",
+              "name": "Quattro Formaggi",
+              "description": "mit vier verschiedenen Käsesorten",
+              "sort_order": 1,
+              "prices": [
+                5.8,
+                8.3,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d0",
+              "code": "28",
+              "name": "Ferrari",
+              "description": "mit Salami, Paprika, Oliven, Knoblauch und Basilikum, scharf",
+              "sort_order": 1,
+              "prices": [
+                6,
+                8.3,
+                20.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d1",
+              "code": "29",
+              "name": "Spaghetti",
+              "description": "mit Spaghetti und Hackfleischsauce",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                7.7,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d2",
+              "code": "30",
+              "name": "Bolognese",
+              "description": "mit Hackfleischsauce",
+              "sort_order": 1,
+              "prices": [
+                5,
+                7.6,
+                19
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d3",
+              "code": "31",
+              "name": "Diavolo",
+              "description": "mit Salami, Peperoniwurst, Zwiebeln und Knoblauch, scharf",
+              "sort_order": 1,
+              "prices": [
+                5.7,
+                8,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d4",
+              "code": "32",
+              "name": "Mozzarella",
+              "description": "mit frischen Tomaten und Basilikum",
+              "sort_order": 1,
+              "prices": [
+                6.3,
+                8.6,
+                20.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d5",
+              "code": "33",
+              "name": "Sole Mio",
+              "description": "mit Salami, Peperoniwurst, Gorgonzola und Ei",
+              "sort_order": 1,
+              "prices": [
+                6.1,
+                8.6,
+                20.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d6",
+              "code": "34",
+              "name": "Contadina",
+              "description": "mit frischem Gemüse, Zucchini, Auberginen und Mozzarella",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                7.7,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d7",
+              "code": "35",
+              "name": "Tropicale",
+              "description": "mit Ananas und Mais",
+              "sort_order": 1,
+              "prices": [
+                5.7,
+                7.6,
+                18
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d8",
+              "code": "36",
+              "name": "Vulcano",
+              "description": "mit Paprika, Schinken und Pilzen",
+              "sort_order": 1,
+              "prices": [
+                5.7,
+                7.6,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4d9",
+              "code": "37",
+              "name": "Villana",
+              "description": "mit Spinat, Knoblauch, Zwiebeln und Mozzarella",
+              "sort_order": 1,
+              "prices": [
+                6.4,
+                8.6,
+                20.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4da",
+              "code": "38",
+              "name": "Primavera",
+              "description": "mit Erbsen, Bohnen, Schinken und Ei",
+              "sort_order": 1,
+              "prices": [
+                5.8,
+                7.6,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4db",
+              "code": "39",
+              "name": "Pisciacane ",
+              "description": "mit Sardellen, Oliven, Zwiebeln und Schinken",
+              "sort_order": 1,
+              "prices": [
+                5.8,
+                7.6,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4dc",
+              "code": "40",
+              "name": "Rimini",
+              "description": "mit Peperoniwurst, grüne Peperoni und Paprika, scharf",
+              "sort_order": 1,
+              "prices": [
+                5.8,
+                7.6,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4dd",
+              "code": "41",
+              "name": "Mamma Pina",
+              "description": "mit frischen Tomaten, Gorgonzola, Peperoniwurst u. Zwiebeln",
+              "sort_order": 1,
+              "prices": [
+                6.4,
+                8.6,
+                20.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4de",
+              "code": "42",
+              "name": "Ruck-Zuck",
+              "description": "mit Schinken, Spinat und Gorgonzola",
+              "sort_order": 1,
+              "prices": [
+                5.9,
+                7.9,
+                20
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4df",
+              "code": "43",
+              "name": "Napoli",
+              "description": "mit Schinken, Salami, Ei, Pilzen und Oliven",
+              "sort_order": 1,
+              "prices": [
+                5.8,
+                7.6,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e0",
+              "code": "44",
+              "name": "Paesana",
+              "description": "mit Schinken und Pilzen",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                7.1,
+                18
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e1",
+              "code": "45",
+              "name": "Teufel",
+              "description": "mit Peperoniwurst, Sardellen, Paprika u. grüne Peperoni, scharf",
+              "sort_order": 1,
+              "prices": [
+                5.8,
+                7.6,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e2",
+              "code": "46",
+              "name": "Lillo",
+              "description": "mit Thunfisch, Zwiebeln, Pilzen und Oliven",
+              "sort_order": 1,
+              "prices": [
+                6.4,
+                8.6,
+                20.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e3",
+              "code": "47",
+              "name": "Rosolino",
+              "description": "mit grünem Peperoni,  Paprika, Schafskäse und gekochtem Ei ",
+              "sort_order": 1,
+              "prices": [
+                6.4,
+                8.6,
+                20.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e4",
+              "code": "48",
+              "name": "Caravella",
+              "description": "mit Thunfisch, Zwiebeln, grüne Peperoni, Scampi, Schafskäse u.gek.Ei",
+              "sort_order": 1,
+              "prices": [
+                6.8,
+                9.7,
+                22.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e5",
+              "code": "49",
+              "name": "Maremonti",
+              "description": "mit Meeresfrüchten, Thunfisch, Sardellen und gekochtem Ei",
+              "sort_order": 1,
+              "prices": [
+                6.8,
+                9.7,
+                22.5
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e6",
+              "code": "50",
+              "name": "Pungscht",
+              "description": "mit Salami, Schinken und Pilzen",
+              "sort_order": 1,
+              "prices": [
+                5.4,
+                7.6,
+                18.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e7",
+              "code": "51",
+              "name": "Parma",
+              "description": "mit Parmaschinken und Mozzarella",
+              "sort_order": 1,
+              "prices": [
+                6.9,
+                9.8,
+                22
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e8",
+              "code": "52",
+              "name": "Rosario",
+              "description": "mit Rucola, Parmaschinken und Parmigiano ",
+              "sort_order": 1,
+              "prices": [
+                6.9,
+                9.8,
+                22
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4e9",
+              "code": "53",
+              "name": "Sucuk",
+              "description": "mit Knoblauchwurst",
+              "sort_order": 1,
+              "prices": [
+                5.3,
+                7.5,
+                19.9
+              ]
+            },
+            {
+              "_id": "5f5a395458b94f1f1ca6b4ea",
+              "code": "54",
+              "name": "Pute",
+              "description": "mit Putenfleisch, Mais, Bohnen und gekochtes Ei",
+              "sort_order": 1,
+              "prices": [
+                6.9,
+                9.5,
+                19.9
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5f5a3b5858b94f1f1ca6b4ec",
+          "name": "Nudelgerichte",
+          "is_active": true,
+          "is_offered": true,
+          "sizes": [
+            {
+              "name": "Standard"
+            }
+          ],
+          "toppings": [],
+          "products": [
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4ee",
+              "code": "55",
+              "name": "mit Tomatensauce und Basilikum",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                5.8
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4ef",
+              "code": "56",
+              "name": "mit Fleischsauce",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f0",
+              "code": "57",
+              "name": "mit Schinken, Pilzen und Sahnesauce",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.3
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f1",
+              "code": "58",
+              "name": "mit Sahnesauce und Schinken",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f2",
+              "code": "59",
+              "name": "mit Thunfisch und Tomaten",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.3
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f3",
+              "code": "60",
+              "name": "mit Gorgonzolasauce",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.7
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f4",
+              "code": "61",
+              "name": "mit  Schweizersauce, Sahnesauce, Paprika, Zwiebeln und Basilikum",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.3
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f5",
+              "code": "62",
+              "name": "mit Broccoli, Gorgonzola und Sahnesauce",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                7.4
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f6",
+              "code": "63",
+              "name": "mit Zucchini, Tomatensauce und Peperoni, scharf",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f7",
+              "code": "64",
+              "name": "mit Knoblauch, Olivenöl und Peperoni",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                5.6
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f8",
+              "code": "65",
+              "name": "mit Pesto (Basilikumsauce)",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4f9",
+              "code": "66",
+              "name": "Carbonara",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4fa",
+              "code": "67",
+              "name": "Quattro Formaggi",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.5
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4fb",
+              "code": "68",
+              "name": "Pasta Mista (3versch. Nudelsorten und 3 ver. Soßen)",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                7.5
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4fc",
+              "code": "69",
+              "name": "Meeresfrüchte",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                7
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4fd",
+              "code": "70",
+              "name": "Lachssoße",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.5
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4fe",
+              "code": "71",
+              "name": "Brasilianische Art",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.5
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b4ff",
+              "code": "72",
+              "name": "mit Tomatensauce, Schinken und Erbsen",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b500",
+              "code": "73",
+              "name": "Arrabiata",
+              "description": "mit Tomatensauce, Zwiebeln und Oliven, scharf",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            },
+            {
+              "_id": "5f5a3b5858b94f1f1ca6b501",
+              "code": "74",
+              "name": "mit Fleischsauce, Sahnesauce, Schinken und Pilzen",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5f5a3c9f58b94f1f1ca6b503",
+          "name": "Al forno",
+          "is_active": true,
+          "is_offered": true,
+          "sizes": [
+            {
+              "name": "Standard"
+            }
+          ],
+          "toppings": [],
+          "products": [
+            {
+              "_id": "5f5a3c9f58b94f1f1ca6b505",
+              "code": "75",
+              "name": "Lasagne al Forno",
+              "description": "mit Bechamelsauce",
+              "sort_order": 1,
+              "prices": [
+                6.5
+              ]
+            },
+            {
+              "_id": "5f5a3c9f58b94f1f1ca6b506",
+              "code": "76",
+              "name": "Vegetarische Lasagne",
+              "description": "mit Spinat, Sahnesauce und Tomatensauce",
+              "sort_order": 1,
+              "prices": [
+                7.4
+              ]
+            },
+            {
+              "_id": "5f5a3c9f58b94f1f1ca6b507",
+              "code": "77",
+              "name": "Canelloni al Forno",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.3
+              ]
+            },
+            {
+              "_id": "5f5a3c9f58b94f1f1ca6b508",
+              "code": "77.A",
+              "name": "Vegetarische Canelloni",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            },
+            {
+              "_id": "5f5a3c9f58b94f1f1ca6b509",
+              "code": "78",
+              "name": "Combinatione al Forno",
+              "description": "mit Canelloni, Tortellini und Rigatoni",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            },
+            {
+              "_id": "5f5a3c9f58b94f1f1ca6b50a",
+              "code": "79",
+              "name": "Tortellini Rossini al Forno",
+              "description": "mit Schinken, Erbsen, Sahnesauce und Tomatensauce",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            },
+            {
+              "_id": "5f5a3c9f58b94f1f1ca6b50b",
+              "code": "80",
+              "name": "Penne al Forno",
+              "description": "mit Erbsen, Schinken und Fleischsauce",
+              "sort_order": 1,
+              "prices": [
+                6.6
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5f5a3dba58b94f1f1ca6b50d",
+          "name": "Salate",
+          "is_active": true,
+          "is_offered": true,
+          "sizes": [
+            {
+              "name": "Standard"
+            }
+          ],
+          "toppings": [],
+          "products": [
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b50f",
+              "code": "85",
+              "name": "Thunfischsalat",
+              "description": "mit Eisbergsalat, Thunfisch, Zwiebel und Tomaten",
+              "sort_order": 1,
+              "prices": [
+                4.5
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b510",
+              "code": "86",
+              "name": "Krautsalat",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                3
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b511",
+              "code": "87",
+              "name": "Tomatensalat",
+              "description": "mit Zwiebeln",
+              "sort_order": 1,
+              "prices": [
+                4
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b512",
+              "code": "88",
+              "name": "Grüner Salat",
+              "description": "(Eisbergsalat)",
+              "sort_order": 1,
+              "prices": [
+                3.6
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b513",
+              "code": "89",
+              "name": "Ital. Salat",
+              "description": "Eisbergsalat mit Käse, Schinken, Eier, Thunfisch und Zwiebeln",
+              "sort_order": 1,
+              "prices": [
+                5.5
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b514",
+              "code": "90",
+              "name": "Gemischter Salat",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                5
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b515",
+              "code": "91",
+              "name": "Chefsalat",
+              "description": "Eisbergsalat mit Zwiebeln, Schafskäse, Paprika, Oliven und grüne Peperoni",
+              "sort_order": 1,
+              "prices": [
+                5.6
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b516",
+              "code": "92",
+              "name": "Beilagensalat",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                2.8
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b517",
+              "code": "93",
+              "name": "Caprese",
+              "description": "mit Mozzarella, Tomatenscheiben und Basilikum",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            },
+            {
+              "_id": "5f5a3dba58b94f1f1ca6b518",
+              "code": "94",
+              "name": "Salat",
+              "description": "mit Hähnchenbrustfilet",
+              "sort_order": 1,
+              "prices": [
+                6.8
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5f5a3fa158b94f1f1ca6b51a",
+          "name": "Fleischgerichte",
+          "is_active": true,
+          "is_offered": true,
+          "sizes": [
+            {
+              "name": "Standard"
+            }
+          ],
+          "toppings": [],
+          "products": [
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b51c",
+              "code": "100",
+              "name": "Jägerschnitzel",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                8.2
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b51d",
+              "code": "101",
+              "name": "Ziegeunerschnitzel ",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                8.2
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b51e",
+              "code": "102",
+              "name": "Schnitzel \"Wiener Art\"",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                7.8
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b51f",
+              "code": "103",
+              "name": "Parmigianaschnitzel ",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                8.2
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b520",
+              "code": "104",
+              "name": "Bologneseseschnitzel ",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                8.2
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b521",
+              "code": "105",
+              "name": "Rahmschnitzel",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                8.9
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b522",
+              "code": "106",
+              "name": "Schnitzel",
+              "description": "mit Gorgonzolsauce",
+              "sort_order": 1,
+              "prices": [
+                9.5
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b523",
+              "code": "107",
+              "name": "Schnitzel Hawaii",
+              "description": "mit Schinken, Ananas und Käse",
+              "sort_order": 1,
+              "prices": [
+                8.4
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b524",
+              "code": "108",
+              "name": "Schnitzel",
+              "description": "mit zwiebeln",
+              "sort_order": 1,
+              "prices": [
+                8.2
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b525",
+              "code": "109",
+              "name": "Schnitzel",
+              "description": "mit brasilianischer Sauce (scharf)",
+              "sort_order": 1,
+              "prices": [
+                8.5
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b526",
+              "code": "110",
+              "name": "Saltimbocca alla Romana",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                10.8
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b527",
+              "code": "111",
+              "name": "Cordon Bleu",
+              "description": "mit Schinken und Käse gefüllt",
+              "sort_order": 1,
+              "prices": [
+                10.3
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b528",
+              "code": "112",
+              "name": "Scalopine",
+              "description": "mit Weinsauce",
+              "sort_order": 1,
+              "prices": [
+                10.8
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b529",
+              "code": "113",
+              "name": "Scalpine",
+              "description": "mit Schweizer Sauce",
+              "sort_order": 1,
+              "prices": [
+                10.8
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b52a",
+              "code": "114",
+              "name": "Scalpine",
+              "description": "mit frischen Champignons",
+              "sort_order": 1,
+              "prices": [
+                11.8
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b52b",
+              "code": "116",
+              "name": "Schnitzel Rimini",
+              "description": "mit Mozzarella, Tomaten und Rucola",
+              "sort_order": 1,
+              "prices": [
+                10.3
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b52c",
+              "code": "117",
+              "name": "Käsekochschnitzel",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                9
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b52d",
+              "code": "136",
+              "name": "Putenschnitzel \"Wiener Art\"",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                9.3
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b52e",
+              "code": "137",
+              "name": "Putenschnitzel \"Wiener Art\"",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                9.8
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b52f",
+              "code": "138",
+              "name": "Putenschnitzel\"Brasilianische Art\"",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                10.3
+              ]
+            },
+            {
+              "_id": "5f5a3fa158b94f1f1ca6b530",
+              "code": "139",
+              "name": "Putenschnitzel",
+              "description": "mit frischen Champignons",
+              "sort_order": 1,
+              "prices": [
+                10.8
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5f5a409c58b94f1f1ca6b532",
+          "name": "für den kleinen hunger",
+          "is_active": true,
+          "is_offered": true,
+          "sizes": [
+            {
+              "name": "Standard"
+            }
+          ],
+          "toppings": [],
+          "products": [
+            {
+              "_id": "5f5a409c58b94f1f1ca6b534",
+              "code": "120",
+              "name": "Hamburger",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                3
+              ]
+            },
+            {
+              "_id": "5f5a409c58b94f1f1ca6b535",
+              "code": "121",
+              "name": "Cheeseburger",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                2.4
+              ]
+            },
+            {
+              "_id": "5f5a409c58b94f1f1ca6b536",
+              "code": "122",
+              "name": "Doppel Cheeseburger",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                3.2
+              ]
+            },
+            {
+              "_id": "5f5a409c58b94f1f1ca6b537",
+              "code": "123",
+              "name": "Port. Pommes",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                2
+              ]
+            },
+            {
+              "_id": "5f5a409c58b94f1f1ca6b538",
+              "code": "124",
+              "name": "Port. Pommes",
+              "description": "mit Mayo od. Ketchup",
+              "sort_order": 1,
+              "prices": [
+                10.5
+              ]
+            },
+            {
+              "_id": "5f5a409c58b94f1f1ca6b539",
+              "code": "125",
+              "name": "Port. Pommes",
+              "description": "mit Jäger- od. Rahmsauche",
+              "sort_order": 1,
+              "prices": [
+                3.5
+              ]
+            },
+            {
+              "_id": "5f5a409c58b94f1f1ca6b53a",
+              "code": "126",
+              "name": "Port. Kroketten",
+              "description": "",
+              "sort_order": 1,
+              "prices": [
+                2.3
+              ]
+            },
+            {
+              "_id": "5f5a409c58b94f1f1ca6b53b",
+              "code": "128",
+              "name": "Port. Kroketten",
+              "description": "mit Jäger. od. Rahmsoße",
+              "sort_order": 1,
+              "prices": [
+                3.8
+              ]
+            },
+            {
+              "_id": "5f5a409c58b94f1f1ca6b53c",
+              "code": "129",
+              "name": "Arancini",
+              "description": "(auf Anfrage)",
+              "sort_order": 1,
+              "prices": [
+                2.5
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5f5a410358b94f1f1ca6b53e",
+          "name": "Fisch",
+          "is_active": true,
+          "is_offered": true,
+          "sizes": [
+            {
+              "name": "Standard"
+            }
+          ],
+          "toppings": [],
+          "products": [
+            {
+              "_id": "5f5a410358b94f1f1ca6b540",
+              "code": "130",
+              "name": "Calamari Fritti",
+              "description": "mit Pommes und Salat",
+              "sort_order": 1,
+              "prices": [
+                8.5
+              ]
+            },
+            {
+              "_id": "5f5a410358b94f1f1ca6b541",
+              "code": "131",
+              "name": "Calmari Mexico",
+              "description": "mit Tomaten frites und Salat, scharf",
+              "sort_order": 1,
+              "prices": [
+                10.5
+              ]
+            }
+          ]
+        },
+        {
+          "_id": "5f5a418758b94f1f1ca6b543",
+          "name": "Getränke",
+          "is_active": true,
+          "is_offered": true,
+          "sizes": [
+            {
+              "name": "Standard"
+            }
+          ],
+          "toppings": [],
+          "products": [
+            {
+              "_id": "5f5a418758b94f1f1ca6b545",
+              "code": "132",
+              "name": "Chianti, Frascati, Lambrusco",
+              "description": "0,75L",
+              "sort_order": 1,
+              "prices": [
+                8
+              ]
+            },
+            {
+              "_id": "5f5a418758b94f1f1ca6b546",
+              "code": "133",
+              "name": "Bier Pfungstädter  Pilz, Export",
+              "description": "0,5l zzgl. Pfand",
+              "sort_order": 1,
+              "prices": [
+                2.2
+              ]
+            },
+            {
+              "_id": "5f5a418758b94f1f1ca6b547",
+              "code": "314",
+              "name": "Pfungstädter Weizen",
+              "description": "0,5l zzgl. Pfand",
+              "sort_order": 1,
+              "prices": [
+                2.8
+              ]
+            },
+            {
+              "_id": "5f5a418758b94f1f1ca6b548",
+              "code": "315",
+              "name": "Cola, Fanta, Mezzo Mix, Cola Light",
+              "description": "0,33 l Fl.",
+              "sort_order": 1,
+              "prices": [
+                1.5
+              ]
+            },
+            {
+              "_id": "5f5a418758b94f1f1ca6b549",
+              "code": "316",
+              "name": "Cola, Fanta, Mezzo Mix, Cola Light",
+              "description": "1,0 l Fl.zzgl. Pfand",
+              "sort_order": 1,
+              "prices": [
+                2.4
+              ]
+            }
+          ]
+        }
+      ],
+      "owner": {
+        "_id": "5f59f81aeef08d3711e8212a",
+        "name": "Basit Qadeer",
+        "email": "qadeer@azzip.de",
+        "telephone": "01784789136"
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="cart-overlay" [ngClass] = "{'cover-page': cartOpened }" (click)= "hideCart( $event )" id="cart-overlay">
+    <div class="cart" [ngClass] = "{'empty': cartCount === 0, 'cart-opened': cartOpened }">
+        <div class="cart-button" (click)="showCart()">
+            <div class="count">{{ cartCount }}</div>
+            <svg class="icon icon-basket">
+                <use xlink:href="assets/symbol-defs.svg#icon-basket"></use>
+            </svg>
+        </div>
+
+        <div class="view">
+            <div class="items-wrap">
+                <div class="hearder">
+
+                    
+                    <h2>Your Basket</h2>
+                    <div class="undo" (click)="resetCart()">clear</div>
+
+                </div>
+                <div class="cart-body">
+                    <ul>
+                    <li *ngFor="let cartItem of cart; let idx = index">
+                        <div class="cart-item">
+                                <p class="product-name">{{ cartItem.product_name }}</p>
+                                <p>{{ cartItem.product_description }}</p>
+                                <p>{{ cartItem.price | currency }}</p>
+                        </div>
+                        <div class="cart-qty-control">
+                                <button (click)="decreaseQty( idx )">
+                                    <svg class="icon icon-search">
+                                        <use xlink:href="assets/symbol-defs.svg#icon-minus"></use>
+                                    </svg>
+                                </button>
+                                <input type="text" [value]="cartItem.quantity">
+                                <button (click)="increaseQty( idx )">
+                                    <svg class="icon icon-search">
+                                        <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
+                                    </svg>
+                                </button>
+                        </div>
+                    </li> 
+                    </ul>
+                </div>
+
+                <div class="cart-footer">
+                    <div class="btn">
+                        Confirm Order
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

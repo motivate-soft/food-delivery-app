@@ -1,0 +1,28 @@
+h4 {
+    font-size: 1.6rem;
+}
+ul {
+    list-style: none;
+    padding: 0 0 2rem 0;
+
+    li {
+        a {
+            width: 100%;
+            display: block;
+            line-height: 3;
+            padding-left: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+
+            &.active {
+                background-color: #C2D1CA;
+            }
+            &:hover {
+                background-color: #C2D1CA;
+            }
+        }
+    }
+}
