@@ -20,7 +20,7 @@ export class ShopService {
 
   get() {
     return this.http.get<Shop>(`${environment.server}/api/shop/getAll`).pipe(tap( (response: any ) => {
-      const shop = response.data; // .findShopById;
+      const shop = response.data;
       const entity = {
         [shop._id]: shop
       };

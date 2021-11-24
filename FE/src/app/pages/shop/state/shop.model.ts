@@ -41,6 +41,11 @@ export interface Shop {
   street: string;
   postal_code: string;
   categories: Category[];
+  working_hours?: Array<{
+    _id: string;
+    from: number;
+    to: number;
+  }>
 }
 
 

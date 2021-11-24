@@ -8,26 +8,9 @@
             <h4>Menu</h4>
 
             <ul id="links">
-            <li class="active">
-                <a class="navigation__link" href="#soup" data-heading="soup"
-                >Soups</a
-                >
-            </li>
-            <li>
-                <a class="navigation__link" href="#pizza" data-heading="pizza"
-                >Pizza</a
-                >
-            </li>
-            <li>
-                <a class="navigation__link" href="#burger" data-heading="burger"
-                >burger</a
-                >
-            </li>
-            <li>
-                <a class="navigation__link" href="#juice" data-heading="juice"
-                >juice</a
-                >
-            </li>
+                <li class="active" *ngFor="let category of shop.categories; let idx = index">
+                    <a class="navigation__link" href="#{{ category.name }}" data-heading={category.name}>{{ category.name }}</a>
+                </li>
             </ul>
         </div>
         </div>
@@ -36,9 +19,11 @@
     <div class="col col-md-12">
         <div class="top-bar-text">
         <h2>{{ shop.name }}</h2>
-        <p>13:00 <span>-</span> 13:30</p>
+        <p *ngFor="let work_hour of shop.working_hours; let idx = index">
+            {{getWorkingTimeChars(work_hour.from)}} <span>-</span> {{getWorkingTimeChars(work_hour.to)}}
+        </p>
 
-        <form class="example" action="action_page.php">
+        <form class="example">
             <input type="text" placeholder="Search.." name="search" />
             <button type="submit">
                 <svg class="icon icon-search">

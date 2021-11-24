@@ -61,4 +61,8 @@ export class CartComponent implements OnInit {
       this.cartOpened = false;
     }    
   }
+
+  confirmOrder() {
+    alert("confirm")
+  }
 }

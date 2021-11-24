@@ -7,11 +7,11 @@
                 <h3>{{product.name}}</h3>
                 <p>{{product.description}}</p>
             </div>
-            <div class="price">
+            <div class="price" *ngFor="let price of product.prices">
                 <h5>
-                    {{ product.prices[0] | currency }}
+                    {{ price | currency }}
                 </h5>
-                <span (click)="addToCart(product)">
+                <span (click)="addToCart(product, price)">
                     <svg class="icon icon-search">
                         <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
                     </svg>

@@ -15,4 +15,9 @@ export class ShopHeaderComponent implements OnInit {
     
   }
 
+  getWorkingTimeChars(time_num) {
+    return "" + (parseInt("" + time_num / 100, 0) == 0 ? "0" + parseInt("" + time_num / 100, 0) : parseInt("" + time_num / 100, 0))  + ':' 
+          + (parseInt("" + time_num % 100, 0) == 0 ? "0" + parseInt("" + time_num % 100, 0) : parseInt("" + time_num % 100, 0))
+  }
+
 }

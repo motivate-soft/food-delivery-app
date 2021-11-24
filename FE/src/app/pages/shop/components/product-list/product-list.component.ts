@@ -22,14 +22,14 @@ export class ProductListComponent implements OnInit {
     
   }
 
-  addToCart( product: Product ) {
+  addToCart( product: Product, price: number ) {
 
     const cartItem: CartItem = {
       product_id: product._id,
       product_name: product.name,
       product_code: product.code,
       product_description: product.description,
-      price: product.prices[0],
+      price: price,
       quantity: 1
     }  
 
