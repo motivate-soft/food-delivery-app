@@ -1,7 +1,9 @@
-<h4>Menu</h4>
-<ul>
-    <li *ngFor="let category of shop.categories; let idx = index">
-       <a [ngClass] = "{ 'active': idx === activeIndex }" (click)="scrollToCategory( idx )">{{ category.name }}</a>
-    </li>
-</ul>
+<div class="category-name">
+    <h4>Menu</h4>
+    <ul>
+        <li *ngFor="let category of shop.categories; let idx = index">
+        <a [ngClass] = "{ 'active': idx === activeIndex }" (click)="scrollToCategory( idx )">{{ category.name }}</a>
+        </li>
+    </ul>
+</div>
 

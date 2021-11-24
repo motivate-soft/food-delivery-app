@@ -1,23 +1,93 @@
 <div *ngFor="let category of shop.categories; let idx = index">
     <h3 id="category-{{idx}}">{{ category.name }}</h3>
 
-    <ul>
-        <li *ngFor="let product of category.products">
-            <div class="product">
-                <h3>{{product.name}}</h3>
-                <p>{{product.description}}</p>
-            </div>
-            <div class="price" *ngFor="let price of product.prices">
-                <h5>
-                    {{ price | currency }}
-                </h5>
-                <span (click)="addToCart(product, price)">
-                    <svg class="icon icon-search">
-                        <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
-                    </svg>
-                </span>
-            </div>
-        </li>
-    </ul>
+    <div class="products">
+        <ul>
+            <li *ngFor="let product of category.products; let id_p = index">
+                <div class="product">
+                    <h3>{{product.name}}</h3>
+                    <p>{{product.description}}</p>
+                </div>
+
+                <div class="dropdown-container" *ngIf="product.prices.length > 0">
+                    <div class="dropdown">
+                        <h1>
+                            <div class="price">
+                                <h5>
+                                    {{ product.prices[0] | currency }} 
+                                </h5>
+                                <span (click)="addToCart(product, product.prices[0])">
+                                    <svg class="icon icon-search">
+                                        <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
+                                    </svg>
+                                </span>
+    
+                                <p (click)="openDropmenu(idx, id_p)" class="dropdown-toggle" *ngIf="product.prices.length > 1"> &nbsp; ▼</p>
+                            </div>
+                        </h1>
+                    </div>
+                    <div class="dropdown-content" *ngIf="idx == selectedCategoryId && id_p == selectedDropmenuId">
+                        <ul [ngClass]="idx == selectedCategoryId && id_p == selectedDropmenuId ? 'open': 'dropdown-menu'">
+                            <li *ngFor="let price of product.prices | slice:1:product.prices.length" class="dropdown-price">
+                              <h5>
+                                  {{ price | currency }}
+                              </h5>
+                              <span (click)="addToCart(product, price)">
+                                  <svg class="icon icon-search">
+                                      <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
+                                  </svg>
+                              </span>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="toppings" *ngIf="category.toppings.length > 0">
+        <h2>{{ category.name }} - Toppings</h2>
+
+        <ul>
+            <li *ngFor="let topping of category.toppings; let id_t = index">
+                <div class="product">
+                    <h3>{{topping.name}}</h3>
+                </div>
+
+                <div class="dropdown-container" *ngIf="topping.prices.length > 0">
+                    <div class="dropdown">
+                        <h1>
+                            <div class="price">
+                                <h5>
+                                    {{ topping.prices[0] | currency }} 
+                                </h5>
+                                <span (click)="addToppingToCart(topping, topping.prices[0])">
+                                    <svg class="icon icon-search">
+                                        <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
+                                    </svg>
+                                </span>
+    
+                                <p (click)="openToppingDropmenu(idx, id_t)" class="dropdown-toggle" *ngIf="topping.prices.length > 1"> &nbsp; ▼</p>
+                            </div>
+                        </h1>
+                    </div>
+                    <div class="dropdown-content" *ngIf="idx == selectedCategoryId && id_t == selectedToppingDropmenuId">
+                        <ul [ngClass]="idx == selectedCategoryId && id_t == selectedToppingDropmenuId ? 'open': 'dropdown-menu'">
+                            <li *ngFor="let price of topping.prices | slice:1:topping.prices.length" class="dropdown-price">
+                              <h5>
+                                  {{ price | currency }}
+                              </h5>
+                              <span (click)="addToppingToCart(topping, price)">
+                                  <svg class="icon icon-search">
+                                      <use xlink:href="assets/symbol-defs.svg#icon-plus"></use>
+                                  </svg>
+                              </span>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 
 </div>

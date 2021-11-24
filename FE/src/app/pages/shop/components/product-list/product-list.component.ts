@@ -11,6 +11,9 @@ import { ShopService } from '@pages/shop/state/shop.service';
 export class ProductListComponent implements OnInit {
 
   @Input() shop: Shop;
+  selectedDropmenuId: any;
+  selectedCategoryId: any;
+  selectedToppingDropmenuId: any;
 
 
   constructor(
@@ -34,6 +37,37 @@ export class ProductListComponent implements OnInit {
     }  
 
     this.shopService.addToCart( cartItem );
+    this.selectedDropmenuId = -1;
+    this.selectedToppingDropmenuId = -1;
+  }
+
+  
+  openDropmenu(categoryId, menuId) {
+    if (this.selectedCategoryId == categoryId && this.selectedDropmenuId == menuId) {
+      this.selectedDropmenuId = -1;
+    } else {
+      this.selectedDropmenuId = menuId;
+      this.selectedCategoryId = categoryId;
+    }
+  }
+
+
+  addToppingToCart( topping: {
+    name: string;
+    prices: number[]
+  }, price: number ) {
+
+    this.selectedDropmenuId = -1;
+    this.selectedToppingDropmenuId = -1;
+  }
+
+  openToppingDropmenu(categoryId, toppingId) {
+    if (this.selectedCategoryId == categoryId && this.selectedToppingDropmenuId == toppingId) {
+      this.selectedToppingDropmenuId = -1;
+    } else {
+      this.selectedToppingDropmenuId = toppingId;
+      this.selectedCategoryId = categoryId;
+    }
   }
 
 }

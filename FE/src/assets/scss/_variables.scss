@@ -32,14 +32,12 @@ $shadow-light: 0 2rem 5rem rgba(0, 0, 0, .06);
 $divider: 1px solid $grey-light-2;
 
 
-
-$sm: 600px;
 $md: 960px;
 $lg: 1263px;
 $xl: 1904px;
 
 @mixin sm {
-    @media( min-width: #{$sm}) {
+    @media( min-width: #{600px}) {
         @content;
     }
 }

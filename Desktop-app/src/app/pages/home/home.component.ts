@@ -4,7 +4,7 @@ import { ShopService } from "../../services/shop/shop.service";
 import { Shop, Product, Category, CartItem } from "../../services/shop/shop.model";
 import { ApplicationQuery } from "../../state/application.query";
 import { ApplicationService } from "../../state/application.service";
-
+import { webSocket } from "rxjs/webSocket";
 
 @Component({
   selector: "app-home",
@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
 
   categories:{ [key: string]: Category } = {};
   category: Category;
+
+  subject$ = webSocket("ws://localhost:8999");
 
   constructor(
     private readonly shopService: ShopService,
@@ -67,4 +69,14 @@ export class HomeComponent implements OnInit {
 
 
 
+}
+
+
+export class Message {
+  constructor(
+      public sender: string,
+      public content: string,
+      // tslint:disable-next-line: typedef
+      public isBroadcast = false,
+  ) { }
 }

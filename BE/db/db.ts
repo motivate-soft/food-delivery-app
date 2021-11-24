@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize';
 import { modelsArray } from './../models/index';
 require('dotenv').config()
+
 export let sequelize: Sequelize;
 
 export async function initDatabase() {

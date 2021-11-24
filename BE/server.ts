@@ -9,7 +9,7 @@ const port = process.env.PORT || '3000';
 
 export async function startServer() {
     try {
-        await initDatabase();
+        // await initDatabase();
         app.listen(port, (): void => {
             console.info(`
                 ################################################
