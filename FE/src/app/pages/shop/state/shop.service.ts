@@ -12,21 +12,8 @@ export class ShopService {
   constructor(private shopStore: ShopStore, private http: HttpClient) {
   }
 
-
-
   setLoading( isLoading: boolean ) {
     this.shopStore.setLoading( isLoading );
-  }
-
-  get() {
-    return this.http.get<Shop>(`${environment.server}/api/shop/getAll`).pipe(tap( (response: any ) => {
-      const shop = response.data;
-      const entity = {
-        [shop._id]: shop
-      };
-
-      this.shopStore.set( entity );
-    })).subscribe();
   }
 
   updateSelectedCategoryIndex( index: number ) {
@@ -77,6 +64,28 @@ export class ShopService {
       newState.ui = { ...newState.ui, cart: [...cart] }
       return newState;
     });
+  }
+
+
+  getShop() {
+    return this.http.get<Shop>(`${environment.server}/api/shop/getShop`).pipe(tap( (response: any ) => {
+      const shop = response.data;
+      const entity = {
+        [shop._id]: shop
+      };
+
+      this.shopStore.set( entity );
+    })).subscribe();
+  }
+
+  postConfirmCart(cart: Array<CartItem>) {
+    return this.http.post(`${environment.server}/api/shop/confirmCart`, cart).pipe(tap( (response: any ) => {
+      if (!response.error) {
+        this.resetCart();
+      } else {
+        console.log(response.message);
+      }
+    })).subscribe();
   }
  
 }

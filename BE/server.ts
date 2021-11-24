@@ -1,4 +1,4 @@
-import express from "express";
+import { initDatabase } from './db/db';
 
 require('dotenv').config()
 
@@ -9,6 +9,7 @@ const port = process.env.PORT || '3000';
 
 export async function startServer() {
     try {
+        await initDatabase();
         app.listen(port, (): void => {
             console.info(`
                 ################################################

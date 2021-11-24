@@ -22,7 +22,7 @@ export class ShopComponent implements OnInit {
 
     // Request shop information
     this.shopService.setLoading( true );  
-    this.shopService.get();
+    this.shopService.getShop();
   }
 
 }

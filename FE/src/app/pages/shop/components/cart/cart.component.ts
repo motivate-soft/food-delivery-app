@@ -22,7 +22,10 @@ export class CartComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.shopQuery.cart$.subscribe( cart => this.cart = cart );
+    this.shopQuery.cart$.subscribe( cart => {
+      this.cart = cart
+      if (this.cart.length == 0) this.cartOpened = false;
+    } );
   }
 
   resetCart() {
@@ -63,6 +66,6 @@ export class CartComponent implements OnInit {
   }
 
   confirmOrder() {
-    alert("confirm")
+    this.shopService.postConfirmCart(this.cart);
   }
 }
