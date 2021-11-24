@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SessionService {
 
-  constructor() { }
+  constructor() {
+    //
+  }
 
   private _locale: string;
 
@@ -13,6 +15,6 @@ export class SessionService {
         this._locale = value;
     }
     get locale(): string {
-      return this._locale || 'de';
+      return this._locale || "de";
     }
 }

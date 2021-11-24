@@ -1,19 +1,21 @@
-import { Injectable } from '@angular/core';
-import { ID, StateHistoryPlugin } from '@datorama/akita';
-import { HttpClient } from '@angular/common/http';
-import { ApplicationStore } from './application.store';
-import { Application } from './application.model';
-import { tap } from 'rxjs/operators';
-import { Address, CartItem, Category, Customer, Order, Product, Settings } from '../services/shop/shop.model';
+import { Injectable } from "@angular/core";
+import { ID, StateHistoryPlugin } from "@datorama/akita";
+import { HttpClient } from "@angular/common/http";
+import { ApplicationStore } from "./application.store";
+import { Application } from "./application.model";
+import { tap } from "rxjs/operators";
+import { Address, CartItem, Category, Customer, Order, Product, Settings } from "../services/shop/shop.model";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class ApplicationService {
 
   constructor(private applicationStore: ApplicationStore) {
   }
 
+  // tslint:disable-next-line: typedef
   addToCart( item: CartItem ) {
     this.applicationStore.update( (state) => {
+      // tslint:disable-next-line: typedef
       const cart = [...state.cart];
       cart.push( item );
 
@@ -21,10 +23,11 @@ export class ApplicationService {
         ...state,
         cart,
         selected_cart_item: cart.length - 1
-      }
+      };
     });
   }
 
+  // tslint:disable-next-line: typedef
   updateAddress( address: Address) {
     this.applicationStore.update( (state) => {
       return {
@@ -55,21 +58,23 @@ export class ApplicationService {
     });
   }
 
+  // tslint:disable-next-line: typedef
   setCategory( category: Category ) {
     this.applicationStore.update( (state) => {
       return {
         ...state,
         category
-      }
+      };
     });
   }
 
+  // tslint:disable-next-line: typedef
   setFilter( filter: string ) {
     this.applicationStore.update( (state) => {
       return {
         ...state,
         filter
-      }
+      };
     });
 
   }

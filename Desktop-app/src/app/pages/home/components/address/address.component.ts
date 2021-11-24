@@ -1,15 +1,15 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApplicationService } from '../../../../state/application.service';
-import { ElectronService } from '../../../../core/services';
-import { Customer } from '../../../../services/shop/shop.model';
-import { ApplicationQuery } from '../../../../state/application.query';
-import { Subscription } from 'rxjs';
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ApplicationService } from "../../../../state/application.service";
+import { ElectronService } from "../../../../core/services";
+import { Customer } from "../../../../services/shop/shop.model";
+import { ApplicationQuery } from "../../../../state/application.query";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-address',
-  templateUrl: './address.component.html',
-  styleUrls: ['./address.component.scss']
+  selector: "app-address",
+  templateUrl: "./address.component.html",
+  styleUrls: ["./address.component.scss"]
 })
 export class AddressComponent implements OnInit {
 
@@ -35,9 +35,9 @@ export class AddressComponent implements OnInit {
     KEY_RIGHT: 39,
     KEY_UP: 38,
     KEY_DOWN: 40
-  }
+  };
 
-  constructor( 
+  constructor(
     private readonly fb: FormBuilder,
     private readonly applicationService: ApplicationService,
     private readonly electronService: ElectronService,
@@ -47,11 +47,11 @@ export class AddressComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       id: [null],
-      name: ['', Validators.required ],
-      street: ['', Validators.required ],
-      city: ['', Validators.required ],
-      telephone: [''],
-      remarks: ['']
+      name: ["", Validators.required ],
+      street: ["", Validators.required ],
+      city: ["", Validators.required ],
+      telephone: [""],
+      remarks: [""]
     });
 
     this.subscription = this.applicationQuery.customers$.subscribe( customers => {
@@ -62,24 +62,32 @@ export class AddressComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line: typedef
   selectEvent(item) {
+    // tslint:disable-next-line: typedef
     const customer = this.customers.find(element => element.name === item || element.street === item);
     if (customer) {
-      this.form.controls['name'].setValue(customer.name);
-      this.form.controls['street'].setValue(customer.street);
-      this.form.controls['city'].setValue(customer.city);
-      this.form.controls['telephone'].setValue(customer.telephone);
+      // tslint:disable-next-line: no-string-literal
+      this.form.controls["name"].setValue(customer.name);
+      // tslint:disable-next-line: no-string-literal
+      this.form.controls["street"].setValue(customer.street);
+      // tslint:disable-next-line: no-string-literal
+      this.form.controls["city"].setValue(customer.city);
+      // tslint:disable-next-line: no-string-literal
+      this.form.controls["telephone"].setValue(customer.telephone);
     }
   }
 
+  // tslint:disable-next-line: typedef
   updateAddress() {
     this.applicationService.updateAddress( this.form.value );
   }
 
-  filterCustomers( event ) {
+  // tslint:disable-next-line: typedef
+  filterCustomers(event) {
 
     this.choices?.nativeElement.classList.remove("hidden");
-    
+
     switch(event.keyCode) {
       case this.KEY.KEY_TAB:
       case this.KEY.KEY_RETURN:
@@ -101,27 +109,32 @@ export class AddressComponent implements OnInit {
 
     const input: string = this.name.value.toLocaleLowerCase()
     this.filtered = this.customers.filter( customer => customer.name.toLocaleLowerCase().includes(input));
-    
+
   }
 
-  updateCustomer( customer ) {
+  // tslint:disable-next-line: typedef
+  updateCustomer(customer) {
     this.form.patchValue(customer);
     this.choices.nativeElement.classList.add("hidden");
     // this.updateAddress()
   }
 
+  // tslint:disable-next-line: typedef
   hide() {
     this.choices?.nativeElement.classList.add("hidden");
   }
 
+  // tslint:disable-next-line: typedef
   markPrevious() {
     this.selectedIdx = this.selectedIdx === 0 ? 0 : this.selectedIdx - 1;
   }
 
+  // tslint:disable-next-line: typedef
   markNext() {
     this.selectedIdx = this.selectedIdx < this.filtered.length - 1 ? this.selectedIdx + 1 : this.selectedIdx;
   }
 
-  get name() { return this.form.get('name') }
+  // tslint:disable-next-line: typedef
+  get name() { return this.form.get("name"); }
 
 }

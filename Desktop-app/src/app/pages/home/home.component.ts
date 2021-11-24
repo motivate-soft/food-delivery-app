@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.shopService.get().subscribe( response => {
-      this.shop = response.data.findShopById;
+      this.shop = response.data;
 
       this.shop.categories.forEach( category => {
 
@@ -59,6 +59,8 @@ export class HomeComponent implements OnInit {
         console.log("Run in browser");
       }
 
+    }, err => {
+      this.electronService.ipcRenderer.send("notification:empty", { message1: "Server disconnected", message2: "Please check the server" });
     });
 
   }

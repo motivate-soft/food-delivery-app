@@ -214,6 +214,12 @@ try {
     event.sender.send("order:printed", { message: `Order ${order_id} Created successfully!`});
   });
 
+  ipcMain.on("notification:empty", async (event, {message1, message2}) => {
+    showNotification(message1, message2);
+    event.sender.send("notification:empty_", { message: message2, error: true });
+    return;
+  });
+
 } catch (e) {
    throw e;
 }

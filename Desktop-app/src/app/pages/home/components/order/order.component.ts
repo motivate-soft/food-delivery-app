@@ -34,7 +34,7 @@ export class OrderComponent implements OnInit {
       this.cart = cart;
     });
 
-    this.applicationQuery.selected_cart_item$.subscribe( selected_cart_item => this.selectedItem = selected_cart_item)
+    this.applicationQuery.selected_cart_item$.subscribe( selected_cart_item => this.selectedItem = selected_cart_item);
     this.applicationQuery.categories$.subscribe( categories => this.categories = categories );
   }
 
@@ -48,7 +48,7 @@ export class OrderComponent implements OnInit {
   // tslint:disable-next-line: typedef
   decreaseQty( idx ) {
     const cartItem: CartItem = { ...this.cart[ idx ] };
-    cartItem.quantity = cartItem.quantity === 1 ? cartItem.quantity : cartItem.quantity -1; 
+    cartItem.quantity = cartItem.quantity === 1 ? cartItem.quantity : cartItem.quantity -1;
     this.applicationService.updateCartItem( idx, cartItem );
   }
 

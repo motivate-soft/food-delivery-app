@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Application } from './application.model';
-import { EntityState, EntityStore, StoreConfig } from '@datorama/akita';
-import { CartItem, Category, Product, Address, Customer, Order, Driver, Settings } from '../services/shop/shop.model';
+import { Injectable } from "@angular/core";
+import { Application } from "./application.model";
+import { EntityState, EntityStore, StoreConfig } from "@datorama/akita";
+import { CartItem, Category, Product, Address, Customer, Order, Driver, Settings } from "../services/shop/shop.model";
 
 
+// tslint:disable-next-line: interface-name
 export interface ApplicationState extends EntityState<Application> {
-    cart: Array<CartItem>
+    cart: Array<CartItem>;
     category: Category;
     filter: string;
     products: Product[];
@@ -32,8 +33,8 @@ const initialState = {
     address: null
 };
 
-@Injectable({ providedIn: 'root' })
-@StoreConfig({ name: 'application' })
+@Injectable({ providedIn: "root" })
+@StoreConfig({ name: "application" })
 export class ApplicationStore extends EntityStore<ApplicationState> {
 
   constructor() {

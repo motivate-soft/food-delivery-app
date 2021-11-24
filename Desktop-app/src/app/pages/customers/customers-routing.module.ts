@@ -1,32 +1,32 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CustomersListComponent } from './components/customers-list/customers-list.component';
-import { AddCustomerComponent } from './components/add-customer/add-customer.component';
-import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
-import { CustomersComponent } from  './customers.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { CustomersListComponent } from "./components/customers-list/customers-list.component";
+import { AddCustomerComponent } from "./components/add-customer/add-customer.component";
+import { UpdateCustomerComponent } from "./components/update-customer/update-customer.component";
+import { CustomersComponent } from  "./customers.component";
 
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: CustomersComponent,
     children: [
       {
-        path: 'add',
+        path: "add",
         component: AddCustomerComponent
       },
       {
-        path: 'update/:id',
+        path: "update/:id",
         component: UpdateCustomerComponent
       },
       {
-        path: 'list',
+        path: "list",
         component: CustomersListComponent
       },
       {
-        path: '',
-        redirectTo: 'list',
-        pathMatch: 'full'
+        path: "",
+        redirectTo: "list",
+        pathMatch: "full"
       }
     ]
   }

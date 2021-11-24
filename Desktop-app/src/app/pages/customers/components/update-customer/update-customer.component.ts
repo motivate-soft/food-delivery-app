@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Customer } from '../../../../services/shop/shop.model';
-import { ApplicationQuery } from '../../../../state/application.query';
-import { ElectronService } from '../../../../core/services/electron/electron.service';
-import { ApplicationService } from '../../../../state/application.service'
+import { Component, OnInit } from "@angular/core";
+import {ActivatedRoute, Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Customer } from "../../../../services/shop/shop.model";
+import { ApplicationQuery } from "../../../../state/application.query";
+import { ElectronService } from "../../../../core/services/electron/electron.service";
+import { ApplicationService } from "../../../../state/application.service";
 
 @Component({
-  selector: 'app-update-customer',
-  templateUrl: './update-customer.component.html',
-  styleUrls: ['./update-customer.component.scss']
+  selector: "app-update-customer",
+  templateUrl: "./update-customer.component.html",
+  styleUrls: ["./update-customer.component.scss"]
 })
 export class UpdateCustomerComponent implements OnInit {
 
@@ -25,21 +25,18 @@ export class UpdateCustomerComponent implements OnInit {
     private readonly applicationQuery: ApplicationQuery,
     private readonly electronService: ElectronService,
     private readonly applicationService: ApplicationService,
-  
-  ) { 
-
-    
+  ) {
+    //
   }
 
   ngOnInit(): void {
 
-    
     this.form = this.fb.group({
-      name: ['', Validators.required ],
-      street: ['', Validators.required ],
-      city: ['', Validators.required ],
-      postal_code: ['', Validators.required ],
-      telephone: ['', Validators.required],
+      name: ["", Validators.required ],
+      street: ["", Validators.required ],
+      city: ["", Validators.required ],
+      postal_code: ["", Validators.required ],
+      telephone: ["", Validators.required],
     });
 
 
@@ -50,12 +47,13 @@ export class UpdateCustomerComponent implements OnInit {
         this.customer = customer;
         this.form.patchValue( this.customer );
       });
-     
+
     });
 
 
   }
 
+  // tslint:disable-next-line: typedef
   save() {
     this.submitted = true;
 
@@ -63,34 +61,44 @@ export class UpdateCustomerComponent implements OnInit {
       return null;
     }
 
+    // tslint:disable-next-line: typedef
     const fields = this.changedControls();
 
     if( Object.keys( fields ).length > 0 ) {
-      this.electronService.ipcRenderer.send('customer:update', fields );
-      
+      this.electronService.ipcRenderer.send("customer:update", fields );
+
       setTimeout(() => {
-        this.router.navigateByUrl('/customers')
+        this.router.navigateByUrl("/customers");
       }, 1000);
     }
   }
 
+  // tslint:disable-next-line: typedef
   changedControls() {
+    // tslint:disable-next-line: typedef
     const dirty = {};
+    // tslint:disable-next-line: typedef
     const controls = this.form.controls;
     for (const name in controls) {
         if (controls[name].dirty) {
           dirty[ name] = controls[name].value;
         }
     }
-    dirty['id'] = this.customerId;
+    // tslint:disable-next-line: no-string-literal
+    dirty["id"] = this.customerId;
     return dirty;
   }
 
 
-  get name() { return this.form.get('name') }
-  get street() { return this.form.get('street') }
-  get city() { return this.form.get('city') }
-  get postal_code() { return this.form.get('postal_code') }
-  get telephone() { return this.form.get('telephone') }
+  // tslint:disable-next-line: typedef
+  get name() { return this.form.get("name"); }
+  // tslint:disable-next-line: typedef
+  get street() { return this.form.get("street"); }
+  // tslint:disable-next-line: typedef
+  get city() { return this.form.get("city"); }
+  // tslint:disable-next-line: typedef
+  get postal_code() { return this.form.get("postal_code"); }
+  // tslint:disable-next-line: typedef
+  get telephone() { return this.form.get("telephone"); }
 
 }
