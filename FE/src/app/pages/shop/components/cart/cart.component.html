@@ -20,11 +20,11 @@
                     <ul>
                         <li *ngFor="let cartItem of cart; let idx = index">
                             <div class="cart-item">
-                                    <p class="product-name">{{ cartItem.product_name }}({{ cartItem.size }})</p>
+                                    <p class="product-name">{{ cartItem.product_name }}<span *ngIf="cartItem.size">({{ cartItem.size }})</span></p>
                                     <p>{{ cartItem.product_description }}</p>
                                     <p>
                                         <span *ngFor="let topping of cartItem.toppings; let id_t = index">
-                                            {{ topping.name }}({{ topping.size}})
+                                            {{ topping.name }}
                                             <span *ngIf="cartItem.toppings.length > id_t + 1">, </span>
                                         </span>
                                     </p>

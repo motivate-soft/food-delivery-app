@@ -54,6 +54,19 @@ export class ProductDialogComponent {
           ...tmpToppings[inx],
           selectedPrice: tmpToppings[inx].prices[this.sizeOrder],
         })
+
+        if (tmpToppings[inx].selected) {
+          this.selectedPrice = this.selectedPrice + tmpToppings[inx].prices[this.sizeOrder]
+        }
+      }
+    }
+  }
+
+  changeTopping() {
+    this.selectedPrice = this.data.product.prices[this.sizeOrder];
+    for (let inx = 0; inx < this.toppings.length; inx++) {
+      if (this.toppings[inx].selected) {
+        this.selectedPrice = this.selectedPrice + this.toppings[inx].prices[this.sizeOrder]
       }
     }
   }
@@ -70,29 +83,26 @@ export class ProductDialogComponent {
       product_description: this.data.product.description,
       price: this.selectedPrice,
       quantity: this.quantity,
-      size: this.data.sizes[this.sizeOrder]
+      size: this.sizeOrder ? this.data.sizes[this.sizeOrder] : this.data.sizes[0]
     }
 
     const selectedToppings = [];
-    let extraPrice = 0;
     for (let in_t = 0; in_t < this.toppings.length; in_t++) {
       const element = this.toppings[in_t];
       if (element.selected) {
         selectedToppings.push({
           _id: element._id,
           name: element.name,
-          size: this.data.sizes[this.sizeOrder],
+          size: this.sizeOrder ? this.data.sizes[this.sizeOrder]: this.data.sizes[0],
           price: element.selectedPrice
         });
-        extraPrice = 0 + element.selectedPrice;
       }
     }
 
     if (selectedToppings.length > 0) {
       cartItem = {
         ...cartItem,
-        toppings: selectedToppings,
-        price: cartItem.price + extraPrice
+        toppings: selectedToppings
       }
     }
 

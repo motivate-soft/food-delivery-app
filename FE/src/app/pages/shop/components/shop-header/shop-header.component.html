@@ -1,20 +1,13 @@
 <div class="c-shop-header o-content c-home__header">
     <div class="o-content--wrapper">
         <div class="o-content__row" >
-            <div class="o-col-6 o-content__row">
+            <div class="o-col-12 o-content__row">
                 <h2>{{ shop.name }}</h2>
                 <div class="working-time">
                     <p *ngFor="let work_hour of shop.working_hours; let idx = index">
                         {{getWorkingTimeChars(work_hour.from)}} <span>-</span> {{getWorkingTimeChars(work_hour.to)}}
                     </p>
                 </div>
-            </div>
-            <div class="o-col-6">
-                <mat-form-field appearance="outline">
-                    <mat-label>Search</mat-label>
-                    <input matInput placeholder="Search">
-                    <mat-icon matSuffix>search</mat-icon>
-                </mat-form-field>
             </div>
         </div>
     </div>
