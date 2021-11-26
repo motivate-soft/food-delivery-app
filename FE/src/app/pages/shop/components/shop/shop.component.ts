@@ -18,7 +18,9 @@ export class ShopComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.shopQuery.shop$.subscribe( shop => this.shop = shop );
+    this.shopQuery.shop$.subscribe( shop => {
+      this.shop = shop
+    } );
 
     // Request shop information
     this.shopService.setLoading( true );  

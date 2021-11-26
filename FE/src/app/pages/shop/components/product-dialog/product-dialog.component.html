@@ -1,0 +1,58 @@
+<mat-card *ngIf="data">
+    <mat-card-header>
+        <mat-card-title class="card-title">{{data.product.name}}</mat-card-title>
+        <button mat-icon-button aria-label="Close" (click)="onClose()">
+            <mat-icon>close</mat-icon>
+          </button>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div fxLayout="row wrap" fxLayoutAlign="left">
+            <div fxFlex="50%" fxFlex.sm="100%" fxFlex.xs="100%">
+                <img mat-card-image [src]="'assets/images/sample.jpg'" alt="image">
+            </div>
+            <div fxFlex="50%" fxFlex.sm="100%" fxFlex.xs="100%">
+                <p class="price" *ngIf="selectedPrice">{{ selectedPrice | currency }}</p>
+                <p class="description">{{ data.product.description }}</p>
+                <p class="size-option" *ngIf="data.sizes && data.sizes.length > 0">Select your options</p>
+                <p class="size-lable" *ngIf="data.sizes && data.sizes.length > 0">Size</p>
+                <mat-button-toggle-group class="main-size" *ngIf="data.sizes && data.sizes.length > 0" [(ngModel)]="sizeOrder" aria-label="Size" (ngModelChange)="changeSize()">
+                    <mat-button-toggle *ngFor="let size_value of data.sizes;let idx_size = index" value="{{idx_size}}" color="primary">{{ size_value }}</mat-button-toggle>
+                </mat-button-toggle-group>
+                
+                <div *ngIf="toppings.length > 0 && sizeOrder" class="extra">
+                    <p class="extra-label">Extra</p>
+                    <div fxLayout="row wrap">
+                        <div fxFlex="45%" fxFlex.sm="45%" fxFlex.xs="45%">
+                            <section class="toppings-section">
+                                <p class="price" *ngFor="let topping of toppings; let inx_t = index">
+                                    <mat-checkbox [(ngModel)]="topping.selected" (ngModelChange)="changeSize()" color="primary">
+                                        {{ topping.name }} &nbsp;+{{ topping.selectedPrice | currency }}
+                                    </mat-checkbox>
+                                </p>
+                            </section>
+                        </div>
+                        <div fxFlex="55%" fxFlex.sm="55%" fxFlex.xs="55%">
+                            <p class="price" *ngFor="let topping of toppings; let inx_t = index">
+                                <mat-button-toggle-group class="topping-size" [(ngModel)]="topping.size" aria-label="Size" (ngModelChange)="changeSizeForTopping(inx_t)">
+                                    <mat-button-toggle *ngFor="let size_value of data.sizes;let idx_size = index" value="{{idx_size}}" color="primary">{{ size_value }}</mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quantity-submit" *ngIf="!data.sizes || data.sizes.length == 0 || sizeOrder">
+                    <p class="quantity">Quantity</p>
+                    <mat-form-field class="quantity-input">
+                        <mat-label></mat-label>
+                        <input matInput placeholder="" type="number" [(ngModel)]="quantity">
+                        <mat-hint *ngIf="!quantity || quantity < 1">Please input the quanity.</mat-hint>
+                    </mat-form-field>
+
+                    <button mat-flat-button color="primary" (click)="addToCart()" [disabled]="isSubmit">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

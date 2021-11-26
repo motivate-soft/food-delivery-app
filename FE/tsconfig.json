@@ -18,6 +18,7 @@
     "paths": {
       "@environments/*": ["src/environments/*"],
       "@pages/*": ["src/app/pages/*"],
+      "@app_/*": ["src/app/*"],
     }
   },
   "angularCompilerOptions": {

@@ -1,0 +1,169 @@
+/* Utiles */
+// Tamaños
+.u-size-icon {
+  @for $i from 12 through 24 {
+    &--#{$i} {
+      font-size: #{$i}px;
+      width: #{$i}px !important;
+      height: #{$i}px !important;
+    }
+  }
+}
+
+// Margenes
+.u-divider {
+  margin: 16px 0 !important;
+}
+
+// Bordes
+
+@for $i from 0 through 20 {
+  .u-margin-x--#{$i} {
+    margin-right: #{$i}px !important;
+    margin-left: #{$i}px !important;
+  }
+
+  .u-margin-y--#{$i} {
+    margin-bottom: #{$i}px !important;
+    margin-top: #{$i}px !important;
+  }
+
+  .u-margin-b--#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+
+  .u-margin-t--#{$i} {
+    margin-top: #{$i}px !important;
+  }
+}
+
+// Display
+.u-flex {
+  display: flex !important;
+
+  &--no-wrap {
+    flex-flow: nowrap;
+  }
+
+  &--wrap {
+    flex-flow: wrap;
+  }
+
+  &--row {
+    flex-direction: row;
+  }
+
+  &--align-items-center {
+    align-items: center;
+  }
+
+  &--justify-content-center {
+    justify-content: center;
+  }
+
+  &--justify-content-around {
+    justify-content: space-around;
+  }
+
+  &--justify-content-between {
+    justify-content: space-between;
+  }
+
+  &--justify-content-end {
+    justify-content: flex-end;
+  }
+
+  &--row {
+    flex-direction: row !important;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--column-reverse-m {
+    @media (max-width: $max-width-mobile) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__desktop--row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__mobile--column {
+    @media (max-width: $max-width-mobile) {
+      flex-direction: column;
+    }
+  }
+}
+
+// Posiciones
+.u-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+// Útiles Colores
+.u-color-lilac {
+  color: $lilac;
+}
+
+.u-color-dark-grey {
+  color: $dark-grey;
+}
+
+.u-bg-color {
+  &--soft-lilac {
+    background-color: $soft-lilac;
+    color: $white;
+  }
+
+  &--lilac {
+    background-color: $lilac;
+    color: $white;
+  }
+
+  &--soft-lilac {
+    background-color: $soft-lilac;
+    color: $white;
+  }
+
+  &--white {
+    background-color: $white;
+    color: $lilac;
+  }
+
+  &--grey {
+    background-color: $grey;
+    color: $lilac;
+  }
+}
+
+// Hidden
+.u-hidden {
+  display: none;
+}
+
+.u-show-mobile {
+  display: none !important;
+
+  @media (max-width: $max-width-mobile) {
+    display: block !important;
+  }
+}
+
+.u-show-desktop {
+  display: block;
+
+  @media (max-width: $max-width-mobile) {
+    display: none !important;
+  }
+}
+
+.u-text-center {
+  text-align: center !important;
+}

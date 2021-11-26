@@ -1,0 +1,85 @@
+@import "~@angular/material/theming";
+@import "assets/scss/variables";
+@import "assets/scss/base.scss";
+@import "assets/scss/objects";
+@import "assets/scss/utils";
+@import "assets/scss/mat";
+@import "~angular-notifier/styles";
+
+@include mat-core();
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $soft-grey;
+  color: $dark-lilac;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gm-style-iw.gm-style-iw-c {
+  max-width: 390px !important;
+  padding: 0;
+}
+.gm-style .gm-style-iw-d {
+  height: auto;
+}
+.mat-dialog-container {
+  position: relative;
+  padding: 0 !important;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+$angular-primary: mat-palette($mat-deep-purple, 500);
+$angular-accent: mat-palette($mat-deep-purple, 100);
+$angular-warn: mat-palette($mat-red);
+
+$angular-theme: mat-light-theme(
+    (
+      color: (
+        primary: $angular-primary,
+        accent: $angular-accent,
+        warn: $angular-warn,
+    ),
+  )
+);
+
+.call-dialog-container .mat-dialog-container {
+  overflow-x: hidden;
+  padding: 5px 20px !important;
+
+  mat-icon {
+    float: right !important;
+    cursor: pointer;
+  }
+}
+
+@include angular-material-theme($angular-theme);
+

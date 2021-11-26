@@ -1,0 +1,122 @@
+@import "../../../../../assets/scss/variables";
+@import "../../../../../assets/scss/objects";
+
+.mat-card {
+    max-height: 90vh;
+    overflow-y: auto;
+    .mat-card-header {
+        button {
+            position: absolute;
+            right: 20px;
+        }
+    }
+    .card-title {
+        font-size: 2.0em;
+        font-weight: 500;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .mat-card-content {
+        margin-top: 20px;
+        padding: 15px;
+    
+        img {
+            width: 80%;
+            text-align: center;
+            margin: auto;
+            max-height: 200px;
+        }
+
+        p.description {
+            font-size: 1.6em;
+            font-weight: 300;
+            line-height: 30px;
+        }
+        p.price {
+            font-size: 1.6em;
+            font-weight: 500;
+        }
+        p.size-option {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-top: 30px;
+        }
+        p.size-lable {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 50px;
+        }
+    }
+}
+
+.mat-button-toggle-group {
+    width: 100%;
+}
+
+.main-size .mat-button-toggle {
+    background-color: white;
+    border: 2px solid $blue;
+    color: $blue;
+    text-transform: uppercase;
+    width: 100%;
+}
+.main-size .mat-button-toggle-checked {
+    background-color: $blue;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+::ng-deep .topping-size .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 5px !important;
+}
+
+.topping-size .mat-button-toggle {
+    background-color: white;
+    color: $blue;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: small;
+}
+.topping-size .mat-button-toggle-checked {
+    background-color: $blue;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.extra {
+    margin-top: 50px;
+    p.extra-label {
+        font-size: 1.5em;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+    .mat-checkbox {
+        font-size: medium;
+        font-weight: 300;
+        margin-top: 3px;
+    }
+    .price .mat-button-toggle-group {
+        margin-bottom: 3px;
+    }
+}
+
+.quantity-submit {
+    margin-top: 50px;
+    p.quantity {
+        font-size: 1.5em;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+
+    .quantity-input {
+        width: 100%;
+        font-size: 1.5em;
+    }
+
+    button {
+        margin-top: 30px;
+    }
+}

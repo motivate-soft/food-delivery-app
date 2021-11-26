@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CartItem, Product, Shop } from '@pages/shop/state/shop.model';
-import { ShopQuery } from '@pages/shop/state/shop.query';
-import { ShopService } from '@pages/shop/state/shop.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CartItem, Product, Shop, Category, ProductItem } from '@pages/shop/state/shop.model';
+import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 
 @Component({
   selector: 'app-product-list',
@@ -10,64 +10,88 @@ import { ShopService } from '@pages/shop/state/shop.service';
 })
 export class ProductListComponent implements OnInit {
 
-  @Input() shop: Shop;
-  selectedDropmenuId: any;
-  selectedCategoryId: any;
-  selectedToppingDropmenuId: any;
+  shop: Shop;
+  categories: Array<Category>;
 
+  products: Array<ProductItem>
+
+  cart:Array<CartItem>;
+
+  selectedCategory = 'all'
+
+  @Input()
+  set data(shop: Shop) {
+    this.shop = shop;
+    this.categories = [];
+    this.products = [];
+    this.categories.push(...this.shop.categories);
+    for (let index = 0; index < this.categories.length; index++) {
+      const category = this.categories[index];
+      category.products.forEach(element => {
+        this.products.push({
+          shop_id: this.shop._id,
+          category_id: category._id,
+          category_name: category.name,
+          sizes: category.sizes,
+          product: element,
+          toppings: category.toppings ? category.toppings : [],
+          tax: category.tax? category.tax : 0
+        })
+      });
+    }
+  }
 
   constructor(
-    private shopQuery: ShopQuery,
-    private shopService: ShopService
+    public dialog: MatDialog
   ) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
-  addToCart( product: Product, price: number ) {
+  onClickCategoryList(categoryId: string) {
+    this.selectedCategory = categoryId;
 
-    const cartItem: CartItem = {
-      product_id: product._id,
-      product_name: product.name,
-      product_code: product.code,
-      product_description: product.description,
-      price: price,
-      quantity: 1
-    }  
+    this.categories = [];
 
-    this.shopService.addToCart( cartItem );
-    this.selectedDropmenuId = -1;
-    this.selectedToppingDropmenuId = -1;
-  }
+    if (categoryId === 'all') {
+      this.categories.push(...this.shop.categories);
+    }
+    else {
+      for (let index = 0; index < this.shop.categories.length; index++) {
+      
+        if (this.shop.categories[index]._id === categoryId) {
+          this.categories.push(this.shop.categories[index]);
+          break;
+        }
+      }
+    }
 
-  
-  openDropmenu(categoryId, menuId) {
-    if (this.selectedCategoryId == categoryId && this.selectedDropmenuId == menuId) {
-      this.selectedDropmenuId = -1;
-    } else {
-      this.selectedDropmenuId = menuId;
-      this.selectedCategoryId = categoryId;
+    this.products = [];
+    for (let index = 0; index < this.categories.length; index++) {
+      const category = this.categories[index];
+      category.products.forEach(element => {
+        this.products.push({
+          shop_id: this.shop._id,
+          category_id: category._id,
+          category_name: category.name,
+          sizes: category.sizes,
+          product: element,
+          toppings: category.toppings ? category.toppings : [],
+          tax: category.tax? category.tax : 0
+        })
+      });
     }
   }
 
+  openDialog(product: ProductItem): void {
+    const dialogRef = this.dialog.open(ProductDialogComponent, {
+      // width: '450px',
+      maxWidth: '1000px',
+      data: product,
+    });
 
-  addToppingToCart( topping: {
-    name: string;
-    prices: number[]
-  }, price: number ) {
-
-    this.selectedDropmenuId = -1;
-    this.selectedToppingDropmenuId = -1;
-  }
-
-  openToppingDropmenu(categoryId, toppingId) {
-    if (this.selectedCategoryId == categoryId && this.selectedToppingDropmenuId == toppingId) {
-      this.selectedToppingDropmenuId = -1;
-    } else {
-      this.selectedToppingDropmenuId = toppingId;
-      this.selectedCategoryId = categoryId;
-    }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }

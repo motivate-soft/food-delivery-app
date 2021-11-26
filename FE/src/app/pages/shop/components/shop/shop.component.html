@@ -1,18 +1,8 @@
 <div *ngIf="shop">
+
     <app-shop-header [shop]="shop"></app-shop-header>
-
-    <div class="container">
-        <div class="row main-body">
-            <div class="col hidden-small sidebar">
-                <app-sidebar [shop]="shop"></app-sidebar>
-            </div>
-            
-            <div class="col product-list" >
-                <app-product-list [shop]="shop"></app-product-list>
-            </div>
-        </div>
-    </div>
-
+    <app-product-list [data]="shop"></app-product-list>
     <!--- ///  CART --->
     <app-cart></app-cart>
+
 </div>

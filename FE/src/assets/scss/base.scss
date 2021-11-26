@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/Raleway-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/Raleway-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/Raleway-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/Raleway-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/Raleway-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/Raleway-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1.2px
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit
+}
+a, input {
+    outline: 0;
+}
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px
+   /* overflow-y: scroll; */
+}
+
+body {
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*height: 100vh;*/
+    
+}
+
+a {
+    color: #323130; 
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: all .3s ease-in;
+
+   &:hover {
+       text-decoration: underline;
+   }
+}
+
+p {
+    font-size: 1.4rem;
+}
+
+.page-container {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+
+    .main {
+        flex: 1;
+        background-color: #f3f2f1;
+    }
+}
+.cover-height {
+    height: 100%;
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }

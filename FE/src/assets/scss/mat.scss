@@ -1,0 +1,30 @@
+
+.c-search-bar__field {
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+  }
+}
+
+.mat-card-avatar {
+  background-image: url(https://material.angular.io/assets/img/examples/shiba2.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.mat-pseudo-checkbox {
+  border-color: $lilac !important;
+}
+
+.mat-form-field-outline {
+  background-color: $white;
+  border-radius: 4px;
+}
+
+.mat-paginator {
+  background-color: transparent !important;
+}
+
+.mat-card:not([class*="mat-elevation-z"]) {
+  box-shadow: none !important;
+}

@@ -1,12 +1,19 @@
 export interface CartItem {
+  shop_id?: string;
   product_id: string;
   product_name: string;
   product_code: string;
   product_description: string;
-  toppings?: Array<string>;
+  toppings?: Array<{
+    _id: string;
+    name: string;
+    price: number;
+    size: string;
+  }>;
   sort?: string;
   price: number;
   quantity: number;
+  size: string;
 }
 
 export interface Product {
@@ -23,15 +30,10 @@ export interface Category {
   name: string;
   is_active: boolean;
   is_offered: boolean;
-  size?: Array<{
-    name: string;
-    description?: string;
-  }>;
-  toppings?: Array<{
-    name: string;
-    prices: number[]
-  }>
+  sizes?: string[];
+  toppings?: Array<Topping>;
   products: Product[];
+  tax?: number;
 }
 
 export interface Shop {
@@ -46,6 +48,26 @@ export interface Shop {
     from: number;
     to: number;
   }>
+}
+
+export interface ProductItem {
+  shop_id: string;
+  category_id: string;
+  category_name: string;
+  sizes: Array<string>;
+  product: Product;
+  toppings: Array<Topping>
+  tax: number;
+  quantity?: number;
+}
+
+export interface Topping {
+  name: string;
+  prices: number[];
+  _id: string;
+  selected?: boolean;
+  selectedPrice?: number;
+  size?: number; // index
 }
 
 

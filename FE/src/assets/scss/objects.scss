@@ -1,0 +1,350 @@
+@import "variables";
+
+// Columnas
+@for $i from 1 through 12 {
+  .o-col-#{$i} {
+    display: flex;
+    flex-direction: column;
+
+    width: 8.33333% * $i;
+    padding: 0 11px;
+
+    @media (max-width: $max-width-mobile) {
+      width: 100%;
+    }
+  }
+
+  .o-col-xs-#{$i} {
+    width: auto;
+    padding: 0 11px;
+
+    @media (max-width: $max-width-mobile) {
+      width: 8.33333% * $i;
+    }
+  }
+}
+
+///
+.o-enlace {
+  text-decoration: underline;
+  cursor: pointer;
+
+  &--color-lilac {
+    color: $lilac;
+  }
+
+  &--footer {
+    text-decoration: none;
+    color: $dark-lilac;
+  }
+}
+
+.o-paragraph {
+  font-size: $size-copy !important;
+  font-weight: 400 !important;
+
+  &--bold {
+    font-weight: 600;
+  }
+
+  &--low {
+    font-size: $size-copy-low;
+  }
+}
+
+.o-heading {
+  font-weight: bold !important;
+  font-size: $size-title !important;
+  line-height: 1.18 !important;
+
+  @media (max-width: $max-width-mobile) {
+    font-size: $size-title-mobile !important;
+  }
+
+  &-1 {
+    font-size: $size-title-1 !important;
+
+    @media (max-width: $max-width-mobile) {
+      font-size: $size-title-1-mobile !important;
+    }
+  }
+
+  &-2 {
+    font-size: $size-title-2 !important;
+
+    @media (max-width: $max-width-mobile) {
+      font-size: $size-title-2-mobile !important;
+    }
+  }
+
+  &-3 {
+    font-size: $size-title-3 !important;
+
+    @media (max-width: $max-width-mobile) {
+      font-size: $size-title-3-mobile !important;
+    }
+  }
+
+  &-4 {
+    font-size: $size-title-4 !important;
+
+    @media (max-width: $max-width-mobile) {
+      font-size: $size-title-4-mobile !important;
+    }
+  }
+
+  &--regular {
+    font-weight: normal !important;
+  }
+
+  &--lilac {
+    color: $lilac !important;
+  }
+
+  > strong {
+    color: $lilac !important;
+  }
+}
+
+.o-content {
+  width: 100%;
+
+  &__row {
+    width: 100%;
+    display: flex;
+    flex-flow: nowrap;
+
+    @media (max-width: $max-width-mobile) {
+      flex-flow: wrap;
+    }
+
+    &--grid {
+      display: grid;
+      padding: 0 11px;
+    }
+  }
+
+  &--wrapper {
+    display: flex;
+    flex-flow: wrap;
+
+    margin: auto;
+    width: 100%;
+    max-width: 1500px;
+    // padding-left: 50px;
+    // padding-right: 50px;
+  }
+
+  &--back-soft-lilac {
+    background-color: $soft-lilac;
+  }
+
+  &--back-white {
+    background-color: $white;
+  }
+}
+
+.o-star {
+  width: $size-start !important;
+  height: $size-start !important;
+  font-size: $size-start !important;
+
+  cursor: pointer;
+  color: $strong-yellow;
+
+  &:last-of-type {
+    margin-right: 5px;
+  }
+}
+
+.o-circle {
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* GENERALES */
+.o-list {
+  padding-left: 20px;
+
+  &__item {
+    margin: 5px 0;
+
+    &::marker {
+      color: $lilac;
+      font-size: 22px;
+    }
+
+    &--none {
+      list-style: none;
+    }
+
+    &--check {
+      display: flex;
+      align-items: center;
+      list-style: none;
+
+      &::before {
+        content: url("/assets/images/checkmark.svg");
+        width: 22px;
+        margin-right: 14px;
+      }
+    }
+  }
+
+  &--np {
+    padding: 0;
+  }
+}
+
+.o-group-links {
+  color: $dark-lilac;
+  display: flex;
+  flex-flow: wrap;
+  border: 1px solid $soft-lilac;
+  border-radius: $size-border-radius;
+  padding: 24px 32px;
+
+  @media (max-width: $max-width-mobile) {
+    margin: 0 0;
+  }
+
+  > div {
+    width: 25%;
+    margin-bottom: 24px;
+
+    @media (max-width: $max-width-mobile) {
+      width: calc(50% - 20px);
+      margin-left: 20px;
+    }
+
+    > h3 {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    > ul {
+      font-size: 14px;
+    }
+  }
+
+  &__more {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  &__content {
+
+
+    &__title {
+      @extend .o-heading;
+      @extend .o-heading-4;
+    }
+  }
+
+  &--no-borders {
+    border: none;
+  }
+}
+
+// Formularios
+.o-form {
+  display: flex;
+  flex-direction: column;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+
+    @media (max-width: $max-width-mobile) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__input-group {
+    width: 100%;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+
+    &__select {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50px;
+        height: 100%;
+        line-height: 38px;
+        content: 'expand_more';
+        font-family: 'Material Icons', serif;
+        text-align: center;
+        font-size: 24px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      select {
+        width: 100%;
+        background-color: transparent !important;
+        z-index: 2;
+      }
+    }
+
+    &--select {
+      margin-bottom: 30px;
+    }
+
+    &--inline {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  &__label {
+    margin: 0 0 5px 0;
+    color: $dark-lilac;
+    font-weight: 600;
+  }
+
+  &__input {
+    border: 1px solid $soft-lilac;
+    border-radius: $size-border-radius;
+    padding: 12px 16px;
+    background-color: $white;
+  }
+
+  select {
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input[type=checkbox] {
+    margin-right: 8px;
+  }
+}

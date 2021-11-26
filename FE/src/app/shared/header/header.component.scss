@@ -1,0 +1,131 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/objects";
+
+.c-header {
+  height: $height-nav-menu;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  z-index: 1005;
+
+  @media (max-width: $max-width-mobile) {
+    height: $height-nav-menu-mobile;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 11px;
+  }
+
+  &__brand {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: 600;
+    color: $lilac;
+
+    @media (max-width: $max-width-mobile) {
+      font-size: 21px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    z-index: 3;
+
+    @media (max-width: $max-width-mobile) {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+
+      &.active {
+        display: flex;
+      }
+    }
+
+    &__content {
+      @media (max-width: $max-width-mobile) {
+        width: 80%;
+        height: 100%;
+        background-color: $white;
+        margin-left: auto;
+        padding: 20px;
+
+        position: relative;
+      }
+
+      &__close {
+        display: none;
+
+        @media (max-width: $max-width-mobile) {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $max-width-mobile) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    &__link {
+      margin-left: 42px;
+
+      @media (max-width: $max-width-mobile) {
+        width: 100%;
+        padding: 16px 8px;
+        margin-left: 0;
+        border-top: 1px solid $soft-lilac;
+        border-bottom: 1px solid $soft-lilac;
+      }
+
+      &--chip {
+        padding: 2px 14px;
+        border-radius: 15px;
+        background-color: $violet;
+        color: $white;
+        font-weight: 500;
+        line-height: 200%;
+
+        border: none;
+
+        &:hover {
+          background-color: darken($violet, 10%);
+        }
+
+        @media (max-width: $max-width-mobile) {
+          margin-top: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  /* Mobile */
+  &__hamburguer {
+    display: none;
+
+    @media (max-width: $max-width-mobile) {
+      display: block;
+    }
+  }
+}

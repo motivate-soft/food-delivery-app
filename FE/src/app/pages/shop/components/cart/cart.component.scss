@@ -168,6 +168,7 @@
                                 background-color: #ffffff;
                                 padding: 0;
                                 text-align: center;
+                                border: none;
                             }
                         }
                     }
@@ -196,4 +197,10 @@
             }
         }
     }
+}
+
+.topping-div {
+    display: flex !important; 
+    width: 50%;
+    margin-top: 10px;
 }
