@@ -67,7 +67,6 @@ export interface Topping {
   _id: string;
   selected?: boolean;
   selectedPrice?: number;
-  size?: number; // index
 }
 
 

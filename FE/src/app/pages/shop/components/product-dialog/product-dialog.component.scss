@@ -45,7 +45,7 @@
         p.size-lable {
             font-size: 1.5em;
             font-weight: 700;
-            margin-top: 50px;
+            margin-top: 20px;
         }
     }
 }
@@ -60,6 +60,7 @@
     color: $blue;
     text-transform: uppercase;
     width: 100%;
+    font-size: large;
 }
 .main-size .mat-button-toggle-checked {
     background-color: $blue;
@@ -77,7 +78,7 @@
     color: $blue;
     text-transform: uppercase;
     width: 100%;
-    font-size: small;
+    font-size: 1.3em;
 }
 .topping-size .mat-button-toggle-checked {
     background-color: $blue;
@@ -118,5 +119,6 @@
 
     button {
         margin-top: 30px;
+        float: right;
     }
 }

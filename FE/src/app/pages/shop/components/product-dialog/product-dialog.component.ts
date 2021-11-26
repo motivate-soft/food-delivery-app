@@ -36,7 +36,6 @@ export class ProductDialogComponent {
             ...this.data.toppings[inx],
             selected: false,
             selectedPrice: this.data.toppings[inx].prices[0],
-            size: 0
           })
         }
       }
@@ -45,11 +44,18 @@ export class ProductDialogComponent {
 
   changeSize() {
     this.selectedPrice = this.data.product.prices[this.sizeOrder];
-  }
-
-  changeSizeForTopping(toppingOrder: number) {
-    this.toppings[toppingOrder].selectedPrice = this.toppings[toppingOrder].prices[this.toppings[toppingOrder].size];
-    this.toppings[toppingOrder].selected = true;
+    const tmpToppings = [
+      ...this.toppings
+    ];
+    this.toppings = [];
+    if (this.data.toppings) {
+      for (let inx = 0; inx < tmpToppings.length; inx++) {
+        this.toppings.push({
+          ...tmpToppings[inx],
+          selectedPrice: tmpToppings[inx].prices[this.sizeOrder],
+        })
+      }
+    }
   }
 
   addToCart() {
@@ -75,7 +81,7 @@ export class ProductDialogComponent {
         selectedToppings.push({
           _id: element._id,
           name: element.name,
-          size: this.data.sizes[element.size],
+          size: this.data.sizes[this.sizeOrder],
           price: element.selectedPrice
         });
         extraPrice = 0 + element.selectedPrice;

@@ -22,9 +22,12 @@
 .products {
     width: 100%;
     .mat-card {
-        padding: 15px !important;
+        padding: 20px !important;
         // height: 150px;
         margin: 10px;
+
+        border: 1px solid rgb(233, 233, 233);
+
         
         img {
             height: 150px;
@@ -34,8 +37,6 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin-left: -15px;
-        margin-top: -5px;
     }
     p.description {
         font-size: large;
@@ -44,13 +45,11 @@
         overflow: hidden;
         text-overflow: ellipsis;
         width: 80%;
-        margin-left: -15px;
     }
     p.price {
-        font-size: larger;
+        font-size: x-large;
         font-weight: 500;
-        margin-left: -15px;
-        margin-top: -5px;
+        color: rgb(220, 72, 14);
     }
 }
 
