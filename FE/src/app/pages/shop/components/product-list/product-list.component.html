@@ -10,7 +10,6 @@
         <div fxLayout="row wrap" fxLayoutAlign="left" class="products">
             <div fxFlex="25%" fxFlex.sm="50%" fxFlex.xs="100%"  *ngFor="let item of products; let idx = index">
                 <mat-card (click)="openDialog(item)">
-                    <img mat-card-image [src]="'assets/images/sample.jpg'" alt="image">
                     <mat-card-content>
                         <mat-card-title>{{item.product.name}}</mat-card-title>
                         <p class="description">

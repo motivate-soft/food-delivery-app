@@ -49,6 +49,7 @@ export class ProductDialogComponent {
 
   changeSizeForTopping(toppingOrder: number) {
     this.toppings[toppingOrder].selectedPrice = this.toppings[toppingOrder].prices[this.toppings[toppingOrder].size];
+    this.toppings[toppingOrder].selected = true;
   }
 
   addToCart() {

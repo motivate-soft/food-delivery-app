@@ -8,10 +8,7 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <div fxLayout="row wrap" fxLayoutAlign="left">
-            <div fxFlex="50%" fxFlex.sm="100%" fxFlex.xs="100%">
-                <img mat-card-image [src]="'assets/images/sample.jpg'" alt="image">
-            </div>
-            <div fxFlex="50%" fxFlex.sm="100%" fxFlex.xs="100%">
+            <div fxFlex="40%" fxFlex.sm="100%" fxFlex.xs="100%" style="min-width: 300px; padding-right: 20px;">
                 <p class="price" *ngIf="selectedPrice">{{ selectedPrice | currency }}</p>
                 <p class="description">{{ data.product.description }}</p>
                 <p class="size-option" *ngIf="data.sizes && data.sizes.length > 0">Select your options</p>
@@ -19,6 +16,8 @@
                 <mat-button-toggle-group class="main-size" *ngIf="data.sizes && data.sizes.length > 0" [(ngModel)]="sizeOrder" aria-label="Size" (ngModelChange)="changeSize()">
                     <mat-button-toggle *ngFor="let size_value of data.sizes;let idx_size = index" value="{{idx_size}}" color="primary">{{ size_value }}</mat-button-toggle>
                 </mat-button-toggle-group>
+            </div>
+            <div fxFlex="60%" fxFlex.sm="100%" fxFlex.xs="100%" style="min-width: 700px;">
                 
                 <div *ngIf="toppings.length > 0 && sizeOrder" class="extra">
                     <p class="extra-label">Extra</p>

@@ -85,7 +85,8 @@ export class ProductListComponent implements OnInit {
   openDialog(product: ProductItem): void {
     const dialogRef = this.dialog.open(ProductDialogComponent, {
       // width: '450px',
-      maxWidth: '1000px',
+      minWidth: '800px',
+      maxWidth: '1350px',
       data: product,
     });
 
