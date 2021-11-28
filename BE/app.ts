@@ -1,6 +1,5 @@
 import express from 'express';
 import childProcess from 'child_process';
-
 import expressLoader from './loaders/express';
 
 let app = express();

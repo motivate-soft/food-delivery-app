@@ -8,13 +8,13 @@
     button {
         margin-right: 15px;
         margin-bottom: 10px;
-        color: $dark-violet;
+        color: $favaorite-color;
     }
 
     .active {
         margin-right: 15px;
         margin-bottom: 10px;
-        background-color: $blue;
+        background-color: $favaorite-color;
         color: white;
     }
 }
@@ -49,7 +49,7 @@
     p.price {
         font-size: x-large;
         font-weight: 500;
-        color: rgb(220, 72, 14);
+        color: $favaorite-color;
     }
 }
 
