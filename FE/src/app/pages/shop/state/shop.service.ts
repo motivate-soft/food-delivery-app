@@ -6,11 +6,16 @@ import { CartItem, Shop } from './shop.model';
 import { ShopStore } from './shop.store';
 import { environment } from '../../../../environments/environment';
 import { NotificationService } from '../../../common/notification.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '@app_/common/confirm-dialog/confirm-dialog.component';
 @Injectable({ providedIn: 'root' })
 export class ShopService {
 
-  constructor(private shopStore: ShopStore, private http: HttpClient, private notificationService: NotificationService) {
-  }
+  constructor(
+    private shopStore: ShopStore, 
+    private http: HttpClient, 
+    private notificationService: NotificationService,
+    public dialog: MatDialog) {}
 
   setLoading( isLoading: boolean ) {
     this.shopStore.setLoading( isLoading );
@@ -82,8 +87,14 @@ export class ShopService {
     return this.http.post(`${environment.server}/api/shop/confirmCart`, cart).pipe(tap( (response: any ) => {
       if (!response.error) {
         this.resetCart();
-        this.notificationService.showNotification('success', 'Vielen Dank für Ihre Bestellung');
-        this.notificationService.showNotification('info', `Ihre Bestellung ist abgeschlossen und wird nun unter der Nummer ${response.orderId} geführt.`);
+
+        this.dialog.open(ConfirmDialogComponent, {
+          width: '450px',
+          data: {
+            message1: 'Vielen Dank für Ihre Bestellung',
+            message2:  `Ihre Bestellung ist abgeschlossen und wird nun unter der Nummer ${response.orderId} geführt.`
+          },
+        });
 
       } else {
         this.notificationService.showNotification('warning', 'Failed');

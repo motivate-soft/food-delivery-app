@@ -117,10 +117,17 @@
         font-size: 1.5em;
     }
 
-    button {
+    .btn-add-cart {
         margin-top: 30px;
         float: right;
         background-color: $favaorite-color;
+        color: white;
+    }
+
+    .btn-disabled {
+        margin-top: 30px;
+        float: right;
+        background-color: darkgray;
         color: white;
     }
 }

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CartItem, Product, Shop, Category, ProductItem } from '@pages/shop/state/shop.model';
+import { CartItem, Shop, Category, ProductItem } from '@pages/shop/state/shop.model';
 import { ProductDialogComponent } from '../product-dialog/product-dialog.component';
 
 @Component({

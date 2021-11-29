@@ -23,7 +23,7 @@ export class ProductDialogComponent {
   constructor(
     private shopService: ShopService,
     private notifacationService: NotificationService,
-    public dialogRef: MatDialogRef<ProductListComponent>,
+    public dialogRef: MatDialogRef<ProductDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ProductItem,
   ) {
     this.isSubmit = false;

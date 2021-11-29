@@ -1,0 +1,14 @@
+<div fxLayout="row wrap" fxFlexAlign="center" class="row">
+    <div fxFlex.gt-sm="100" fxFlex="100" style="text-align: center;margin-top: 20px;">
+      <mat-icon aria-hidden="false" aria-label="Success icon" style="color: green;font-size: 50px;">done_all</mat-icon>
+    </div>
+    <div fxFlex.gt-sm="100" fxFlex="100" style="text-align: center;">
+      <mat-label class="text-center">{{ data.message1 }}</mat-label>
+    </div>
+    <div fxFlex.gt-sm="100" fxFlex="100" style="text-align: center;margin-bottom: 20px;">
+        <mat-label class="text-center">{{ data.message2 }}</mat-label>
+      </div>
+    <div fxFlex.gt-sm="100" fxFlex="100">
+      <button mat-raised-button class="btn-success" (click)="onClose()" style="width: 50%;margin: auto;display: block;margin-bottom: 20px;">Confirm</button>
+    </div>
+</div>

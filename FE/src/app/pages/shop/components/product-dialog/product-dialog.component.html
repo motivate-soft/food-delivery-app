@@ -48,7 +48,7 @@
                         <mat-hint *ngIf="!quantity || quantity < 1">Please input the quanity.</mat-hint>
                     </mat-form-field>
 
-                    <button mat-flat-button class="btn-add-cart" (click)="addToCart()" [disabled]="isSubmit">ADD TO CART</button>
+                    <button mat-flat-button [ngClass]="quantity < 1 ? 'btn-disabled' : 'btn-add-cart'" (click)="addToCart()" [disabled]="isSubmit || quantity < 1">ADD TO CART</button>
                 </div>
             </div>
         </div>
