@@ -5,11 +5,11 @@ import { tap } from 'rxjs/operators';
 import { CartItem, Shop } from './shop.model';
 import { ShopStore } from './shop.store';
 import { environment } from '../../../../environments/environment';
-
+import { NotificationService } from '../../../common/notification.service';
 @Injectable({ providedIn: 'root' })
 export class ShopService {
 
-  constructor(private shopStore: ShopStore, private http: HttpClient) {
+  constructor(private shopStore: ShopStore, private http: HttpClient, private notificationService: NotificationService) {
   }
 
   setLoading( isLoading: boolean ) {
@@ -82,8 +82,11 @@ export class ShopService {
     return this.http.post(`${environment.server}/api/shop/confirmCart`, cart).pipe(tap( (response: any ) => {
       if (!response.error) {
         this.resetCart();
+        this.notificationService.showNotification('success', 'Vielen Dank für Ihre Bestellung');
+        this.notificationService.showNotification('info', `Ihre Bestellung ist abgeschlossen und wird nun unter der Nummer ${response.orderId} geführt.`);
+
       } else {
-        console.log(response.message);
+        this.notificationService.showNotification('warning', 'Failed');
       }
     })).subscribe();
   }

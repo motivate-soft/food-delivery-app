@@ -66,7 +66,6 @@ export class CartComponent implements OnInit {
   }
 
   confirmOrder() {
-    console.log(this.cart);
-    // this.shopService.postConfirmCart(this.cart);
+    this.shopService.postConfirmCart(this.cart);
   }
 }
