@@ -77,12 +77,14 @@ export class ProductDialogComponent {
 
     let cartItem: CartItem = {
       shop_id: this.data.shop_id,
+      category_id: this.data.category_id,
       product_id: this.data.product._id,
       product_name: this.data.product.name,
       product_code: this.data.product.code,
       product_description: this.data.product.description,
       price: this.selectedPrice,
       quantity: this.quantity,
+      tax: this.data.tax ? this.data.tax : 19,
       size: this.sizeOrder ? this.data.sizes[this.sizeOrder] : this.data.sizes[0]
     }
 

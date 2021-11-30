@@ -16,6 +16,9 @@ export interface CartItem {
   price: number;
   quantity: number;
   toppings?: ITopping[];
+  sort?: string;
+  category_id: string;
+  tax?: number;
 }
 
 export interface ICart extends Document {
@@ -36,6 +39,10 @@ const CartSchema: Schema = new Schema({
         type: String,
         required: true,
       },
+      category_id: {
+        type: String,
+        required: true,
+      },
       product_id: {
         type: String,
         required: true
@@ -46,6 +53,10 @@ const CartSchema: Schema = new Schema({
       product_name: {
         type: String,
         required: true
+      },
+      tax: {
+        type: Number,
+        default: 19
       },
       price: {
         type: Number,

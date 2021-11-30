@@ -37,7 +37,6 @@ export class FooterComponent implements OnInit {
 
     this.webSocketService.messages$.subscribe(
       msg => {
-        console.log("Order Info:", JSON.parse(msg));
         // tslint:disable-next-line: typedef
 
         if (JSON.parse(msg)) {
@@ -51,15 +50,15 @@ export class FooterComponent implements OnInit {
             // tslint:disable-next-line: typedef
             let cart1 = {
               _id: cart.product_id,
-              category_id: "",
+              category_id: cart.category_id,
               name: cart.product_name,
-              code: "",
-              description: "product_description",
+              code: cart.product_code ? cart.product_code : "",
+              description: cart.product_description,
               price: cart.price,
               quantity: cart.quantity,
               size: "",
               size_idx: 1,
-              tax: 7
+              tax: cart.tax
             };
             // tslint:disable-next-line: typedef
             let toppings = [];
@@ -78,6 +77,8 @@ export class FooterComponent implements OnInit {
               toppings: toppings
             });
           });
+
+          console.log(remoteCart)
 
           this.submitted = true;
           this.electronService.ipcRenderer.send("order:print", { cart: remoteCart, address: {

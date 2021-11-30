@@ -12,6 +12,8 @@ export interface CartItem {
   }>;
   sort?: string;
   price: number;
+  category_id: string;
+  tax: number;
   quantity: number;
   size: string;
 }

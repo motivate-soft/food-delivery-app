@@ -166,7 +166,7 @@ try {
 
     // tslint:disable-next-line: typedef
     const _order = cart.map( cartItem => {
-      return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${cartItem.price * cartItem.quantity}`, `${Math.floor(cartItem.price * cartItem.quantity * (1 + cartItem.tax / 100) * 1000) / 1000 }(${cartItem.tax}%)` ];
+      return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000}`, `${Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000 }(${cartItem.tax}%)` ];
     });
 
     const data: PosPrintData[] = [
