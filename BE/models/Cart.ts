@@ -19,11 +19,17 @@ export interface CartItem {
 }
 
 export interface ICart extends Document {
+  shop_id: string;
   carts: Array<CartItem>;
   request_date: string;
+  published: boolean;
 }
 
 const CartSchema: Schema = new Schema({
+  shop_id: {
+    type: String,
+    required: true,
+  },
   carts: [
     {
       shop_id: {
@@ -60,6 +66,10 @@ const CartSchema: Schema = new Schema({
       }
     }
   ],
+  published: {
+    type: Boolean,
+    default: false
+  },
   request_date: {
     type: Date,
     default: Date.now

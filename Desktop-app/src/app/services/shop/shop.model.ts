@@ -47,6 +47,7 @@ export interface CartItem {
   // tslint:disable-next-line: interface-name
   export interface Shop {
     _id: string;
+    owner?: string;
     name: string;
     code: string;
     street: string;

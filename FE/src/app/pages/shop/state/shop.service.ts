@@ -83,7 +83,10 @@ export class ShopService {
     })).subscribe();
   }
 
-  postConfirmCart(cart: Array<CartItem>) {
+  postConfirmCart(cart: {
+    shop_id: string,
+    carts: Array<CartItem>
+  }) {
     return this.http.post(`${environment.server}/api/shop/confirmCart`, cart).pipe(tap( (response: any ) => {
       if (!response.error) {
         this.resetCart();

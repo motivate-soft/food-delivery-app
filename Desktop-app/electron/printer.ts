@@ -4,8 +4,7 @@ import {PosPrinter, PosPrintData, PosPrintOptions} from "electron-pos-printer";
 export class Printer {
 
     private printOptions: PosPrintOptions = {
-        preview: false,
-        silent: true,
+        preview: true,
         width: "80mm",
         margin: "0 0 0 0",
         copies: 1,

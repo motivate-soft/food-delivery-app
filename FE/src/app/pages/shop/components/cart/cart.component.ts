@@ -66,6 +66,10 @@ export class CartComponent implements OnInit {
   }
 
   confirmOrder() {
-    this.shopService.postConfirmCart(this.cart);
+    const shop_id = this.cart[0].shop_id;
+    this.shopService.postConfirmCart({
+      shop_id: shop_id,
+      carts: this.cart
+    });
   }
 }

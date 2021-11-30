@@ -39,15 +39,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Printer = void 0;
 var electron_pos_printer_1 = require("electron-pos-printer");
 var Printer = /** @class */ (function () {
+    // DLP80U-04
     // 80mm DESK usb thermal label printer DLP80U-04
     function Printer(options) {
         this.printOptions = {
-            preview: false,
+            preview: true,
             silent: true,
             width: "80mm",
             margin: "0 0 0 0",
             copies: 1,
-            printerName: "DLP80U-04",
+            printerName: "microsoft",
             timeOutPerLine: 400,
         };
         this.printOptions = Object.assign({}, this.printOptions, options);

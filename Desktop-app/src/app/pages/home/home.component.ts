@@ -4,7 +4,8 @@ import { ShopService } from "../../services/shop/shop.service";
 import { Shop, Product, Category, CartItem } from "../../services/shop/shop.model";
 import { ApplicationQuery } from "../../state/application.query";
 import { ApplicationService } from "../../state/application.service";
-import { webSocket } from "rxjs/webSocket";
+import { WebSocketService } from "../../services/web-socket.service";
+import { Message } from "@angular/compiler/src/i18n/i18n_ast";
 
 @Component({
   selector: "app-home",
@@ -22,17 +23,19 @@ export class HomeComponent implements OnInit {
   categories:{ [key: string]: Category } = {};
   category: Category;
 
-  subject$ = webSocket("ws://localhost:8999");
-
   constructor(
     private readonly shopService: ShopService,
     private readonly applicationQuery: ApplicationQuery,
     private readonly applicationService: ApplicationService,
     private readonly electronService: ElectronService,
-  ) {}
+    private webSocketService: WebSocketService
+  ) {
+
+  }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
+
     this.shopService.get().subscribe( response => {
       this.shop = response.data;
 
@@ -52,6 +55,11 @@ export class HomeComponent implements OnInit {
       this.applicationService.setProducts( this.products );
       this.applicationService.setCategories( this.categories );
 
+      this.webSocketService.sendMessage({ type: "infirm_order", shop_id: this.shop._id, owner: this.shop.owner || "" });
+      setInterval(() => {
+        this.webSocketService.sendMessage({ type: "infirm_order", shop_id: this.shop._id, owner: this.shop.owner || "" });
+      }, 10000);
+
       if ( this.electronService.isElectron) {
         // console.log(process.env);
         console.log("Run in electron");
@@ -64,19 +72,6 @@ export class HomeComponent implements OnInit {
     }, err => {
       this.electronService.ipcRenderer.send("notification:empty", { message1: "Server disconnected", message2: "Please check the server" });
     });
-
   }
 
-
-
-}
-
-
-export class Message {
-  constructor(
-      public sender: string,
-      public content: string,
-      // tslint:disable-next-line: typedef
-      public isBroadcast = false,
-  ) { }
 }
