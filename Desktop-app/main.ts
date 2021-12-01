@@ -170,42 +170,69 @@ try {
     });
 
     const data: PosPrintData[] = [
-
       {
-        type: "text",
-        value: address.name,
+        type: "text", // 'text' | 'barCode' | 'qrCode' | 'image' | 'table
+        value: `<h3 style="font-size: 20px;font-weight: 600;color: #DBC934;font-style: italic;text-align: center;margin-bottom: 5px;">FOOD INTERNATIONAL</h3>
+        <h5 style="font-size: 13px;font-weight: 300;color: #ffffff;text-align: center;margin-top: 0px; margin-bottom: 5px; padding: 5px;">Pingsdorfer Str.45 50321 Bruhl</h5>
+        <h5 style="font-size: 13px;font-weight: 400;color: #ffffff;text-align: center;margin-top: 0px; margin-bottom: 5px; padding: 5px;">www.food-international.de</h5>
+        <h5 style="font-size: 13px;font-weight: 400;color: #ffffff;text-align: center;margin-top: 0px; padding: 5px;">50 73 30 - 50 73 29 - Fax: 50 73 28</h5>`,
         style: `text-align:center;`,
-        css: {"font-weight": "500", "font-size": "16px"}
+        css: { "background-color": "#864038", "padding": "7px 20px", "width": "100%" },
+      },
+      {
+        type: "text", // 'text' | 'barCode' | 'qrCode' | 'image' | 'table'
+        value:
+          `<h2 style="font-size: 13px;font-weight: 600;margin-top: 3px;">Sanotelly</h2>
+          <div style="display: flex;font-size: 12px;">
+              <div style="width: 50%;text-align: left;">${address.name}</div>
+              <div style="width: 50%;text-align: right;">${address.street}</div>
+          </div>
+          <div style="display: flex;font-size: 12px;">
+              <div style="width: 50%;text-align: left;">${address.city}</div>
+              <div style="width: 50%;text-align: right;">${address.telephone}</div>
+          </div>
+          <h2 style="font-size: 13px;font-weight: 500;margin-top: 20px;">Info: Bemerkung</h2>
+          <div style="display: flex;font-size: 12px;">
+              <div style="width: 50%;text-align: left;">Lieferung</div>
+              <div style="width: 50%;text-align: right;font-weight: 400;">Seite 1 von 1</div>
+          </div>`,
+    
+        css: {
+          "font-family": "sans-serif",
+          "background-color": "#FFF",
+          "color": "#000",
+          "padding": "5px 20px",
+          "width": "100%"
+        },
+      }, 
+      {
+          type: "table",
+
+          // style the table
+          style: "font-size: 10px;font-family:Calibri; margin: auto; text-align: center;",
+
+          tableHeader: ["Anz", "Gr", "Artikel", "Preis", "VAT(Tax%)"],
+
+          tableBody: _order,
       },
       {
         type: "text",
-        value: address.street,
+        value: `<h2 style="font-size: 12px;font-weight: 600;margin-top: 3px;font-style: italic;text-align: center;margin-top: 20px;">
+                    Wir danken Ihnen fur lhre Bestellung! Wir wunschen Ihnen einen guten Appetit!
+                </h2>
+                <div style="display: flex;font-size: 12px;">
+                    <div style="width: 50%;text-align: left;">Steuer-Nr 224/5191/3309</div>
+                    <div style="width: 50%;text-align: right;">Service: Nr. 1</div>
+                </div>`,
         style: `text-align:center;`,
-        css: {"font-weight": "300", "font-size": "15px"}
+        css: {
+          "font-family": "sans-serif",
+          "background-color": "#FFF",
+          "color": "#000",
+          "padding": "5px 20px",
+          "width": "100%"
+        },
       },
-      {
-        type: "text",
-        value: address.city,
-        style: `text-align:center;`,
-        css: {"font-weight": "300", "font-size": "15px"}
-      },
-      {
-        type: "text",
-        value: address.telephone,
-        style: `text-align:center;`,
-        css: {"font-weight": "300", "font-size": "15px"}
-      },
-     {
-      type: "table",
-
-      // style the table
-      style: "font-size: 10px;font-family:Calibri;margin-top: 10px; width: 100%;",
-
-      tableHeader: ["Anz", "Gr", "Artikel", "Preis", "VAT(Tax%)"],
-
-      tableBody: _order,
-
-   },
   ];
 
     Printer.print( data );

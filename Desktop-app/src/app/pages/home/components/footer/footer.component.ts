@@ -78,8 +78,6 @@ export class FooterComponent implements OnInit {
             });
           });
 
-          console.log(remoteCart)
-
           this.submitted = true;
           this.electronService.ipcRenderer.send("order:print", { cart: remoteCart, address: {
             name: "test name",
@@ -103,7 +101,14 @@ export class FooterComponent implements OnInit {
      * @todo validate cart and address
      */
     this.submitted = true;
-    this.electronService.ipcRenderer.send("order:print", { cart: this.cart, address: this.address });
+    // this.electronService.ipcRenderer.send("order:print", { cart: this.cart, address: this.address });
+    this.electronService.ipcRenderer.send("order:print", { cart: this.cart, address: {
+      name: "test name",
+      street: "test street",
+      city: "test city",
+      telephone: 12312312,
+      remarks: "5"
+    } });
   }
 
 }

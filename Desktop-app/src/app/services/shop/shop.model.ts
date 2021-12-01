@@ -33,15 +33,13 @@ export interface CartItem {
     name: string;
     is_active: boolean;
     is_offered: boolean;
-    sizes?: Array<{
-      name: string;
-      description?: string;
-    }>;
+    sizes?: Array<string>;
     toppings?: Array<{
       name: string;
       prices: number[]
     }>;
     products: Product[];
+    tax?: number;
   }
 
   // tslint:disable-next-line: interface-name

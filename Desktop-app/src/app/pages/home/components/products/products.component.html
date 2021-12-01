@@ -32,7 +32,7 @@
       <li *ngFor="let size of category.sizes; let idx=index">
         <label>
           <input type="radio" [value]="idx" name="size" (change)="selectSizeRadio( idx )" [checked]="idx === sizeIdx" >
-          <span>{{size.name}}</span>
+          <span>{{size}}</span>
         </label>
       </li>
     </ul>

@@ -107,10 +107,12 @@ export class ProductsComponent implements OnInit {
     } else if (event.key === KEY_CODE.UP_ARROW && !this.sizeModalVisible) {
       this.selectedIdx = idx === 0 ? 0 : idx - 1;
       this.selected = this.filtered[ this.selectedIdx ];
+      this.selected.tax = this.category.tax ? this.category.tax : 19;
       event.stopPropagation();
     } else if (event.key === KEY_CODE.DOWN_ARROW && !this.sizeModalVisible) {
       this.selectedIdx = this.products.length ===  idx + 1 ? idx : idx + 1;
       this.selected = this.filtered[ this.selectedIdx ];
+      this.selected.tax = this.category.tax ? this.category.tax : 19;
     }
 
     event.stopPropagation();
@@ -149,7 +151,7 @@ export class ProductsComponent implements OnInit {
     // tslint:disable-next-line: typedef
     let price = this.selected.prices[ this.sizeIdx ];
     // tslint:disable-next-line: typedef
-    let size = this.category.sizes[ this.sizeIdx ].name;
+    let size = this.category.sizes && this.category.sizes.length > 0 ? this.category.sizes[ this.sizeIdx ] : "";
 
     if( this.category.sizes.length > 1 ) {
       this.showSizeModal();
@@ -158,7 +160,7 @@ export class ProductsComponent implements OnInit {
       const idx = await this.selectSize();
 
       price = this.selected.prices[ idx ];
-      size = this.category.sizes[ idx ].name;
+      size = this.category.sizes[ idx ];
     }
     const cartItem: CartItem = { _id, category_id, code, name,
                                 description, price, quantity: this.quantity, size,
