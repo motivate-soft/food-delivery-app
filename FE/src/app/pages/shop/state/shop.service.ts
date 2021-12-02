@@ -100,7 +100,7 @@ export class ShopService {
         });
 
       } else {
-        this.notificationService.showNotification('warning', 'Failed');
+        this.notificationService.showNotification('warning', response.message);
       }
     })).subscribe();
   }
