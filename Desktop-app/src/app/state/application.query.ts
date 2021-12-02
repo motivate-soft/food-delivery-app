@@ -10,6 +10,7 @@ export class ApplicationQuery extends QueryEntity<ApplicationState> {
     super(store);
   }
 
+  shop$ =  this.select("shop");
   address$ = this.select("address");
   category$ = this.select("category");
   filter$ = this.select("filter");

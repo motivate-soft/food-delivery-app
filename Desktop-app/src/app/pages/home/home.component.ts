@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
         this.categories[ category._id ] = category;
       });
 
+      this.applicationService.setShop( this.shop );
       this.applicationService.setProducts( this.products );
       this.applicationService.setCategories( this.categories );
 

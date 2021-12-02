@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from "@angular/core";
 import { ApplicationQuery } from "../../../../state/application.query";
-import { Address, CartItem } from "../../../../services/shop/shop.model";
+import { Address, CartItem, Shop } from "../../../../services/shop/shop.model";
 import { ElectronService } from "../../../../services/electron.service";
 import { WebSocketService } from "../../../../services/web-socket.service";
 
@@ -14,6 +14,7 @@ export class FooterComponent implements OnInit {
 
   cart!: CartItem[];
   address!: Address;
+  shop!: Shop;
 
   submitted = false;
 
@@ -30,6 +31,7 @@ export class FooterComponent implements OnInit {
 
     this.applicationQuery.cart$.subscribe( cart => this.cart = cart );
     this.applicationQuery.address$.subscribe( address => this.address = address );
+    this.applicationQuery.shop$.subscribe( shop => this.shop = shop );
 
     this.electronService.ipcRenderer.on("order:printed", (event, arg) => {
       this.submitted = false;
@@ -79,7 +81,15 @@ export class FooterComponent implements OnInit {
           });
 
           this.submitted = true;
-          this.electronService.ipcRenderer.send("order:print", { cart: remoteCart, address: {
+          this.electronService.ipcRenderer.send("order:print", {
+          shop: {
+            name: this.shop.name ? this.shop.name : "",
+            city: this.shop.city ? this.shop.city : "",
+            street: this.shop.street ? this.shop.street : "",
+            postal_code: this.shop.postal_code ? this.shop.postal_code : ""
+          },
+          cart: remoteCart,
+          address: {
             name: "test name",
             street: "test street",
             city: "test city",
@@ -102,12 +112,20 @@ export class FooterComponent implements OnInit {
      */
     this.submitted = true;
     // this.electronService.ipcRenderer.send("order:print", { cart: this.cart, address: this.address });
-    this.electronService.ipcRenderer.send("order:print", { cart: this.cart, address: {
-      name: "test name",
-      street: "test street",
-      city: "test city",
-      telephone: 12312312,
-      remarks: "5"
+    this.electronService.ipcRenderer.send("order:print", {
+      shop: {
+        name: this.shop.name ? this.shop.name : "",
+        city: this.shop.city ? this.shop.city : "",
+        street: this.shop.street ? this.shop.street : "",
+        postal_code: this.shop.postal_code ? this.shop.postal_code : ""
+      },
+      cart: this.cart,
+      address: {
+        name: "test name",
+        street: "test street",
+        city: "test city",
+        telephone: 12312312,
+        remarks: "5"
     } });
   }
 

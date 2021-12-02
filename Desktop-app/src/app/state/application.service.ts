@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { ApplicationStore } from "./application.store";
 import { Application } from "./application.model";
 import { tap } from "rxjs/operators";
-import { Address, CartItem, Category, Customer, Order, Product, Settings } from "../services/shop/shop.model";
+import { Address, CartItem, Category, Customer, Order, Product, Settings, Shop } from "../services/shop/shop.model";
 
 @Injectable({ providedIn: "root" })
 export class ApplicationService {
@@ -79,6 +79,15 @@ export class ApplicationService {
 
   }
 
+  setShop( shop: Shop ) {
+    this.applicationStore.update( (state) => {
+      return {
+        ...state,
+        shop
+      }
+    });
+  }
+
   setProducts( products: Product[] ) {
     this.applicationStore.update( (state) => {
       return {
@@ -86,7 +95,6 @@ export class ApplicationService {
         products
       }
     });
-
   }
 
   setCategories( categories: { [key: string]: Category } ) {
@@ -114,8 +122,6 @@ export class ApplicationService {
 
       customers.push( customer );
 
-     
-      
       return {
         ...state,
         customers

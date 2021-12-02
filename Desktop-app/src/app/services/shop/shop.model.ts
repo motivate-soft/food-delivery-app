@@ -50,6 +50,7 @@ export interface CartItem {
     code: string;
     street: string;
     postal_code: string;
+    city?: string;
     categories: Category[];
   }
 

@@ -140,7 +140,7 @@ try {
     event.sender.send("settings:findAll:response", settings );
   });
 
-  ipcMain.on("order:print", async (event, { cart, address }) => {
+  ipcMain.on("order:print", async (event, { shop, cart, address }) => {
     if (!address) {
       showNotification("Invalid Address", "Please input the address.");
       event.sender.send("order:printed", { message: `Failed! Invalid address`, error: true });
@@ -172,12 +172,10 @@ try {
     const data: PosPrintData[] = [
       {
         type: "text", // 'text' | 'barCode' | 'qrCode' | 'image' | 'table
-        value: `<h3 style="font-size: 20px;font-weight: 600;color: #DBC934;font-style: italic;text-align: center;margin-bottom: 5px;">FOOD INTERNATIONAL</h3>
-        <h5 style="font-size: 13px;font-weight: 300;color: #ffffff;text-align: center;margin-top: 0px; margin-bottom: 5px; padding: 5px;">Pingsdorfer Str.45 50321 Bruhl</h5>
-        <h5 style="font-size: 13px;font-weight: 400;color: #ffffff;text-align: center;margin-top: 0px; margin-bottom: 5px; padding: 5px;">www.food-international.de</h5>
-        <h5 style="font-size: 13px;font-weight: 400;color: #ffffff;text-align: center;margin-top: 0px; padding: 5px;">50 73 30 - 50 73 29 - Fax: 50 73 28</h5>`,
+        value: `<h3 style="font-size: 20px;font-weight: 600;color: #DBC934;font-style: italic;text-align: center;margin-bottom: 5px;">${shop.name}</h3>
+        <h5 style="font-size: 13px;font-weight: 300;color: #000;text-align: center;margin-top: 0px; margin-bottom: 5px; padding: 5px;">${shop.street} ${shop.postal_code} ${shop.city}</h5>`,
         style: `text-align:center;`,
-        css: { "background-color": "#864038", "padding": "7px 20px", "width": "100%" },
+        css: { "padding": "7px 20px", "width": "100%" },
       },
       {
         type: "text", // 'text' | 'barCode' | 'qrCode' | 'image' | 'table'
@@ -196,7 +194,7 @@ try {
               <div style="width: 50%;text-align: left;">Lieferung</div>
               <div style="width: 50%;text-align: right;font-weight: 400;">Seite 1 von 1</div>
           </div>`,
-    
+
         css: {
           "font-family": "sans-serif",
           "background-color": "#FFF",
@@ -204,7 +202,7 @@ try {
           "padding": "5px 20px",
           "width": "100%"
         },
-      }, 
+      },
       {
           type: "table",
 
