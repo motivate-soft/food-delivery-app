@@ -3,6 +3,8 @@ import { ShopQuery } from '@pages/shop/state/shop.query';
 import { ShopService } from '@pages/shop/state/shop.service';
 
 import { CartItem, Address } from '@pages/shop/state/shop.model';
+import { MatDialog } from '@angular/material/dialog';
+import { AddressDialogComponent } from '../address-dialog/address-dialog.component';
 
 
 @Component({
@@ -19,7 +21,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private shopQuery: ShopQuery,
-    private shopService: ShopService
+    private shopService: ShopService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -68,9 +71,29 @@ export class CartComponent implements OnInit {
   }
 
   confirmOrder() {
+
+    if (this.address) {
+      this.onSubmitOrders(this.address);
+    } else {
+      const dialogRef = this.dialog.open(AddressDialogComponent, {
+        maxWidth: '550px',
+        data: {data: this.address },
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.shopService.addAddress(result);
+          this.onSubmitOrders(result);
+        }
+      });
+    }
+
+  }
+
+  onSubmitOrders(address: Address) {
     const shop_id = this.cart[0].shop_id;
     this.shopService.postConfirmCart({
-      address: this.address,
+      address: address,
       shop_id: shop_id,
       carts: this.cart
     });

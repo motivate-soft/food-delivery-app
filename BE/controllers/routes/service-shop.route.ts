@@ -21,6 +21,7 @@ async function confirmCart(req: express.Request, res: express.Response) {
   let startHourD = new Date();
   let endHourD = new Date();
   
+  let isAllowed = false;
   for (const working_hour of sampleShop.working_hours ) {
     const working_time = {
       start: {
@@ -36,10 +37,14 @@ async function confirmCart(req: express.Request, res: express.Response) {
     startHourD.setHours(working_time.start.hour, working_time.start.min, 0);
     endHourD.setHours(working_time.end.hour, working_time.end.min, 0);
 
-    if(currentD <= startHourD || currentD > endHourD ){
-      res.status(200).send({ error: true, message: `Sorry, you can't order in that time.` });
-      return;
+    if(currentD >= startHourD || currentD < endHourD ) {
+      isAllowed = true
+      break;
     }
+  }
+  if (isAllowed === false) {
+    res.status(200).send({ error: true, message: `Sorry, you can't order in that time.` });
+    return;
   }
 
 

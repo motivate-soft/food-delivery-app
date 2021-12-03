@@ -1,9 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { ProductItem, Topping, CartItem, Address } from '@pages/shop/state/shop.model';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProductItem, Topping, CartItem } from '@pages/shop/state/shop.model';
 import { ShopService } from '@pages/shop/state/shop.service';
 import { NotificationService } from '@app_/common/notification.service';
-import { AddressDialogComponent } from '../address-dialog/address-dialog.component';
 import { ShopQuery } from '@pages/shop/state/shop.query';
 
 @Component({
@@ -11,7 +10,7 @@ import { ShopQuery } from '@pages/shop/state/shop.query';
   templateUrl: './product-dialog.component.html',
   styleUrls: ['./product-dialog.component.scss']
 })
-export class ProductDialogComponent implements OnInit {
+export class ProductDialogComponent {
 
   sizeOrder: number;
   selectedPrice: number;
@@ -20,14 +19,12 @@ export class ProductDialogComponent implements OnInit {
   quantity: number = 1;
 
   isSubmit: boolean;
-  userAddress: Address;
 
   constructor(
     private shopQuery: ShopQuery,
     private shopService: ShopService,
     private notifacationService: NotificationService,
     public dialogRef: MatDialogRef<ProductDialogComponent>,
-    public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: ProductItem,
   ) {
     this.isSubmit = false;
@@ -44,10 +41,6 @@ export class ProductDialogComponent implements OnInit {
         }
       }
     }
-  }
-
-  ngOnInit(): void {
-    this.shopQuery.address$.subscribe( address => this.userAddress = address );
   }
 
   changeSize() {
@@ -80,23 +73,7 @@ export class ProductDialogComponent implements OnInit {
   }
 
   addToCart() {
-
-    if (this.userAddress) {
-      this.onSubmitOrder();
-    } else {
-      const dialogRef = this.dialog.open(AddressDialogComponent, {
-        maxWidth: '550px',
-        data: {data: this.userAddress },
-      });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          this.shopService.addAddress(result);
-          this.onSubmitOrder();
-        }
-      });
-    }
-
+    this.onSubmitOrder();
     this.onClose();
 
   }

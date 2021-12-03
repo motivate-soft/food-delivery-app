@@ -165,7 +165,13 @@ try {
     const order_id = await OrderService.create( order );
 
     // tslint:disable-next-line: typedef
+    let totalAmount = 0;
+    // tslint:disable-next-line: typedef
+    let totalTaxAmount = 0;
+    // tslint:disable-next-line: typedef
     const _order = cart.map( cartItem => {
+      totalAmount += cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000;
+      totalTaxAmount += Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000;
       return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000}`, `${Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000 }(${cartItem.tax}%)` ];
     });
 
@@ -183,16 +189,11 @@ try {
           `<h2 style="font-size: 13px;font-weight: 600;margin-top: 3px;">Sanotelly</h2>
           <div style="display: flex;font-size: 12px;">
               <div style="width: 50%;text-align: left;">${address.name}</div>
-              <div style="width: 50%;text-align: right;">${address.street}</div>
+              <div style="width: 50%;text-align: right;">${address.street}, ${address.city}</div>
           </div>
           <div style="display: flex;font-size: 12px;">
-              <div style="width: 50%;text-align: left;">${address.city}</div>
+              <div style="width: 50%;text-align: left;">${address.postalCode}</div>
               <div style="width: 50%;text-align: right;">${address.telephone}</div>
-          </div>
-          <h2 style="font-size: 13px;font-weight: 500;margin-top: 20px;">Info: Bemerkung</h2>
-          <div style="display: flex;font-size: 12px;">
-              <div style="width: 50%;text-align: left;">Lieferung</div>
-              <div style="width: 50%;text-align: right;font-weight: 400;">Seite 1 von 1</div>
           </div>`,
 
         css: {
@@ -207,7 +208,7 @@ try {
           type: "table",
 
           // style the table
-          style: "font-size: 10px;font-family:Calibri; margin: auto; text-align: center;",
+          style: "font-size: 10px;font-family:Calibri; margin: auto; text-align: center;margin-left:30px",
 
           tableHeader: ["Anz", "Gr", "Artikel", "Preis", "VAT(Tax%)"],
 
@@ -215,13 +216,25 @@ try {
       },
       {
         type: "text",
+        value: `<div style="display: flex;font-size: 12px;">
+                    <div style="width: 100%;text-align: right;font-weight: 600;">Gesamtbetrag: ${Math.floor(totalAmount * 100) / 100}</div>
+                </div>
+                <div style="display: flex;font-size: 12px;">
+                    <div style="width: 100%;text-align: right;font-weight: 600;">Gesamtsteuerbetrag: ${Math.floor(totalTaxAmount * 100) / 100}</div>
+                </div>`,
+        css: {
+          "font-family": "sans-serif",
+          "background-color": "#FFF",
+          "color": "#000",
+          "padding": "5px 10px",
+          "width": "100%"
+        },
+      },
+      {
+        type: "text",
         value: `<h2 style="font-size: 12px;font-weight: 600;margin-top: 3px;font-style: italic;text-align: center;margin-top: 20px;">
                     Wir danken Ihnen fur lhre Bestellung! Wir wunschen Ihnen einen guten Appetit!
-                </h2>
-                <div style="display: flex;font-size: 12px;">
-                    <div style="width: 50%;text-align: left;">Steuer-Nr 224/5191/3309</div>
-                    <div style="width: 50%;text-align: right;">Service: Nr. 1</div>
-                </div>`,
+                </h2>`,
         style: `text-align:center;`,
         css: {
           "font-family": "sans-serif",
