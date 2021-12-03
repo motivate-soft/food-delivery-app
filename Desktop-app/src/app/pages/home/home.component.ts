@@ -5,7 +5,6 @@ import { Shop, Product, Category, CartItem } from "../../services/shop/shop.mode
 import { ApplicationQuery } from "../../state/application.query";
 import { ApplicationService } from "../../state/application.service";
 import { WebSocketService } from "../../services/web-socket.service";
-import { Message } from "@angular/compiler/src/i18n/i18n_ast";
 
 @Component({
   selector: "app-home",
@@ -32,7 +31,6 @@ export class HomeComponent implements OnInit {
   ) {
 
   }
-
   // tslint:disable-next-line: typedef
   ngOnInit() {
 
@@ -52,14 +50,14 @@ export class HomeComponent implements OnInit {
         this.categories[ category._id ] = category;
       });
 
-      this.applicationService.setShop( this.shop );
-      this.applicationService.setProducts( this.products );
-      this.applicationService.setCategories( this.categories );
-
-      this.webSocketService.sendMessage({ type: "infirm_order", shop_id: this.shop._id, owner: this.shop.owner || "" });
-      setInterval(() => {
-        this.webSocketService.sendMessage({ type: "infirm_order", shop_id: this.shop._id, owner: this.shop.owner || "" });
-      }, 10000);
+      if (!this.webSocketService.isConnected()) {
+        this.webSocketService.connect(this.shop._id, () => {
+          this.webSocketService.sendOrderData(this.shop._id);
+          this.applicationService.setShop( this.shop );
+          this.applicationService.setProducts( this.products );
+          this.applicationService.setCategories( this.categories );
+        });
+      }
 
       if ( this.electronService.isElectron) {
         // console.log(process.env);

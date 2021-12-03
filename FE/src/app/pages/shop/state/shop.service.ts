@@ -8,6 +8,7 @@ import { environment } from '../../../../environments/environment';
 import { NotificationService } from '../../../common/notification.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '@app_/common/confirm-dialog/confirm-dialog.component';
+import { WebSocketService } from './web-socket.service';
 @Injectable({ providedIn: 'root' })
 export class ShopService {
 
@@ -15,6 +16,7 @@ export class ShopService {
     private shopStore: ShopStore, 
     private http: HttpClient, 
     private notificationService: NotificationService,
+    private webSocketService: WebSocketService,
     public dialog: MatDialog) {}
 
   setLoading( isLoading: boolean ) {
@@ -100,6 +102,14 @@ export class ShopService {
     return this.http.post(`${environment.server}/api/shop/confirmCart`, cart).pipe(tap( (response: any ) => {
       if (!response.error) {
         this.resetCart();
+
+        if (this.webSocketService.isConnected()) {
+          this.webSocketService.sendOrderData(cart.shop_id);
+        } else {
+          this.webSocketService.connect(() => {
+            this.webSocketService.sendOrderData(cart.shop_id);
+          });
+        }
 
         this.dialog.open(ConfirmDialogComponent, {
           width: '450px',

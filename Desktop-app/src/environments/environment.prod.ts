@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
-  server: 'http://localhost:3333',
-  socket: "ws://localhost:8999"
+  server: "http://localhost:3333",
+  socket: "ws://localhost:8999",
+  socketPath: "/order"
 };

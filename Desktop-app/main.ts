@@ -172,7 +172,7 @@ try {
     const _order = cart.map( cartItem => {
       totalAmount += cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000;
       totalTaxAmount += Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000;
-      return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000}`, `${Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000 }(${cartItem.tax}%)` ];
+      return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${Math.floor((cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000) * 1000) / 1000}`, `${Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000 }(${cartItem.tax}%)` ];
     });
 
     const data: PosPrintData[] = [

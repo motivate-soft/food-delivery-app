@@ -39,7 +39,8 @@
     "lint": "ng lint"
   },
   "dependencies": {
-    "angular-ng-autocomplete": "2.0.5"
+    "angular-ng-autocomplete": "2.0.5",
+    "socket.io-client": "4.4.0"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "10.0.1",
