@@ -7,6 +7,15 @@ export interface ITopping {
   size: string;
 }
 
+export interface Address {
+  name: string;
+  city: string;
+  street: string;
+  postalCode: string;
+  telephone?: string;
+  remarks?: string;
+}
+
 export interface CartItem {
   shop_id: string;
   product_id: string;
@@ -24,6 +33,7 @@ export interface CartItem {
 export interface ICart extends Document {
   shop_id: string;
   carts: Array<CartItem>;
+  address: Address;
   request_date: string;
   published: boolean;
 }
@@ -32,6 +42,29 @@ const CartSchema: Schema = new Schema({
   shop_id: {
     type: String,
     required: true,
+  },
+  address: {
+    name: {
+      type: String,
+      required: true
+    },
+    city: {
+      type: String,
+      required: true
+    },
+    street: {
+      type: String,
+      required: true
+    },
+    postalCode: {
+      type: String,
+      required: true
+    },
+    telephone: String,
+    remarks: {
+      type: String,
+      default: ' '
+    }
   },
   carts: [
     {

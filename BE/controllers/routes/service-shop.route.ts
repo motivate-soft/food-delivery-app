@@ -33,8 +33,6 @@ async function confirmCart(req: express.Request, res: express.Response) {
       }
     }
 
-    console.log(working_time)
-
     startHourD.setHours(working_time.start.hour, working_time.start.min, 0);
     endHourD.setHours(working_time.end.hour, working_time.end.min, 0);
 

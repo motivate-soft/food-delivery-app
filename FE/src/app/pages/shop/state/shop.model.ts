@@ -71,6 +71,13 @@ export interface Topping {
   selectedPrice?: number;
 }
 
+export interface Address {
+  name: string;
+  city: string;
+  street: string;
+  postalCode: string;
+  telephone?: string;
+}
 
 
 export function createShop(params: Partial<Shop>) {

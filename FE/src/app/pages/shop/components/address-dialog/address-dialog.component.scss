@@ -1,0 +1,96 @@
+@import "../../../../../assets/scss/variables";
+@import "../../../../../assets/scss/objects";
+
+.mat-card {
+    max-height: 90vh;
+    width: 500px;
+    overflow-y: auto;
+    .mat-card-header {
+        button {
+            position: absolute;
+            right: 20px;
+        }
+    }
+    .card-title {
+        font-size: 1.6em;
+        font-weight: 500;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .mat-card-content {
+        margin-top: 20px;
+        padding: 15px;
+    
+        img {
+            width: 80%;
+            text-align: center;
+            margin: auto;
+            max-height: 200px;
+        }
+
+        p.description {
+            font-size: 1.6em;
+            font-weight: 300;
+            line-height: 30px;
+        }
+        p.price {
+            font-size: 1.6em;
+            font-weight: 500;
+        }
+        p.size-option {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-top: 30px;
+        }
+        p.size-lable {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+    }
+}
+
+.mat-button-toggle-group {
+    width: 100%;
+}
+
+.main-size .mat-button-toggle {
+    background-color: white;
+    border: 2px solid $blue;
+    color: $blue;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: large;
+}
+.main-size .mat-button-toggle-checked {
+    background-color: $blue;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.address-full-width {
+    width: 100%;
+}
+
+.address-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.btn-add-cart {
+    margin-top: 30px;
+    float: right;
+    background-color: $favaorite-color;
+    color: white;
+}
+
+.btn-disabled {
+    margin-top: 30px;
+    float: right;
+    background-color: darkgray;
+    color: white;
+}
+ 

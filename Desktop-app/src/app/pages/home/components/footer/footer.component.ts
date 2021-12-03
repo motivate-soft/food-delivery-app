@@ -4,6 +4,7 @@ import { ApplicationQuery } from "../../../../state/application.query";
 import { Address, CartItem, Shop } from "../../../../services/shop/shop.model";
 import { ElectronService } from "../../../../services/electron.service";
 import { WebSocketService } from "../../../../services/web-socket.service";
+import { ApplicationService } from "../../../../state/application.service";
 
 @Component({
   selector: "app-footer",
@@ -24,6 +25,7 @@ export class FooterComponent implements OnInit {
   constructor(
     private readonly applicationQuery: ApplicationQuery,
     private readonly electronService: ElectronService,
+    private readonly applicationService: ApplicationService,
     private webSocketService: WebSocketService
   ) { }
 
@@ -48,6 +50,9 @@ export class FooterComponent implements OnInit {
           const order = JSON.parse(msg);
           this.remoteShopID = order.shop_id;
           this.remoteOrderID = order._id;
+
+          this.applicationService.updateAddress( order.address );
+
           order.carts.forEach(cart => {
             // tslint:disable-next-line: typedef
             let cart1 = {
@@ -89,13 +94,7 @@ export class FooterComponent implements OnInit {
             postal_code: this.shop.postal_code ? this.shop.postal_code : ""
           },
           cart: remoteCart,
-          address: {
-            name: "test name",
-            street: "test street",
-            city: "test city",
-            telephone: 12312312,
-            remarks: "5"
-          } });
+          address: order.address });
 
           // tslint:disable-next-line: max-line-length
           this.webSocketService.sendMessage({ type: "confirm_order", order_id: this.remoteOrderID, shop_id: this.remoteShopID });

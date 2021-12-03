@@ -11,6 +11,7 @@ export class ShopQuery extends QueryEntity<ShopState> {
 
   selectedCategoryIndex$ = this.select(state => state.ui.selectedCategoryIndex); // observable
   cart$ = this.select(state => state.ui.cart); // observable
+  address$ = this.select(state => state.address);
 
   shop$ = this.select( state => {
     return Object.values( state.entities ).pop()

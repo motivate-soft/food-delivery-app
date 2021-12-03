@@ -59,6 +59,7 @@ export interface CartItem {
     name: string;
     street: string;
     city: string;
+    postalCode?: string;
     telephone?: string;
     remarks?: string;
   }

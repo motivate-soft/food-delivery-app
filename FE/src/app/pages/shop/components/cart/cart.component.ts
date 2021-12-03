@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ShopQuery } from '@pages/shop/state/shop.query';
 import { ShopService } from '@pages/shop/state/shop.service';
 
-import { CartItem } from '@pages/shop/state/shop.model';
+import { CartItem, Address } from '@pages/shop/state/shop.model';
 
 
 @Component({
@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
   
   cart:Array<CartItem>;
   cartOpened = false;
+  address: Address;
 
   constructor(
     private shopQuery: ShopQuery,
@@ -26,6 +27,7 @@ export class CartComponent implements OnInit {
       this.cart = cart
       if (this.cart.length == 0) this.cartOpened = false;
     } );
+    this.shopQuery.address$.subscribe( address => this.address = address );
   }
 
   resetCart() {
@@ -68,6 +70,7 @@ export class CartComponent implements OnInit {
   confirmOrder() {
     const shop_id = this.cart[0].shop_id;
     this.shopService.postConfirmCart({
+      address: this.address,
       shop_id: shop_id,
       carts: this.cart
     });

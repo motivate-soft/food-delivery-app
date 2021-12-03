@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ID } from '@datorama/akita';
 import { tap } from 'rxjs/operators';
-import { CartItem, Shop } from './shop.model';
+import { CartItem, Shop, Address } from './shop.model';
 import { ShopStore } from './shop.store';
 import { environment } from '../../../../environments/environment';
 import { NotificationService } from '../../../common/notification.service';
@@ -71,6 +71,15 @@ export class ShopService {
     });
   }
 
+  addAddress( address: Address ) {
+    this.shopStore.update( (state) => {
+      return {
+        ...state,
+        address
+      };
+    });
+  }
+
 
   getShop() {
     return this.http.get<Shop>(`${environment.server}/api/shop/getShop`).pipe(tap( (response: any ) => {
@@ -84,6 +93,7 @@ export class ShopService {
   }
 
   postConfirmCart(cart: {
+    address: Address
     shop_id: string,
     carts: Array<CartItem>
   }) {

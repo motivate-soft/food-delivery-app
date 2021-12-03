@@ -19,6 +19,7 @@ export interface Order {
     street: string;
     city: string;
     telephone: string;
+    postalCode: string;
     remarks: string;
     ordered_at: string;
     order_total: number;
@@ -29,6 +30,7 @@ export interface CreateOrderDto {
     name: string;
     street: string;
     city: string;
+    postalCode: string;
     telephone: string;
     remarks?: string;
     ordered_at: string;
@@ -42,6 +44,7 @@ export interface UpdateOrderDto {
     street?: string;
     city?: string;
     telephone?: string;
+    postalCode?: string;
     remarks?: string;
     order_total?: number;
 }
