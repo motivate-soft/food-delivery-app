@@ -140,7 +140,7 @@ try {
     event.sender.send("settings:findAll:response", settings );
   });
 
-  ipcMain.on("order:print", async (event, { shop, cart, address }) => {
+  ipcMain.on("order:print", async (event, { shop, cart, address, request_date }) => {
     if (!address) {
       showNotification("Invalid Address", "Please input the address.");
       event.sender.send("order:printed", { message: `Failed! Invalid address`, error: true });
@@ -170,9 +170,9 @@ try {
     let totalTaxAmount = 0;
     // tslint:disable-next-line: typedef
     const _order = cart.map( cartItem => {
-      totalAmount += cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000;
+      totalAmount += cartItem.price * cartItem.quantity;
       totalTaxAmount += Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000;
-      return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${Math.floor((cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000) * 1000) / 1000}`, `${Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000 }(${cartItem.tax}%)` ];
+      return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(Math.floor((cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000) * 1000) / 1000)}`, `${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000)}(${cartItem.tax}%)` ];
     });
 
     const data: PosPrintData[] = [
@@ -208,7 +208,7 @@ try {
           type: "table",
 
           // style the table
-          style: "font-size: 10px;font-family:Calibri; margin: auto; text-align: center;margin-left:30px",
+          style: "font-size: 10px;font-family:Calibri; margin: auto; text-align: center;margin-left:35px",
 
           tableHeader: ["Anz", "Gr", "Artikel", "Preis", "VAT(Tax%)"],
 
@@ -217,16 +217,33 @@ try {
       {
         type: "text",
         value: `<div style="display: flex;font-size: 12px;">
-                    <div style="width: 100%;text-align: right;font-weight: 600;">Gesamtbetrag: ${Math.floor(totalAmount * 100) / 100}</div>
+                    <div style="width: 100%;text-align: right;font-weight: 600;">Gesamtbetrag: ${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(Math.floor(totalAmount * 100) / 100)}</div>
                 </div>
                 <div style="display: flex;font-size: 12px;">
-                    <div style="width: 100%;text-align: right;font-weight: 600;">Gesamtsteuerbetrag: ${Math.floor(totalTaxAmount * 100) / 100}</div>
+                    <div style="width: 100%;text-align: right;font-weight: 600;">Gesamtsteuerbetrag: ${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(Math.floor(totalTaxAmount * 100) / 100)}</div>
                 </div>`,
         css: {
           "font-family": "sans-serif",
           "background-color": "#FFF",
           "color": "#000",
           "padding": "5px 10px",
+          "width": "100%"
+        },
+      },
+      {
+        type: "text", // 'text' | 'barCode' | 'qrCode' | 'image' | 'table'
+        value:
+          `
+          <div style="display: flex;font-size: 12px;">
+              <div style="width: 50%;text-align: left;">Anforderungsdatum</div>
+              <div style="width: 50%;text-align: right;font-weight: 600;">${new Intl.DateTimeFormat("de-DE").format(new Date(request_date))}</div>
+          </div>`,
+
+        css: {
+          "font-family": "sans-serif",
+          "background-color": "#FFF",
+          "color": "#000",
+          "padding": "5px 20px",
           "width": "100%"
         },
       },

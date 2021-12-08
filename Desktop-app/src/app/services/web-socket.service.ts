@@ -4,6 +4,8 @@ import { share } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 import { io } from "socket.io-client";
 import { Observable } from "rxjs";
+import { ApplicationQuery } from "../state/application.query";
+import { Shop } from "./shop/shop.model";
 
 @Injectable({
   providedIn: "root"
@@ -11,6 +13,13 @@ import { Observable } from "rxjs";
 export class WebSocketService {
 
   private socket: any;
+  shop!: Shop;
+
+  constructor(private applicationQuery: ApplicationQuery) {
+    this.applicationQuery.shop$.subscribe( shop => {
+      this.shop = shop;
+    } );
+  }
 
   isConnected(): boolean {
     return this.socket != null;

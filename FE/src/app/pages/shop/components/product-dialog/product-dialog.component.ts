@@ -116,7 +116,7 @@ export class ProductDialogComponent {
 
     this.shopService.addToCart( cartItem );
 
-    this.notifacationService.showNotification('success', 'Added ' + cartItem.product_name + '(' + cartItem.price + '€) to your busket.'); 
+    this.notifacationService.showNotification('success', 'Added ' + cartItem.product_name + ' to your busket.'); 
   }
 
   onClose(): void {

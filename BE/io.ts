@@ -30,9 +30,8 @@ export function io(httpServer: http.Server) {
                 else {
                     let existingShop = searchShop(data.shopId);
                     if (existingShop !== false) {
-                        let tmpShop = existingShop;
                         shops.splice(shops.indexOf(existingShop), 1);
-                        shops.push(tmpShop);
+                        shops.push(shop);
                     }
                 }
 

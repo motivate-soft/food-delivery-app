@@ -51,8 +51,6 @@ export class FooterComponent implements OnInit, OnDestroy {
     this.electronService.ipcRenderer.on("order:printed", (event, arg) => {
       this.submitted = false;
     });
-
-    this.receiverOrdersData();
   }
 
   printOrder(): void {
@@ -75,7 +73,9 @@ export class FooterComponent implements OnInit, OnDestroy {
         city: "test city",
         telephone: 12312312,
         remarks: "5"
-    } });
+      },
+      request_date: new Date()
+     });
   }
 
     // tslint:disable-next-line: typedef
@@ -83,6 +83,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       this.receiveOrdersObs = this.webSocketService.receiveOrderData().subscribe(
         data => {
           if (JSON.parse(data)) {
+            // tslint:disable-next-line: typedef
             let remoteCart = [];
 
             // tslint:disable-next-line: typedef
@@ -133,7 +134,9 @@ export class FooterComponent implements OnInit, OnDestroy {
               postal_code: this.shop.postal_code ? this.shop.postal_code : ""
             },
             cart: remoteCart,
-            address: order.address });
+            address: order.address,
+            request_date: order.request_date
+           });
 
             // tslint:disable-next-line: max-line-length
             this.webSocketService.printedReport(this.remoteOrderID);
