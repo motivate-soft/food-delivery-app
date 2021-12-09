@@ -9,7 +9,7 @@ import { OrderService } from "./electron/services/order.service";
 import { DriverService } from "./electron/services/driver.service";
 import { SettingsService } from "./electron/services/settings.service";
 
-import { CreateOrderDto } from "./electron/interfaces/order.interface";
+import { CreateOrderDto, OrderItem } from "./electron/interfaces/order.interface";
 
 import Printer from "./electron/printer";
 
@@ -162,18 +162,40 @@ try {
     const order: CreateOrderDto = { ...address, order_items: cart };
 
     // tslint:disable-next-line: typedef
-    const order_id = await OrderService.create( order );
-
-    // tslint:disable-next-line: typedef
     let totalAmount = 0;
     // tslint:disable-next-line: typedef
     let totalTaxAmount = 0;
     // tslint:disable-next-line: typedef
     const _order = cart.map( cartItem => {
-      totalAmount += cartItem.price * cartItem.quantity;
-      totalTaxAmount += Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000;
-      return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(Math.floor((cartItem.price * cartItem.quantity - Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000) * 1000) / 1000)}`, `${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000)}(${cartItem.tax}%)` ];
+      // tslint:disable-next-line: typedef
+      let mainPrice = cartItem.price * cartItem.quantity;
+      // tslint:disable-next-line: typedef
+      let mainTaxPrice = Math.floor(cartItem.price * cartItem.quantity * cartItem.tax / 100 * 1000) / 1000;
+
+      // tslint:disable-next-line: typedef
+      let toppingPrice = 0;
+      // tslint:disable-next-line: typedef
+      let toppingTaxPrice = 0;
+
+      if (cartItem.toppings) {
+        cartItem.toppings.forEach(topping => {
+          toppingPrice += topping.price * cartItem.quantity;
+          toppingTaxPrice += topping.price * cartItem.quantity * cartItem.tax / 100;
+        });
+      }
+      toppingTaxPrice = Math.floor(toppingTaxPrice * 1000) / 1000;
+
+      totalAmount += toppingPrice + mainPrice;
+      totalTaxAmount += toppingTaxPrice + mainTaxPrice;
+      return [ `${cartItem.quantity}`, `${cartItem.size}`, `${cartItem.code} - ${cartItem.name}`, `${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(mainPrice + toppingPrice - mainTaxPrice - toppingTaxPrice)}`, `${new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(mainTaxPrice + toppingTaxPrice)}(${cartItem.tax}%)` ];
     });
+
+    // tslint:disable-next-line: typedef
+    const order_id = await OrderService.create( {
+      ...order,
+      ordered_at: new Intl.DateTimeFormat("de-DE").format(new Date(request_date)),
+      order_total: totalAmount
+    } );
 
     const data: PosPrintData[] = [
       {

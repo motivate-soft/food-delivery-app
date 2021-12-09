@@ -73,7 +73,11 @@ export class OrderComponent implements OnInit {
   // tslint:disable-next-line: typedef
   price( item: CartItem ) {
     // tslint:disable-next-line: typedef
-    const topping_price = item.toppings.reduce( (tacc, topping ) => tacc += tacc + ( topping.price * item.quantity ), 0 );
+    let topping_price = 0;
+    if (item.category_id)
+    item.toppings.forEach(element => {
+      topping_price += element.price * item.quantity;
+    });
     return item.price * item.quantity + topping_price;
   }
 

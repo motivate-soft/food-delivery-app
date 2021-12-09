@@ -69,11 +69,11 @@ var OrderService = /** @class */ (function (_super) {
             var orders, orderIds, orderItems, responseGrouped;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.db(this.table).select('*')];
+                    case 0: return [4 /*yield*/, this.db(this.table).select("*")];
                     case 1:
                         orders = _a.sent();
                         orderIds = orders.map(function (order) { return order.id; });
-                        return [4 /*yield*/, this.db('order_items ').select('*').whereIn('order_id', orderIds)];
+                        return [4 /*yield*/, this.db("order_items ").select("*").whereIn("order_id", orderIds)];
                     case 2:
                         orderItems = _a.sent();
                         responseGrouped = ramda_1.groupBy(function (orderItem) { return orderItem.order_id; }, orderItems);
@@ -90,10 +90,10 @@ var OrderService = /** @class */ (function (_super) {
             var order, orderItems;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.db(this.table).first('*').where({ id: id })];
+                    case 0: return [4 /*yield*/, this.db(this.table).first("*").where({ id: id })];
                     case 1:
                         order = _a.sent();
-                        return [4 /*yield*/, this.db('order_items ').select('*').where('order_id', id)];
+                        return [4 /*yield*/, this.db("order_items ").select("*").where("order_id", id)];
                     case 2:
                         orderItems = _a.sent();
                         order.order_items = orderItems;
@@ -116,15 +116,22 @@ var OrderService = /** @class */ (function (_super) {
                         orderId = response.pop();
                         updated_items = [];
                         order_items.forEach(function (element) {
-                            element['order_id'] = orderId;
-                            element['product_id'] = element['_id'];
-                            delete element['_id'];
+                            // tslint:disable-next-line: no-string-literal
+                            element["order_id"] = orderId;
+                            // tslint:disable-next-line: no-string-literal
+                            element["product_id"] = element["_id"];
+                            // tslint:disable-next-line: no-string-literal
+                            element["topping"] = JSON.stringify(element["toppings"]);
+                            // tslint:disable-next-line: no-string-literal
+                            element["tax"] = element["tax"] ? element["tax"] : 7;
+                            // tslint:disable-next-line: no-string-literal
+                            delete element["_id"];
+                            // tslint:disable-next-line: no-string-literal
+                            delete element["toppings"];
                             updated_items.push(element);
                         });
-                        // console.log("//////////////// Order Items,", orderId, order_items)
-                        return [4 /*yield*/, this.db('order_items').insert(updated_items)];
+                        return [4 /*yield*/, this.db("order_items").insert(updated_items)];
                     case 2:
-                        // console.log("//////////////// Order Items,", orderId, order_items)
                         _a.sent();
                         return [2 /*return*/, this.findById(orderId)];
                 }

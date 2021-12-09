@@ -16,7 +16,7 @@
         <tr *ngFor="let cartItem of cart; let idx = index" (click)="selectItem(idx)" [ngClass]="{'active': selectedItem === idx }">
           <td class="center"> {{ cartItem.code }} </td>
           <td>
-            {{ cartItem.name }} <span *ngIf="cartItem.size !== 'Standard'">({{cartItem.size}})</span>
+            {{ cartItem.name }} <span *ngIf="cartItem.size && cartItem.size !== 'Standard'">({{cartItem.size}})</span>
             <div class="chips" *ngIf="cartItem.toppings.length > 0">
               <div class="chip" *ngFor="let topping of cartItem.toppings; let toppingIdx = index ">
                 {{ topping.name }}

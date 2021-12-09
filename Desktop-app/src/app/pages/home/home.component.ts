@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
         const products = category.products.map( product => {
           // tslint:disable-next-line: no-string-literal
           product["category_id"] = category._id;
+          product["tax"] = category.tax ? category.tax : 7;
           return product;
         });
 

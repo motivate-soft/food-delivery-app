@@ -67,13 +67,7 @@ export class FooterComponent implements OnInit, OnDestroy {
         postal_code: this.shop.postal_code ? this.shop.postal_code : ""
       },
       cart: this.cart,
-      address: {
-        name: "test name",
-        street: "test street",
-        city: "test city",
-        telephone: 12312312,
-        remarks: "5"
-      },
+      address: this.address,
       request_date: new Date()
      });
   }
@@ -123,9 +117,16 @@ export class FooterComponent implements OnInit, OnDestroy {
                 ...cart1,
                 toppings: toppings
               });
+
+              this.applicationService.addToCart({
+                ...cart1,
+                toppings: toppings
+              });
             });
 
             this.submitted = true;
+
+            
             this.electronService.ipcRenderer.send("order:print", {
             shop: {
               name: this.shop.name ? this.shop.name : "",

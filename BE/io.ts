@@ -19,7 +19,7 @@ export function io(httpServer: http.Server) {
         
         socket.join('order-room');
 
-        socket.on('order:shopId', (data: any) => {
+        socket.on('order:shopId', async (data: any) => {
             if (data.shopId) {
                 const shop: SocketShop = { shopId: data.shopId, id: socket.id };
                 let existing = searchShop(shop.shopId);
@@ -35,7 +35,12 @@ export function io(httpServer: http.Server) {
                     }
                 }
 
-                io.emit('order:active', shop);
+                const orders = await Cart.findOne({ shop_id: data.shopId, published: false });
+                for (let i = 0; i < shops.length; i++) {
+                    if (shops[i].shopId === data.shopId) {
+                        io.to(shops[i].id).emit('order:data', JSON.stringify(orders));
+                    }
+                }
             }
         });
 

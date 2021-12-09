@@ -1,6 +1,6 @@
 import { map, groupBy} from "ramda";
-import { Service } from './service';
-import { OrderItem, Order, CreateOrderDto, UpdateOrderDto } from '../interfaces/order.interface';
+import { Service } from "./service";
+import { OrderItem, Order, CreateOrderDto, UpdateOrderDto } from "../interfaces/order.interface";
 
 export class OrderService extends Service {
     private static table: string = "orders";
@@ -10,9 +10,9 @@ export class OrderService extends Service {
     }
 
     static async findAll(): Promise<Order[]> {
-        const orders: Order[] = await this.db( this.table ).select('*');
+        const orders: Order[] = await this.db( this.table ).select("*");
         const orderIds = orders.map( order => order.id );
-        const orderItems: OrderItem[] = await this.db( 'order_items ').select('*').whereIn( 'order_id', orderIds );
+        const orderItems: OrderItem[] = await this.db( "order_items ").select("*").whereIn( "order_id", orderIds );
         const responseGrouped = groupBy( ( orderItem: OrderItem ) => orderItem.order_id, orderItems );
         
         return orders.map( order => {
@@ -22,8 +22,8 @@ export class OrderService extends Service {
     }
 
     static async findById( id: number ): Promise<Order> {
-        const order: Order = await this.db( this.table ).first('*').where({id: id });
-        const orderItems: OrderItem[] = await this.db( 'order_items ').select('*').where( 'order_id', id );
+        const order: Order = await this.db( this.table ).first("*").where({id: id });
+        const orderItems: OrderItem[] = await this.db( "order_items ").select("*").where( "order_id", id );
         order.order_items = orderItems;
 
         return order;
@@ -42,17 +42,26 @@ export class OrderService extends Service {
         //     order_item.order_id = orderId;
         //     return order_item;
         // });
-        let updated_items = []
+        // tslint:disable-next-line: typedef
+        let updated_items = [];
         order_items.forEach(element => {
-            element['order_id'] = orderId;
-            element['product_id'] = element['_id']
-            delete element['_id']
-            updated_items.push(element)
-        });
-        
-        // console.log("//////////////// Order Items,", orderId, order_items)
+            // tslint:disable-next-line: no-string-literal
+            element["order_id"] = orderId;
+            // tslint:disable-next-line: no-string-literal
+            element["product_id"] = element["_id"];
+            // tslint:disable-next-line: no-string-literal
+            element["topping"] = JSON.stringify(element["toppings"]);
 
-        await this.db( 'order_items' ).insert( updated_items );
+            // tslint:disable-next-line: no-string-literal
+            element["tax"] = element["tax"] ? element["tax"] : 7;
+            // tslint:disable-next-line: no-string-literal
+            delete element["_id"];
+            // tslint:disable-next-line: no-string-literal
+            delete element["toppings"];
+            updated_items.push(element);
+        });
+
+        await this.db( "order_items" ).insert( updated_items );
 
         return this.findById( orderId );
     }
