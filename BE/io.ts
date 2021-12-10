@@ -68,6 +68,13 @@ export function io(httpServer: http.Server) {
             }
         });
 
+        socket.on('order:total', async (data: any) => {
+            if (data.shopId) {
+                const orders = await Cart.findOne({ shop_id: data.shopId });
+                io.emit('order:online', JSON.stringify(orders));
+            }
+        });
+
         socket.on('disconnect', (data: any) => {
             let existingShop = searchShop(data.shopId);
             if (existingShop !== false) {

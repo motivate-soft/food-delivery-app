@@ -1,12 +1,15 @@
 import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { SharedModule } from "../../shared/shared.module";
 
 import { OrdersRoutingModule } from "./orders-routing.module";
+import { OrdersComponent } from "./orders.component";
+import { OrdersListComponent } from "./components/orders-list/orders-list.component";
+
 
 @NgModule({
-  declarations: [],
+  declarations: [OrdersComponent, OrdersListComponent],
   imports: [
-    CommonModule,
+    SharedModule,
     OrdersRoutingModule
   ]
 })

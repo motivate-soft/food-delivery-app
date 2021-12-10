@@ -65,6 +65,19 @@ export class WebSocketService {
     });
   }
 
+  sendOrderTotal(shopId: string): void {
+    if (this.isConnected()) {
+      this.socket.emit("order:total", { shopId });
+    }
+  }
+  receiveOrderOnline(): any {
+    return new Observable(observer => {
+        this.socket.on("order:online", (data: any) => {
+            observer.next(data);
+        });
+    });
+  }
+
   printedReport(orderId: any): void {
     if (this.isConnected()) {
       this.socket.emit("order:printed", { orderId });

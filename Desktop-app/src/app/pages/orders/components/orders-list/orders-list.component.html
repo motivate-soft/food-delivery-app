@@ -1,0 +1,84 @@
+<div class="order-wrap">
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="input-group">
+                <label>{{ 'order.title' | translate }}({{ 'order.local' | translate }})</label>
+            </div>
+            <table>
+                <thead>
+                  <tr>
+                    <th>{{ 'product.nr' | translate }}</th>
+                    <th>{{ 'product.name' | translate }}</th>
+                    <th>{{ 'product.price' | translate }}</th>
+                    <th>{{ 'product.quantity' | translate }}</th>
+                    <th>{{ 'product.total' | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cartItem of cart; let idx = index" [ngClass]="{'active': selectedItem === idx }">
+                    <td class="center"> {{ cartItem.code }} </td>
+                    <td>
+                      {{ cartItem.name }} <span *ngIf="cartItem.size && cartItem.size !== 'Standard'">({{cartItem.size}})</span>
+                      <div class="chips" *ngIf="cartItem.toppings.length > 0">
+                        <div class="chip" *ngFor="let topping of cartItem.toppings; let toppingIdx = index ">
+                          {{ topping.name }}
+                        </div>
+                      </div>
+                    </td>
+                    <td class="center"> {{ cartItem.price | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                    <td class="center quantity"> 
+          
+                      {{ cartItem.quantity }}
+
+                    </td>
+                    <td class="center"> {{ price( cartItem, 'local' ) | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="5" class="right">Gesamt: {{total | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-6">
+            <div class="input-group">
+                <label>{{ 'order.title' | translate }}({{ 'order.online' | translate }})</label>
+            </div>
+
+            <table>
+                <thead>
+                  <tr>
+                    <th>{{ 'product.nr' | translate }}</th>
+                    <th>{{ 'product.name' | translate }}</th>
+                    <th>{{ 'product.price' | translate }}</th>
+                    <th>{{ 'product.quantity' | translate }}</th>
+                    <th>{{ 'product.total' | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cartItem of onlineCart; let idx = index" [ngClass]="{'active': selectedItem === idx }">
+                    <td class="center"> {{ cartItem.code }} </td>
+                    <td>
+                      {{ cartItem.name }} <span *ngIf="cartItem.size && cartItem.size !== 'Standard'">({{cartItem.size}})</span>
+                      <div class="chips" *ngIf="cartItem.toppings.length > 0">
+                        <div class="chip" *ngFor="let topping of cartItem.toppings; let toppingIdx = index ">
+                          {{ topping.name }}
+                        </div>
+                      </div>
+                    </td>
+                    <td class="center"> {{ cartItem.price | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                    <td class="center quantity"> 
+          
+                      {{ cartItem.quantity }}
+          
+                    </td>
+                    <td class="center"> {{ price( cartItem, 'online' ) | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="5" class="right">Gesamt: {{total | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>

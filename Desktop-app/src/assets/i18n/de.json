@@ -24,7 +24,9 @@
   },
 
   "order": {
-    "title": "Ihre Bestellung"
+    "title": "Ihre Bestellung",
+    "online": "Online",
+    "local": "Lokal"
   },
 
   "address": {

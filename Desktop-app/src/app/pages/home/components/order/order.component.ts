@@ -19,7 +19,7 @@ export class OrderComponent implements OnInit {
     return this.cart.reduce( (acc, item) => {
       acc += item.price * item.quantity;
       // tslint:disable-next-line: typedef
-      let toppingPrice = 0
+      let toppingPrice = 0;
       item.toppings.forEach(element => {
         toppingPrice += element.price * item.quantity;
       });
