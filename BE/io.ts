@@ -70,7 +70,8 @@ export function io(httpServer: http.Server) {
 
         socket.on('order:total', async (data: any) => {
             if (data.shopId) {
-                const orders = await Cart.findOne({ shop_id: data.shopId });
+                const orders = await Cart.find({ shop_id: data.shopId }, null, { sort: {request_date: -1}, limit: 50 });
+
                 io.emit('order:online', JSON.stringify(orders));
             }
         });

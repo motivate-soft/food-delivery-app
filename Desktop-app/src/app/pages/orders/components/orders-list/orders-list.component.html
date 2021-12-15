@@ -32,7 +32,7 @@
                       {{ cartItem.quantity }}
 
                     </td>
-                    <td class="center"> {{ price( cartItem, 'local' ) | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                    <td class="center"> {{ price( cartItem ) | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
                   </tr>
                   <tr>
                     <td colspan="5" class="right">Gesamt: {{total | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
@@ -45,40 +45,62 @@
                 <label>{{ 'order.title' | translate }}({{ 'order.online' | translate }})</label>
             </div>
 
-            <table>
-                <thead>
-                  <tr>
-                    <th>{{ 'product.nr' | translate }}</th>
-                    <th>{{ 'product.name' | translate }}</th>
-                    <th>{{ 'product.price' | translate }}</th>
-                    <th>{{ 'product.quantity' | translate }}</th>
-                    <th>{{ 'product.total' | translate }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let cartItem of onlineCart; let idx = index" [ngClass]="{'active': selectedItem === idx }">
-                    <td class="center"> {{ cartItem.code }} </td>
-                    <td>
-                      {{ cartItem.name }} <span *ngIf="cartItem.size && cartItem.size !== 'Standard'">({{cartItem.size}})</span>
-                      <div class="chips" *ngIf="cartItem.toppings.length > 0">
-                        <div class="chip" *ngFor="let topping of cartItem.toppings; let toppingIdx = index ">
-                          {{ topping.name }}
+            <div *ngFor="let item of onlineCart" style="margin-bottom: 20px; background-color: rgb(190, 234, 248); padding: 10px;">
+              <div class="row">
+                <div class="col-xs-6">
+                  <h3>Name: {{ item.address.name }}</h3>
+                  <h4 *ngIf="item.address.telephone">Telephone: {{ item.address.telephone }}</h4>  
+                </div>
+                <div class="col-xs-6">
+                  <h3>Address: {{ item.address.city }}, {{ item.address.postalCode }}</h3>
+                  <h3>Datum: {{ item.request_date }}</h3>
+                </div>
+              </div>
+
+              <table>
+                  <thead>
+                    <tr>
+                      <th>{{ 'product.nr' | translate }}</th>
+                      <th>{{ 'product.name' | translate }}</th>
+                      <th>{{ 'product.price' | translate }}</th>
+                      <th>{{ 'product.quantity' | translate }}</th>
+                      <th>{{ 'product.total' | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let cartItem of item.carts; let idx = index">
+                      <td class="center"> {{ cartItem.code }} </td>
+                      <td>
+                        {{ cartItem.name }} <span *ngIf="cartItem.size && cartItem.size !== 'Standard'">({{cartItem.size}})</span>
+                        <div class="chips" *ngIf="cartItem.toppings.length > 0">
+                          <div class="chip" *ngFor="let topping of cartItem.toppings; let toppingIdx = index ">
+                            {{ topping.name }}
+                          </div>
                         </div>
-                      </div>
-                    </td>
-                    <td class="center"> {{ cartItem.price | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
-                    <td class="center quantity"> 
-          
-                      {{ cartItem.quantity }}
-          
-                    </td>
-                    <td class="center"> {{ price( cartItem, 'online' ) | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
-                  </tr>
-                  <tr>
-                    <td colspan="5" class="right">Gesamt: {{total | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
-                  </tr>
-                </tbody>
-            </table>
+                      </td>
+                      <td class="center"> {{ cartItem.price | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                      <td class="center quantity"> 
+            
+                        {{ cartItem.quantity }}
+            
+                      </td>
+                      <td class="center"> {{ price( cartItem ) | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
+                    </tr>
+                    <tr>
+                      <td colspan="5" class="right">
+                        <button (click)="printOrder(item)" class="print-btn">
+                          <svg class="icon icon-print">
+                              <use xlink:href="assets/symbol-defs.svg#icon-printer"></use>
+                          </svg>
+                          <span>{{ 'actions.print' | translate }}</span>
+                        </button>
+                        Gesamt: {{ accumPrice(item.carts) | currency:'EUR':'symbol':'1.2-2':'de' }}
+                      </td>
+                    </tr>
+                  </tbody>
+              </table>
+
+            </div>
         </div>
     </div>
   </div>
