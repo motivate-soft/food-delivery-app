@@ -22,7 +22,7 @@
         </div>
         <div class="col-xs-6 align-right">
 
-            <button (click)="printOrder()" class="print-btn" [disabled]="submitted">
+            <button (click)="printOrder()" class="print-btn" [disabled]="submitted || this.cart.length == 0 || !this.address.name || !this.address.street || !this.address.city">
                 <svg class="icon icon-print">
                     <use xlink:href="assets/symbol-defs.svg#icon-printer"></use>
                 </svg>

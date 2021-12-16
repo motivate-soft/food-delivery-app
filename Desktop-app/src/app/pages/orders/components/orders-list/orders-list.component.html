@@ -1,51 +1,15 @@
 <div class="order-wrap">
 
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-12">
             <div class="input-group">
-                <label>{{ 'order.title' | translate }}({{ 'order.local' | translate }})</label>
-            </div>
-            <table>
-                <thead>
-                  <tr>
-                    <th>{{ 'product.nr' | translate }}</th>
-                    <th>{{ 'product.name' | translate }}</th>
-                    <th>{{ 'product.price' | translate }}</th>
-                    <th>{{ 'product.quantity' | translate }}</th>
-                    <th>{{ 'product.total' | translate }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let cartItem of cart; let idx = index" [ngClass]="{'active': selectedItem === idx }">
-                    <td class="center"> {{ cartItem.code }} </td>
-                    <td>
-                      {{ cartItem.name }} <span *ngIf="cartItem.size && cartItem.size !== 'Standard'">({{cartItem.size}})</span>
-                      <div class="chips" *ngIf="cartItem.toppings.length > 0">
-                        <div class="chip" *ngFor="let topping of cartItem.toppings; let toppingIdx = index ">
-                          {{ topping.name }}
-                        </div>
-                      </div>
-                    </td>
-                    <td class="center"> {{ cartItem.price | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
-                    <td class="center quantity"> 
-          
-                      {{ cartItem.quantity }}
-
-                    </td>
-                    <td class="center"> {{ price( cartItem ) | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
-                  </tr>
-                  <tr>
-                    <td colspan="5" class="right">Gesamt: {{total | currency:'EUR':'symbol':'1.2-2':'de' }}</td>
-                  </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-xs-6">
-            <div class="input-group">
-                <label>{{ 'order.title' | translate }}({{ 'order.online' | translate }})</label>
+                <label>{{ 'order.title' | translate }}
+                  ({{ 'order.online' | translate }}: <span style="width: 50px !important;height: 50px !important;" class="online-order"> &nbsp;&nbsp;&nbsp;&nbsp;</span>, 
+                  {{ 'order.local' | translate }}: <span style="width: 50px !important;height: 50px !important;" class="local-order"> &nbsp;&nbsp;&nbsp;&nbsp;</span>)
+                </label>
             </div>
 
-            <div *ngFor="let item of onlineCart" style="margin-bottom: 20px; background-color: rgb(190, 234, 248); padding: 10px;">
+            <div *ngFor="let item of onlineCart" style="margin-bottom: 20px; background-color: rgb(188, 169, 251); padding: 10px;" [ngClass]="{'online-order': item.place == 'online'}">
               <div class="row">
                 <div class="col-xs-6">
                   <h3>Name: {{ item.address.name }}</h3>
@@ -53,14 +17,14 @@
                 </div>
                 <div class="col-xs-6">
                   <h3>Address: {{ item.address.city }}, {{ item.address.postalCode }}</h3>
-                  <h3>Datum: {{ item.request_date }}</h3>
+                  <h3>Datum: {{ item.request_date | date: 'dd.MM.yyyy' }}</h3>
                 </div>
               </div>
 
               <table>
                   <thead>
                     <tr>
-                      <th>{{ 'product.nr' | translate }}</th>
+                      <!-- <th>{{ 'product.nr' | translate }}</th> -->
                       <th>{{ 'product.name' | translate }}</th>
                       <th>{{ 'product.price' | translate }}</th>
                       <th>{{ 'product.quantity' | translate }}</th>
@@ -69,7 +33,7 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let cartItem of item.carts; let idx = index">
-                      <td class="center"> {{ cartItem.code }} </td>
+                      <!-- <td class="center"> {{ shop.code }} </td> -->
                       <td>
                         {{ cartItem.name }} <span *ngIf="cartItem.size && cartItem.size !== 'Standard'">({{cartItem.size}})</span>
                         <div class="chips" *ngIf="cartItem.toppings.length > 0">

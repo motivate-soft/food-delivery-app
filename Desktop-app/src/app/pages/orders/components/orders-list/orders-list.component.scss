@@ -5,93 +5,100 @@
         }
     }
     
-    table {
-        tr {
-            &.active {
-                background-color: #ECF5FF;
-            }
-    
-            td {
-              &.quantity {
-                    display: flex;
-                    align-items: center;
-    
-                    span {
-                        background-color: #ffffff;
-                        border-radius: 100%;
-                        box-shadow: 0px 1px 5px 3px rgba(0,0,0,.1);
-                        height: 2.2rem;
-                        margin: 0 .5rem;
-                        transition: all .3s ease-in-out;
-    
-                        &:hover {
-                            background-color: #eeeeee; 
-                        }
-                    }
-                    .icon {
-                        width: 2.2rem;
-                        height: 2.2rem;
-                        fill: #010f1b;
-                        padding: 0 .5rem;
-                    }
-              }  
-            }
+table {
+    tr {
+        &.active {
+            background-color: #ECF5FF;
+        }
 
-            button {
-                background-color: #c3c3c3;
-                border-radius: 2px;
-                cursor: pointer;
-                color: #5f5d5d;
-                transition: color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        td {
+            &.quantity {
                 display: flex;
                 align-items: center;
-        
-                &:hover {
-                    color: #4e4e4e;  
-                }
-        
-                .icon {
-                    fill: #5f5d5d;
-                    width: 2rem;
-                    height: 2rem;
-                    
-                }
+
                 span {
-                    padding-left: .7rem;
+                    background-color: #ffffff;
+                    border-radius: 100%;
+                    box-shadow: 0px 1px 5px 3px rgba(0,0,0,.1);
+                    height: 2.2rem;
+                    margin: 0 .5rem;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        background-color: #eeeeee; 
+                    }
                 }
-        
-                &.print-btn {
-                    display: inline-block;
-                    
+                .icon {
+                    width: 2.2rem;
+                    height: 2.2rem;
+                    fill: #010f1b;
+                    padding: 0 .5rem;
                 }
+            }  
+        }
+
+        button {
+            background-color: #c3c3c3;
+            border-radius: 2px;
+            cursor: pointer;
+            color: #5f5d5d;
+            transition: color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            display: flex;
+            align-items: center;
+    
+            &:hover {
+                color: #4e4e4e;  
+            }
+    
+            .icon {
+                fill: #5f5d5d;
+                width: 2rem;
+                height: 2rem;
+                
+            }
+            span {
+                padding-left: .7rem;
+            }
+    
+            &.print-btn {
+                display: inline-block;
+                
             }
         }
     }
+}
     
     
-    .chips {
-        display: flex;
-        align-items: center;
-        padding-top: .2rem;
-        .chip {
-            display: inline-block;
-            padding: 0.3rem .9rem;
-            font-size: 0.8rem;
-            border-radius: 25px;
-            background-color: #d6d6d6;
-            margin-right: .5rem;
+.chips {
+    display: flex;
+    align-items: center;
+    padding-top: .2rem;
+    .chip {
+        display: inline-block;
+        padding: 0.3rem .9rem;
+        font-size: 0.8rem;
+        border-radius: 25px;
+        background-color: #d6d6d6;
+        margin-right: .5rem;
+    
+        .closebtn {
+            padding-left: .5rem;
+            color: #aa321e;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
         
-            .closebtn {
-                padding-left: .5rem;
-                color: #aa321e;
-                font-weight: bold;
-                font-size: 1.2rem;
-                cursor: pointer;
-            }
-            
-            .closebtn:hover {
-            color: #333333;
-            }
+        .closebtn:hover {
+        color: #333333;
         }
     }
+}
+
+.online-order {
+    background-color: rgb(190, 234, 248) !important;
+}
+.local-order {
+    background-color: rgb(188, 169, 251);
+}
     

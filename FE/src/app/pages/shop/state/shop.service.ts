@@ -97,7 +97,8 @@ export class ShopService {
   postConfirmCart(cart: {
     address: Address
     shop_id: string,
-    carts: Array<CartItem>
+    carts: Array<CartItem>,
+    place: string
   }) {
     return this.http.post(`${environment.server}/api/shop/confirmCart`, cart).pipe(tap( (response: any ) => {
       if (!response.error) {

@@ -95,7 +95,8 @@ export class CartComponent implements OnInit {
     this.shopService.postConfirmCart({
       address: address,
       shop_id: shop_id,
-      carts: this.cart
+      carts: this.cart,
+      place: 'online'
     });
   }
 }

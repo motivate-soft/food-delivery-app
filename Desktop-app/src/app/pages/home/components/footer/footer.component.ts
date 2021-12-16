@@ -5,6 +5,7 @@ import { Address, CartItem, Shop } from "../../../../services/shop/shop.model";
 import { ElectronService } from "../../../../services/electron.service";
 import { WebSocketService } from "../../../../services/web-socket.service";
 import { ApplicationService } from "../../../../state/application.service";
+import { ShopService } from "../../../../services/shop/shop.service";
 
 @Component({
   selector: "app-footer",
@@ -28,7 +29,8 @@ export class FooterComponent implements OnInit, OnDestroy {
     private readonly applicationQuery: ApplicationQuery,
     private readonly electronService: ElectronService,
     private readonly applicationService: ApplicationService,
-    private webSocketService: WebSocketService
+    private webSocketService: WebSocketService,
+    private shopService: ShopService
   ) { }
 
   ngOnDestroy(): void {
@@ -57,19 +59,41 @@ export class FooterComponent implements OnInit, OnDestroy {
     /**
      * @todo validate cart and address
      */
+    // this.submitted = true;
+    // this.electronService.ipcRenderer.send("order:print", {
+    //   shop: {
+    //     name: this.shop.name ? this.shop.name : "",
+    //     city: this.shop.city ? this.shop.city : "",
+    //     street: this.shop.street ? this.shop.street : "",
+    //     postal_code: this.shop.postal_code ? this.shop.postal_code : ""
+    //   },
+    //   cart: this.cart,
+    //   address: this.address,
+    //   request_date: new Date()
+    //  });
     this.submitted = true;
-    // this.electronService.ipcRenderer.send("order:print", { cart: this.cart, address: this.address });
-    this.electronService.ipcRenderer.send("order:print", {
-      shop: {
-        name: this.shop.name ? this.shop.name : "",
-        city: this.shop.city ? this.shop.city : "",
-        street: this.shop.street ? this.shop.street : "",
-        postal_code: this.shop.postal_code ? this.shop.postal_code : ""
-      },
-      cart: this.cart,
-      address: this.address,
-      request_date: new Date()
+    // tslint:disable-next-line: typedef
+    let updated_items = [];
+    this.cart.forEach(element => {
+        updated_items.push({
+          ...element,
+          shop_id: this.shop._id,
+          product_id: element._id,
+          product_name: element.name,
+          product_description: element.description
+        });
+    });
+
+     this.shopService.postConfirmCart({
+       address: {
+        ...this.address,
+        postalCode: "00000"
+       },
+       shop_id: this.shop._id,
+       carts: updated_items,
+       place: "local"
      });
+
   }
 
     // tslint:disable-next-line: typedef
@@ -118,16 +142,18 @@ export class FooterComponent implements OnInit, OnDestroy {
                 toppings: toppings
               });
 
-              this.applicationService.addToCart({
-                ...cart1,
-                toppings: toppings
-              });
+              // if (order.place === "online") {
+              //   this.applicationService.addToCart({
+              //     ...cart1,
+              //     toppings: toppings
+              //   });
+              // }
             });
 
             this.submitted = true;
 
-            
-            this.electronService.ipcRenderer.send("order:print", {
+
+          this.electronService.ipcRenderer.send("order:print", {
             shop: {
               name: this.shop.name ? this.shop.name : "",
               city: this.shop.city ? this.shop.city : "",

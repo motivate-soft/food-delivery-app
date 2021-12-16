@@ -117,6 +117,10 @@ const CartSchema: Schema = new Schema({
   request_date: {
     type: Date,
     default: Date.now
+  },
+  place: {
+    type: String,
+    default: 'online' // local
   }
 });
 

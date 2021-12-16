@@ -16,7 +16,8 @@ export class OrdersListComponent implements OnInit, OnDestroy {
   onlineCart: {
     address: Address,
     carts: CartItem[],
-    request_date: string
+    request_date: string,
+    place: string
   }[] = [];
 
   categories: { [ key: string]: Category } = {};
@@ -100,7 +101,8 @@ export class OrdersListComponent implements OnInit, OnDestroy {
   printOrder(content: {
     address: Address,
     carts: CartItem[],
-    request_date: string
+    request_date: string,
+    place: string
   }): void {
     /**
      * @todo validate cart and address
@@ -170,7 +172,8 @@ export class OrdersListComponent implements OnInit, OnDestroy {
             this.onlineCart.push({
               address: order.address,
               carts: carts,
-              request_date: new Intl.DateTimeFormat("de-DE").format(new Date(order.request_date))
+              request_date: order.request_date, // new Intl.DateTimeFormat("de-DE").format(new Date(order.request_date)),
+              place: data.place ? data.place : "online"
             });
           });
         }
